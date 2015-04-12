@@ -938,7 +938,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: xxs (bp("xxs"))';
+    content: "MQ: xxs (25em)";
   }
 }
 @media (min-width: 35em) {
@@ -1143,7 +1143,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: xs (bp("xs"))';
+    content: "MQ: xs (35em)";
   }
 }
 @media (min-width: 44em) {
@@ -1348,7 +1348,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: s (bp("s"))';
+    content: "MQ: s (44em)";
   }
 }
 @media (min-width: 65em) {
@@ -1553,7 +1553,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: m (bp("m"))';
+    content: "MQ: m (65em)";
   }
 }
 @media (min-width: 82em) {
@@ -1758,7 +1758,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: l (bp("l"))';
+    content: "MQ: l (82em)";
   }
 }
 @media (min-width: 95em) {
@@ -1963,7 +1963,7 @@ th {
   }
 
   .debug::before {
-    content: 'MQ: xl (bp("xl"))';
+    content: "MQ: xl (95em)";
   }
 }
 ul.grid,

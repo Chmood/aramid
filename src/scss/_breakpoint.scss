@@ -29,13 +29,13 @@ $breakpoints: (
 //  'xxl':   110em   // 1520
 ) !default;
 
-// @function bp($breakpoint) {
-//   @return map-get($breakpoints, $breakpoint);
-// }
-
-@mixin breakpoint($bp) {
-  // TODO
+@function bp($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
 }
+
+// @mixin breakpoint($bp) {
+//   // TODO
+// }
 
 
 .debug {
