@@ -1,0 +1,16 @@
+// FONTS
+
+$fontfamily-base: sans-serif !default;
+
+body {
+  font-family: 	$fontfamily-base;
+}
+
+blockquote {
+	font-family: $fontfamily-accent;
+}
+
+// Import Font Awesome Font ------------------------------
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+

@@ -1,0 +1,238 @@
+/******************************************************************************
+ * GRID
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
+
+$gutter:                  1.2em !default;
+$n-children-max:          6 !default;
+
+$responsive-grid:					true !default;
+$auto-cell:								true !default;
+
+$generate-classes:				true !default; // TODO
+$prefix:                  "" !default;
+$classname-cell: 	        "cell" !default;
+$classname-grid:   		    "grid" !default;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PLACEHOLDERS
+
+// Grid
+
+%grid {										display: flex; flex-wrap: wrap; }
+%grid--vertical {					flex-direction: column; }
+
+%grid--top {							align-items: flex-start; }
+%grid--middle {						align-items: center; }
+%grid--bottom {						align-items: flex-end; }
+%grid--left {							justify-content: flex-start; }
+%grid--center {						justify-content: center; }
+%grid--right {						justify-content: flex-end; }
+
+%grid--gutter {						margin: -$gutter (-$gutter / 2) 0; }
+%grid--outer-gutter {			padding: $gutter;}
+
+// Cell
+
+%cell {										flex: 1; }
+
+%cell--top {							align-self: flex-start; }
+%cell--middle {						align-self: center; }
+%cell--bottom {						align-self: flex-end; }
+
+%cell--fit {							flex: none; }
+%cell--fill {							flex: 1; }
+%cell--full {							flex: 0 0 100%; }
+
+%cell--gutter {						border-left: ($gutter / 2) solid transparent;
+													border-right: ($gutter / 2) solid transparent;
+													border-top: $gutter solid transparent;
+													background-clip: padding-box; /* no background on border */
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// How many % is one seventh ? or three fifth ?
+
+@function fraktion($t, $f: 1) {
+	@return (100% * $f / $t);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// Auto-cell selector
+$cell-selector: "*";
+@if not $auto-cell {	$cell-selector: ".#{$prefix}#{$classname-cell}"; }
+
+
+// Cell
+
+@mixin cell($mods: "") {
+
+	@each $mod in $mods {
+
+		@if 		$mod == "" { 									@extend %cell; }
+		@elseif $mod == "gutter" { 						@extend %cell--gutter; }
+		@elseif $mod == "top" { 							@extend %cell--top; }
+		@elseif $mod == "middle" { 						@extend %cell--middle; }
+		@elseif $mod == "bottom" { 						@extend %cell--bottom; }
+		@elseif $mod == "fit" { 							@extend %cell--fit; }	
+		@elseif $mod == "fill" { 							@extend %cell--fill; }
+		@elseif $mod == "full" { 							@extend %cell--full;	}	
+		@else {
+			// warning
+		}
+	}
+}
+
+@mixin cellSize($total, $size: 1) {
+
+	flex: 0 0;
+	flex-basis: fraktion($total, $size);
+}
+
+// Grid
+
+@mixin grid($mods: "") {
+
+	@each $mod in $mods {
+		@if 		$mod == "" {									@extend %grid;
+																					& > #{$cell-selector} { @include cell(); } }
+		@elseif $mod == "gutter" {						@extend %grid--gutter;
+																					& > #{$cell-selector} { @include cell("gutter"); } }
+
+		@elseif $mod == "fit" { 							& > #{$cell-selector} {	@include cell("fit"); } }
+		@elseif $mod == "fill" { 							& > #{$cell-selector}	{ @include cell("fill"); } }
+		@elseif $mod == "full" { 							& > #{$cell-selector} {	@include cell("full"); } }
+		@elseif $mod == "responsive" { 				& > #{$cell-selector} {	@include cell("full"); } } // copy
+
+		@elseif $mod == "vertical" {					@extend %grid--vertical; }
+		@elseif $mod == "outer-gutter" {			@extend %grid--outer-gutter; }
+
+		@elseif $mod == "top" { 							@extend %grid--top; }
+		@elseif $mod == "middle" { 						@extend %grid--middle; }
+		@elseif $mod == "bottom" { 						@extend %grid--bottom; }
+		@elseif $mod == "left" { 							@extend %grid--left; }
+		@elseif $mod == "center" { 						@extend %grid--center; }
+		@elseif $mod == "right" { 						@extend %grid--right; }
+
+		@else {
+			// warning
+		}
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate-classes {
+
+	// Cell
+
+	.#{$prefix}#{$classname-cell} {										@include cell(); }
+
+	.#{$prefix}#{$classname-cell}--top {              @include cell("top"); }
+	.#{$prefix}#{$classname-cell}--center {           @include cell("middle"); }
+	.#{$prefix}#{$classname-cell}--bottom {           @include cell("bottom"); }
+
+	.#{$prefix}#{$classname-cell}--fit {              @include cell("fit"); }
+	.#{$prefix}#{$classname-cell}--fill {             @include cell("fill"); }
+	.#{$prefix}#{$classname-cell}--full {         		@include cell("full"); } 
+
+	// Grid
+
+	.#{$prefix}#{$classname-grid} { 									@include grid(); }
+
+	.#{$prefix}#{$classname-grid}--vertical {         @include grid("vertical"); }
+	.#{$prefix}#{$classname-grid}--gutter {           @include grid("gutter"); }
+	.#{$prefix}#{$classname-grid}--outer-gutter {     @include grid("outer-gutter"); }
+
+	.#{$prefix}#{$classname-grid}--top {              @include grid("top"); }
+	.#{$prefix}#{$classname-grid}--middle {           @include grid("middle"); }
+	.#{$prefix}#{$classname-grid}--bottom {           @include grid("bottom"); }
+	.#{$prefix}#{$classname-grid}--left {     				@include grid("left"); }
+	.#{$prefix}#{$classname-grid}--center {   				@include grid("center"); }
+	.#{$prefix}#{$classname-grid}--right {    				@include grid("right"); }
+
+	.#{$prefix}#{$classname-grid}--fit {    					@include grid("fit"); }
+	.#{$prefix}#{$classname-grid}--fill {    					@include grid("fill"); }
+	.#{$prefix}#{$classname-grid}--full {    					@include grid("full"); }
+
+	// Static size
+
+	@for $i from 2 through $n-children-max {
+		.#{$prefix}#{$classname-grid}--#{$i} > * {
+			@include cellSize($i);
+		}
+
+		@for $j from 1 through ($i - 1) {
+			.#{$prefix}#{$classname-cell}--#{$j}of#{$i} {
+				@include cellSize($i, $j);
+			}
+		}
+	}
+
+
+	///////////////////////////////////////////////////////////////////////////////
+	// RESPONSIVE
+
+	@if $responsive-grid {
+
+		.debug::before { content: ("MQ: min") }
+
+		.#{$prefix}#{$classname-grid}--responsive {  		@include grid("responsive"); }
+
+		// allows correct vertical rythm between grids
+		// TODO : not doable with mixins ? /!\
+		.#{$prefix}#{$classname-grid} + .#{$prefix}#{$classname-grid} {
+			padding-top: $gutter; }
+
+
+		// Responsive classnames
+
+		@each $breakpoint-name, $breakpoint-width in $breakpoints {
+
+			@media (min-width: $breakpoint-width) {
+
+				@for $i from 2 through $n-children-max {
+					.#{$prefix}#{$classname-grid}--#{$breakpoint-name}-#{$i} > * {
+						@include cellSize($i);
+					}
+
+					@for $j from 1 through ($i - 1) {
+						.#{$prefix}#{$classname-cell}--#{$breakpoint-name}-#{$j}of#{$i} {
+							@include cellSize($i, $j);
+						}
+					}
+				}
+
+				.debug::before { content: ('MQ: ' + $breakpoint-name + ' (' + bp($breakpoint-name) + ')'); }
+			}
+
+		}
+
+	}	// end of responsive-grids
+
+} // end of generate-classes
+
+
+	
+///////////////////////////////////////////////////////////////////////////////
+// Common styles
+
+
+.grid--flex > * > * { width: 100%; }
+
+
+ul.grid,
+ol.grid {
+	margin: 0;
+}

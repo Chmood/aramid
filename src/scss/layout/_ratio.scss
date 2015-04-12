@@ -1,0 +1,26 @@
+// FIXED RATIO BLOCKS
+
+@mixin ratio($ratio: 1) {
+  position: relative;
+  height: 0;
+  padding-bottom: (100% / $ratio);
+  overflow: hidden;
+  
+  & > * {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.ratio {
+  @include ratio;
+}
+
+.ratio--16on9 {  padding-bottom: (100% / 16 * 9); } // 16:9
+.ratio--2on3 {   padding-bottom: (100% / 2 * 3); } // 2:3
+.ratio--2on1 {   padding-bottom: (100% / 2 * 1); } // 2:3
+.ratio--3on4 {   padding-bottom: (100% / 3 * 4); } // 3:4
+
+

@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Flexwork | Products</title>
+
+	<!-- build:css main.min.css -->
+	<link rel="stylesheet" href="css/main.css"> 
+
+	<!-- /build -->
+</head>
+
+<body>
+
+	<section class="wrap--lighter">
+		<div class="container">
+
+			<h2>Flex grids</h2>
+
+			<div class="grid grid--gutter grid--ex">
+				<div class="cell--ft" style="background-color: #aaa;">
+					Lorem ipsum
+				</div>
+				<div style="background-color: #aaa;">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
+				</div>
+				<div style="background-color: #aaa;">
+					Lorem ipsum
+				</div>
+				
+			</div>
+
+
+
+
+			<h3>Responsive grid</h3>
+			
+			<div class="grid grid--gutter grid--responsive">
+				<div class="cell--s-1of2 cell--l-2of3">
+					<h2></h2>
+				</div>
+				<div class="cell--s-1of2 cell--l-1of3">
+					<h2></h2>
+				</div>
+			</div>
+
+			<div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
+				<div><h2></h2></div>
+				<div><h2></h2></div>
+				<div class="cell--full">
+					<h2></h2>
+				</div>
+				<div><h2></h2></div>
+				<div><h2></h2></div>
+				<div><h2></h2></div>
+				<div><h2></h2></div>
+				<div><h2></h2></div>
+			</div>
+
+			<h3>Nested grids</h3>
+			
+			<div class="grid grid--gutter">
+				<div class="cell--2of3 cell--center">
+					<div class="grid grid--gutter grid--3 grid--center">
+						<div class="cell--2of3">
+							<h2>1</h2>
+						</div>
+						<div>
+							<h2>2</h2>
+						</div>
+						<div>
+							<h2>3</h2>
+						</div>
+						<div class="cell--2of3">
+							<h2>4</h2>
+						</div>
+						<div>
+							<h2>5</h2>
+						</div>
+						<div>
+							<h2>6</h2>
+						</div>
+					</div>
+				</div>
+				<div class="cell--1of3">
+					<div class="grid">
+						<div class="cell--full">
+							<h2>NO<br>GUTTER<br>AT ALL</h2>
+							<h2>DOLOR<br>SIT<br>AMET</h2>
+						</div>
+						<div class="cell--1of3">
+							<h2>1</h2>
+						</div>
+						<div class="cell--1of3">
+							<h2>2</h2>
+						</div>
+						<div class="cell--1of3">
+							<h2>3</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<div style="background: salmon">grid--outer-gutter</div>
+
+			<section class="grid grid--gutter grid--flex grid--outer-gutter">
+				<div>
+					<div class="content">Equal height columns - grid--flex</div>
+				</div>
+				<div>
+					<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+				</div>
+				<div>
+					<div class="content">Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+				</div>
+			</section>
+			
+				<div style="background: salmon">Vertical rythm between grids</div>
+
+			<div class="grid grid--gutter">
+				<div style="background-color: rgba(255,200,200,.75);">
+					<div class="content">Equal height columns</div>
+					<code>.cell</code>
+				</div>
+				<div>
+					<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+				</div>
+				<div>
+					<div class="content">Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+				</div>
+			</div>
+
+			<div class="grid grid--gutter">
+				<div class="cell--center">
+					<div class="content">CENTER - Vestibulum mollis velit non gravida venenatis.</div>
+				</div>
+				<div>
+					<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+				</div>
+				<div class="cell--bottom">
+					<div class="content">BOTTOM - Praesent consequat lectus purus.</div>
+				</div>
+			</div>
+				<div style="background: salmon">Foo</div>
+
+			<hr>
+
+			<h2>FLEX PATTERNS</h2>
+			
+			<h3>Media object</h3>
+			
+			<div class="grid grid--gutter">
+				<div class="cell--fit">
+					<img src="http://placehold.it/100x100" alt="">
+				</div>
+				<div>
+						<h4 style="margin-top: 0">Media object title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+				</div>
+			</div>
+				
+			<div class="grid grid--gutter">
+				<div class="cell--fit">
+					<img src="http://placehold.it/100x100" alt="">
+				</div>
+				<div>
+					<h4 style="margin-top: 0">Media object title</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+					<div class="grid grid--gutter">
+						<div class="cell--fit">
+							<img src="http://placehold.it/100x100" alt="">
+						</div>
+						<div>
+							<h4 style="margin-top: 0">Media object title</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="grid grid--gutter">
+				<div>
+					<div class="content">
+						<div class="grid grid--gutter">
+							<div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+							<div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+						</div>
+						<div class="grid grid--gutter">
+							<div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+							<div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+						</div>
+						<div class="grid grid--gutter">
+							<div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+							<div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+						</div>
+					</div>
+				</div>
+				<div class="cell--center">
+					<div class="content">
+						<div class="grid grid--gutter">
+							<div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+							<div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h3>Centering</h3>
+			
+			<div class="grid grid--vertical grid--middle grid--center" style="border: 1px solid #aaa; min-height: 10em;">
+				<div class="cell--fit" style="background: lime;">centered<br>thing</div>
+			</div>
+			
+			<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 10em;">
+				<div class="cell--fit" style="background: orange; margin: auto;"><code>margin: auto;</code></div>
+			</div>
+			
+			<h3>Sticky footer</h3>
+			
+			<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 20em;">
+				<span class="" style="background: #eee">Fifty...</span>
+				<input class="" placeholder="fifty!">
+				<div class="cell--fit">sticky thing</div>
+			</div>
+			
+			
+			<h3>Input addons</h3>
+
+			<div class="grid" style="border: 1px solid #aaa">
+				<span class="cell--1of4" style="text-align: right; background: #eee; padding: 3px 1em;">Label</span>
+				<input class="" style="border: none; padding: 3px 1em;">
+				<button class="cell--fit" style="border: none; padding: 3px 1em;">Go!</button>
+			</div>
+			
+		</div><!-- end of .main-container -->
+
+
+		</div>
+	</section>
+
+
+	<div class="debug"></div>
+
+
+	<!-- END CONTENT -->
+	
+	<!-- build:remove -->
+	<script src="http://localhost:35729/livereload.js"></script>  
+	<!-- /build -->
+
+	<!-- build:js main.min.js -->
+	<script src="js/main.js"></script>
+	<!-- /build -->
+
+</body>
+</html>
+

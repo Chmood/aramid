@@ -1,0 +1,36 @@
+$breakpoints: (
+/*
+  Common screen sizes, in em unit (1em = 16px, browser default font-size)
+           in em    in px
+  'xxs':   20em,    // 320
+  'xs':    30em,    // 480
+  's':     40em,    // 640
+  'sm':    48em,    // 768
+  'm':     60em,    // 960
+  'ml':    64em,    // 1024
+  'l':     75em,    // 1200
+  'xl':    90em,    // 1440
+  'xxl':   100em,   // 1600
+  'xxxl':  120em    // 1920
+  
+  Let's choose our breakpoints in the between (by averaging values)
+  (anyway, this should follow a logarithmic progression)
+*/
+  'xxs':   25em,    // 400
+  'xs':    35em,    // 560
+  's':     44em,    // 560
+//  'sm':    54em,    // 720
+  'm':     65em,    // 880
+//  'ml':    70em,    // 992
+  'l':     82em,    // 1120
+  'xl':    95em,    // 1248
+//  'xxl':   110em   // 1520
+);
+
+@function bp($breakpoint: 'm') {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+@mixin breakpoint($bp) {
+  // TODO
+}
