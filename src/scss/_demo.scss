@@ -1,9 +1,26 @@
+// DEMO STYLES ////////////////////////////////////////////
+
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overflow-x: hidden;  // basically for really narrow viewports (long word overflow)
+}
 body {
   font-weight: 300;
 }
 
 
-// DEMO STYLES ////////////////////////////////////////////
+.container {
+  padding: $gutter;
+}
 
 // 
 .grid h2 {

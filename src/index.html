@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Flexwork | Hhome</title>
+  <title>Flexwork | Home</title>
 
   <!-- build:css main.min.css -->
   <link rel="stylesheet" href="css/main.css"> 
@@ -13,128 +13,227 @@
 <body>
 
 
-<div class="wrapper wrapper--slim">
-
-  <header class="wrap wrap--dark">
-    <nav class="container">
-      <ul class="grid grid--no-gutter grid--center">
-        <div class="cell--fit">
-          <a href="/" class="brand">swagst.<span>er</span></a>
-        </div>
-        <div>
-          <a href="/products.html" class="content" style="color: #eee;">Products</a>
-        </div>
-        <div>
-          <a href="/navs.html" class="content">Navs</a>
-        </div>
-        <div>
-          <a href="/grid.html" class="content">Grid</a>
-        </div>
-        <div>
-          <a href="#" class="content">Contact</a>
-        </div>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="wrap">
     <div class="container">
 
-      <nav class="nav">
-        <ul class="grid grid--fit">
-          <li><a href="#" class="">Products</a></li>
-          <li><a href="#" class="">Services</a></li>
-          <li><a href="#" class="">About us</a></li>
-          <li><a href="#" class="active">Contact</a></li>
-          <li><a href="#" class="">Check the vibe</a></li>
-        </ul>
-      </nav>
+      <h2>Flex grids</h2>
 
-    </div>
-  </section>
+      <div class="grid grid--gutter">
+        <div class="cell--ft" style="background-color: #aaa;">
+          Lorem ipsum
+        </div>
+        <div style="background-color: #aaa;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
+        </div>
+        <div style="background-color: #aaa;">
+          Lorem ipsum
+        </div>
+        
+      </div>
 
-  <section class="wrap wrap--padding wrap--primary">
-    <div class="container">
-      <h1>Here comes the main title</h1>
-      <div class="h1-subtitle">Along with its subtitle</div>
-    </div>
-  </section>
 
-  <section class="wrap">
-    <div class="container">
-      <h2>Here comes a H2 title</h2>
 
-      <blockquote>
-        Vestibulum mollis velit non gravida venenatis. Praesent consequat sit amet, consectetur adipiscing elit.
-      </blockquote>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat <a href="#">lectus purus</a>.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-      <h3>An H3 heading</h3>
-      <section class="grid grid--gutter">
-        <article>
-          <h4>Lorem ipsum H4</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-        </article>
-        <article>
-          <h4>Lorem ipsum H4</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-        </article>
+      <h3>Responsive grid</h3>
+      
+      <div class="grid grid--gutter grid--responsive">
+        <div class="cell--s-1of2 cell--l-2of3">
+          <h2></h2>
+        </div>
+        <div class="cell--s-1of2 cell--l-1of3">
+          <h2></h2>
+        </div>
+      </div>
+
+      <div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
+        <div><h2></h2></div>
+        <div><h2></h2></div>
+        <div class="cell--full">
+          <h2></h2>
+        </div>
+        <div><h2></h2></div>
+        <div><h2></h2></div>
+        <div><h2></h2></div>
+        <div><h2></h2></div>
+        <div><h2></h2></div>
+      </div>
+
+      <h3>Nested grids</h3>
+      
+      <div class="grid grid--gutter">
+        <div class="cell--2of3 cell--center">
+          <div class="grid grid--gutter grid--3 grid--center">
+            <div class="cell--2of3">
+              <h2>1</h2>
+            </div>
+            <div>
+              <h2>2</h2>
+            </div>
+            <div>
+              <h2>3</h2>
+            </div>
+            <div class="cell--2of3">
+              <h2>4</h2>
+            </div>
+            <div>
+              <h2>5</h2>
+            </div>
+            <div>
+              <h2>6</h2>
+            </div>
+          </div>
+        </div>
+        <div class="cell--1of3">
+          <div class="grid">
+            <div class="cell--full">
+              <h2>NO<br>GUTTER<br>AT ALL</h2>
+              <h2>DOLOR<br>SIT<br>AMET</h2>
+            </div>
+            <div class="cell--1of3">
+              <h2>1</h2>
+            </div>
+            <div class="cell--1of3">
+              <h2>2</h2>
+            </div>
+            <div class="cell--1of3">
+              <h2>3</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div style="background: salmon">grid--outer-gutter</div>
+
+      <section class="grid grid--gutter grid--flex grid--outer-gutter">
+        <div>
+          <div class="content">Equal height columns - grid--flex</div>
+        </div>
+        <div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+        </div>
+        <div>
+          <div class="content">Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+        </div>
       </section>
-    </div>
-  </section>
+      
+        <div style="background: salmon">Vertical rythm between grids</div>
 
-  <section class="wrap wrap--lighter wrap--padding">
-    <div class="container">
-      <div class="h2">Here comes a H2 title</div>
-    </div>
-  </section>
+      <div class="grid grid--gutter">
+        <div style="background-color: rgba(255,200,200,.75);">
+          <div class="content">Equal height columns</div>
+          <code>.cell</code>
+        </div>
+        <div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+        </div>
+        <div>
+          <div class="content">Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+        </div>
+      </div>
 
-  <section class="wrap wrap--padding">
-    <div class="container">
+      <div class="grid grid--gutter">
+        <div class="cell--center">
+          <div class="content">CENTER - Vestibulum mollis velit non gravida venenatis.</div>
+        </div>
+        <div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</div>
+        </div>
+        <div class="cell--bottom">
+          <div class="content">BOTTOM - Praesent consequat lectus purus.</div>
+        </div>
+      </div>
+        <div style="background: salmon">Foo</div>
 
-      <div class="grid grid--responsive grid--xs-2 grid--s-3 grid--m-3 grid--gutter">
+      <hr>
 
-        <div style="max-width: 20em; margin: 0 auto;">
-          <div class="card ratio ratio--3on4" style="background: #E91E63">
-            <div class="grid grid--vertical">
-              <div class="ratio ratio--16on9 cell--fit">
-                <img src="http://lorempixel.com/641/360">
-              </div>
-              <div class="grid"><h3 class="" style="margin: auto;">Card pattern</h3></div>
-              <div class="cell--fit" style=""><h4>John Coleman</h4></div>
+      <h2>FLEX PATTERNS</h2>
+      
+      <h3>Media object</h3>
+      
+      <div class="grid grid--gutter">
+        <div class="cell--fit">
+          <img src="http://placehold.it/100x100" alt="">
+        </div>
+        <div>
+            <h4 style="margin-top: 0">Media object title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+        </div>
+      </div>
+        
+      <div class="grid grid--gutter">
+        <div class="cell--fit">
+          <img src="http://placehold.it/100x100" alt="">
+        </div>
+        <div>
+          <h4 style="margin-top: 0">Media object title</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+          <div class="grid grid--gutter">
+            <div class="cell--fit">
+              <img src="http://placehold.it/100x100" alt="">
+            </div>
+            <div>
+              <h4 style="margin-top: 0">Media object title</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
             </div>
           </div>
         </div>
-
-        <div style="max-width: 20em; margin: 0 auto;">
-          <div class="card ratio ratio--3on4" style="background: #CDDC39">
-            <div class="grid grid--vertical">
-              <div class="ratio ratio--16on9 cell--fit">
-                <iframe src="https://www.youtube.com/embed/_9IBbMW2o_o" frameborder="0" allowfullscreen style="height: 100%"></iframe>
-              </div>
-              <div class="grid"><h3 class="" style="margin: auto; padding: 1em; flex-shrink: 1;">Material design for the win, anyway</h3></div>
-              <div class="cell--fit" style=""><h4>Cynthia Woods</h4></div>
+      </div>
+      
+      <div class="grid grid--gutter">
+        <div>
+          <div class="content">
+            <div class="grid grid--gutter">
+              <div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+              <div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+            </div>
+            <div class="grid grid--gutter">
+              <div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+              <div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
+            </div>
+            <div class="grid grid--gutter">
+              <div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+              <div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
             </div>
           </div>
         </div>
-
-        <div class="visible--s" style="max-width: 20em; margin: 0 auto;">
-          <div class="card ratio ratio--3on4" style="background: #607D8B">
-            <div class="grid grid--vertical">
-              <div class="ratio ratio--16on9 cell--fit">
-                <img src="http://lorempixel.com/640/361">
-              </div>
-              <div class="grid"><h3 class="" style="margin: auto;">WTF ?!</h3></div>
-              <div class="cell--fit" style=""><h4>Xiuan Tsiang-Phong</h4></div>
+        <div class="cell--center">
+          <div class="content">
+            <div class="grid grid--gutter">
+              <div class="cell--fit"><img src="http://placehold.it/44x44" alt=""></div>
+              <div><h4 style="margin: 0">Media object title</h4><div>Lorem ipsum</div></div>
             </div>
           </div>
         </div>
+      </div>
 
-      </div>  
+      <h3>Centering</h3>
+      
+      <div class="grid grid--vertical grid--middle grid--center" style="border: 1px solid #aaa; min-height: 10em;">
+        <div class="cell--fit" style="background: lime;">centered<br>thing</div>
+      </div>
+      
+      <div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 10em;">
+        <div class="cell--fit" style="background: orange; margin: auto;"><code>margin: auto;</code></div>
+      </div>
+      
+      <h3>Sticky footer</h3>
+      
+      <div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 20em;">
+        <span class="" style="background: #eee">Fifty...</span>
+        <input class="" placeholder="fifty!">
+        <div class="cell--fit">sticky thing</div>
+      </div>
+      
+      
+      <h3>Input addons</h3>
 
-    </div>
-  </section>
+      <div class="grid" style="border: 1px solid #aaa">
+        <span class="cell--1of4" style="text-align: right; background: #eee; padding: 3px 1em;">Label</span>
+        <input class="" style="border: none; padding: 3px 1em;">
+        <button class="cell--fit" style="border: none; padding: 3px 1em;">Go!</button>
+      </div>
+      
+    </div><!-- end of .main-container -->
 
   
   <div class="debug"></div>

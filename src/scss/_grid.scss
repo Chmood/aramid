@@ -6,16 +6,17 @@
 // CONFIGURATION
 
 $gutter:                  1.2em !default;
-$n-children-max:          6 !default;
 
 $responsive-grid:					true !default;
 $auto-cell:								true !default;
 
-$generate-classes:				true !default; // TODO
+$generate-classes:				true !default;
+$n-children-max:          6 !default;
 $prefix:                  "" !default;
 $classname-cell: 	        "cell" !default;
 $classname-grid:   		    "grid" !default;
 
+$breakpoints: 						('m': 65em) !default;
 
 ///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS
@@ -227,9 +228,6 @@ $cell-selector: "*";
 	
 ///////////////////////////////////////////////////////////////////////////////
 // Common styles
-
-
-.grid--flex > * > * { width: 100%; }
 
 
 ul.grid,

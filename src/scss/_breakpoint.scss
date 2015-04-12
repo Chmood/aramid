@@ -1,3 +1,5 @@
+$debug: true !default;
+
 $breakpoints: (
 /*
   Common screen sizes, in em unit (1em = 16px, browser default font-size)
@@ -25,12 +27,29 @@ $breakpoints: (
   'l':     82em,    // 1120
   'xl':    95em,    // 1248
 //  'xxl':   110em   // 1520
-);
+) !default;
 
-@function bp($breakpoint: 'm') {
-  @return map-get($breakpoints, $breakpoint);
-}
+// @function bp($breakpoint) {
+//   @return map-get($breakpoints, $breakpoint);
+// }
 
 @mixin breakpoint($bp) {
   // TODO
 }
+
+
+.debug {
+
+  @if $debug {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: .5em 2em;
+    color: green;
+    background: rgba(0,0,0,.875);
+
+  } @else {
+    display: none;
+  }
+}
+
