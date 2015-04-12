@@ -2006,29 +2006,4 @@ body {
   padding: 1.2em;
 }
 
-.content--no-padding {
-  padding: 0;
-}
-
-.card {
-  border-radius: 4px;
-}
-.card h3 {
-  color: #fff;
-  font-weight: 300;
-  margin: 0;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  border: none;
-}
-.card h4 {
-  margin: 0;
-  padding: 0.9em 1.2em;
-  text-align: right;
-  background: #333;
-  color: #aaa;
-  font-weight: 400;
-  font-style: italic;
-}
-
 

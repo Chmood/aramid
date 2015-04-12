@@ -27,32 +27,5 @@ body {
   background: #333; color: #eee; margin: 0; text-align: center; padding: $gutter; font-weight: 900;}
 
 .content { background: #eee; padding: ($gutter); }
-.content--no-padding { padding: 0; }
-
-.card {
-  border-radius: 4px;
-
-  h3 {
-    color: #fff;
-    font-weight: 300;
-    margin: 0;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.5);
-    text-align: center;
-    border: none;
-  }
-
-  h4 {
-    margin: 0;
-    padding: ($gutter / 4 * 3) $gutter;
-    text-align: right;
-    background: #333;
-    color: #aaa;
-    font-weight: 400;
-    font-style: italic;
-  }
-}
-
-
-
 
 
