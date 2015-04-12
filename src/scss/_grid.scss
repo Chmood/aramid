@@ -141,7 +141,7 @@ $cell-selector: "*";
 	.#{$prefix}#{$classname-cell} {										@include cell(); }
 
 	.#{$prefix}#{$classname-cell}--top {              @include cell("top"); }
-	.#{$prefix}#{$classname-cell}--center {           @include cell("middle"); }
+	.#{$prefix}#{$classname-cell}--middle {           @include cell("middle"); }
 	.#{$prefix}#{$classname-cell}--bottom {           @include cell("bottom"); }
 
 	.#{$prefix}#{$classname-cell}--fit {              @include cell("fit"); }

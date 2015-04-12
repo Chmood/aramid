@@ -487,7 +487,7 @@ th {
           align-self: flex-start;
 }
 
-.cell--center {
+.cell--middle {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
@@ -1984,18 +1984,21 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  font-weight: 300;
-}
-
 .container {
   padding: 1.2em;
+}
+
+h2 {
+  text-align: center;
+  border-bottom: 2px solid;
+  margin-top: 2.4em;
 }
 
 .grid h2 {
   background: #333;
   color: #eee;
   margin: 0;
+  border: 0;
   text-align: center;
   padding: 1.2em;
   font-weight: 900;
@@ -2004,6 +2007,12 @@ body {
 .content {
   background: #eee;
   padding: 1.2em;
+}
+
+blockquote {
+  margin-top: 2.4em;
+  font-size: 1.5rem;
+  color: #888;
 }
 
 

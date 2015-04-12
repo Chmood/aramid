@@ -13,9 +13,6 @@ body {
   min-height: 100%;
   overflow-x: hidden;  // basically for really narrow viewports (long word overflow)
 }
-body {
-  font-weight: 300;
-}
 
 
 .container {
@@ -23,9 +20,21 @@ body {
 }
 
 // 
+
+h2 {
+  text-align: center;
+  border-bottom: 2px solid;
+  margin-top: (2 * $gutter);
+//  font-size: 3em;
+}
+
 .grid h2 {
-  background: #333; color: #eee; margin: 0; text-align: center; padding: $gutter; font-weight: 900;}
+  background: #333; color: #eee; margin: 0; border: 0; text-align: center; padding: $gutter; font-weight: 900;}
 
 .content { background: #eee; padding: ($gutter); }
 
-
+blockquote {
+  margin-top: (2 * $gutter);
+  font-size: 1.5rem;
+  color: #888;
+}
