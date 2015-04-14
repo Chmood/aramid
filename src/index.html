@@ -21,10 +21,12 @@
 			Grids with flexbox are awesome, just have a look!
 		</blockquote>
 
-		<h2>Grids made easy</h2>
+		<h2>Grids</h2>
+
+		<h3>Simple grids</h3>
 
 		<blockquote>
-			Add the 'grid' class,<br>
+			Make the parent a grid,<br>
 			and all direct children will share the same room.
 		</blockquote>
 
@@ -40,22 +42,25 @@
 			</div>
 		</div>
 
-		<blockquote>
+		<pre>
+.grid</pre>
+
+<!-- 		<blockquote>
 			Solved by flexbox : equal height columns<br>
 		</blockquote>
 
-		<div class="grid grid--gutter">
+		<div class="grid">
 			<div style="background-color: rgba(0,0,0,.125);">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis.
 			</div>
-			<div style="background-color: rgba(0,0,0,.125);">
+			<div style="background-color: rgba(0,0,0,.25);">
 				Praesent consequat lectus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
 			</div>
 			<div style="background-color: rgba(0,0,0,.125);">
 				Praesent consequat lectus purus.
 			</div>
 		</div>
-
+ -->
 <!-- 		<blockquote>
 			So easy to make it vertical!<br>
 		</blockquote>
@@ -73,7 +78,7 @@
 		</div>
  -->
 
-		<h2>Gutter ready</h2>
+		<h3>Gutter ready</h3>
 
 		<blockquote>
 			You got outer gutter<br>
@@ -91,6 +96,9 @@
 			</div>
 		</div>
 
+		<pre>
+.grid--outer-gutter</pre>
+
 		<blockquote>
 			And inner gutter<br>
 		</blockquote>
@@ -106,6 +114,9 @@
 				<div><h2>Baz</h2></div>
 			</div>
 		</div>
+
+		<pre>
+.grid--gutter</pre>
 
 		<blockquote>
 			Grids comes together well.<br>
@@ -136,14 +147,14 @@
 		</div>
 		<div style="background: salmon">content</div>
 
-		<h2>Nested grids</h2>
+		<h3>Nested grids</h3>
 
 		<blockquote>
 			Grids can be nested forever
 		</blockquote>
 
 		<div class="grid grid--gutter">
-			<div class="cell--2of3 cell--center">
+			<div class="cell--2of3 cell--middle">
 				<div class="grid grid--gutter grid--3 grid--center">
 					<div class="cell--2of3">
 						<h2>1</h2>
@@ -184,11 +195,13 @@
 			</div>
 		</div>
 
-		<h2>Cell size</h2>
+		<h2>Cells</h2>
+
+		<h3>Cell sizing</h3>
 
 		<blockquote>
 			You can force cell size,<br>
-			with keywords like "2of3".
+			with keywords like <code>2of3</code>.
 		</blockquote>
 
 		<div class="grid grid--gutter">
@@ -231,10 +244,10 @@
 			</div>
 		</div>
 
-		<h2>Cell alignement</h2>
+		<h3>Cell alignement</h3>
 
 		<blockquote>
-			Vertical alingn, made easy<br>
+			Vertical align, made easy<br>
 		</blockquote>
 
 		<div class="grid grid--gutter">
@@ -274,6 +287,22 @@
 				<div><h2>Bar</h2></div>
 			</div>
 		</div>
+
+		<h2>Dont bloat my markup!</h2>
+
+		<blockquote>
+			Same can be achieved with mixins<br>
+		</blockquote>
+
+		<pre>
+.grid {
+	@include grid("gutter center");
+}
+
+.cell {
+	@include cell("");
+}
+		</pre>
 
 		<h2>Responsive grid</h2>
 

@@ -1994,6 +1994,13 @@ h2 {
   margin-top: 2.4em;
 }
 
+h3 {
+  margin-top: 2.4em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #008040;
+}
+
 .grid h2 {
   background: #333;
   color: #eee;
@@ -2010,9 +2017,16 @@ h2 {
 }
 
 blockquote {
-  margin-top: 2.4em;
+  margin-bottom: 1.2em;
   font-size: 1.5rem;
   color: #888;
+}
+
+pre {
+  padding: 1.2em;
+  background-color: #444;
+  color: white;
+  border-radius: 4px;
 }
 
 

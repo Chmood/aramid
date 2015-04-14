@@ -28,13 +28,27 @@ h2 {
 //  font-size: 3em;
 }
 
+h3 {
+  margin-top: (2 * $gutter);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #008040;
+}
+
 .grid h2 {
   background: #333; color: #eee; margin: 0; border: 0; text-align: center; padding: $gutter; font-weight: 900;}
 
 .content { background: #eee; padding: ($gutter); }
 
 blockquote {
-  margin-top: (2 * $gutter);
+  margin-bottom: $gutter;
   font-size: 1.5rem;
   color: #888;
+}
+
+pre {
+  padding: $gutter;
+  background-color: #444;
+  color: white;
+  border-radius: 4px;
 }
