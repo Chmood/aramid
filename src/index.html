@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Flexwork | Home</title>
+	<title>Neon grids</title>
 
 	<!-- build:css main.min.css -->
 	<link rel="stylesheet" href="css/main.css"> 
@@ -14,109 +14,258 @@
 
 	<div class="container">
 
-		<h1>Flexgrid</h1>
+		<h1>Neon grids</h1>
 
 		<blockquote>
 			Hi! <br>
 			Grids with flexbox are awesome, just have a look!
 		</blockquote>
 
-		<h2>Grids</h2>
+		<h2>Size</h2>
 
-		<h3>Simple grids</h3>
+		<!-- . -->
+
+		<h3>Fill (default)</h3>
+		<p>[C] <code>.grid--fill</code> <code>.cell--fill</code></p>
+		<p class="fade">CSS <code>flex-grow: 1;</code></p>
 
 		<blockquote>
-			Make the parent a grid,<br>
-			and all direct children will share the same room.
+			We all share the same room.
 		</blockquote>
+
+		<p>Each cell has the same size, depending on the numbers of cells in the grid.<br>This is the cell default behaviour, which can be triggered with the <code>--fill</code> modifier, in case of overiding.</p>
 
 		<div class="grid">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Baz</h2></div>
 		</div>
 
-		<pre>
-.grid</pre>
-
-<!-- 		<blockquote>
-			Solved by flexbox : equal height columns<br>
-		</blockquote>
+<pre><code class="language-markup">&lt;div class="grid"&gt;
+	&lt;div&gt;Foo&lt;/div&gt;
+	&lt;div&gt;Bar&lt;/div&gt;
+	&lt;div&gt;Baz&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
 		<div class="grid">
-			<div style="background-color: rgba(0,0,0,.125);">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis.
-			</div>
-			<div style="background-color: rgba(0,0,0,.25);">
-				Praesent consequat lectus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
-			</div>
-			<div style="background-color: rgba(0,0,0,.125);">
-				Praesent consequat lectus purus.
-			</div>
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Baz</h2></div>
+			<div><h2 style="background: #444;">Boo</h2></div>
+			<div><h2>Faz</h2></div>
 		</div>
- -->
-<!-- 		<blockquote>
-			So easy to make it vertical!<br>
-		</blockquote>
 
-		<div class="grid grid--vertical">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
-		</div>
- -->
+<pre><code class="language-markup">&lt;div class="grid"&gt;
+	&lt;div&gt;Foo&lt;/div&gt;
+	&lt;div&gt;Bar&lt;/div&gt;
+	&lt;div&gt;Baz&lt;/div&gt;
+	&lt;div&gt;Boo&lt;/div&gt;
+	&lt;div&gt;Faz&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
-		<h3>Gutter ready</h3>
+
+		<!-- . -->
+
+		<h3>Fit</h3>
+		<p>[C] <code>.grid--fit</code> <code>.cell--fit</code></p>
+		<p class="fade">CSS <code>flex: none;</code></p>
 
 		<blockquote>
-			You got outer gutter<br>
+			Don't take more than a mouthful.
 		</blockquote>
 
-		<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
+		<p>Each cell take minimal amount of space allowing to fit its content.<br>This can be triggered with the <code>--fit</code> modifier.</p>
+
+		<div class="grid grid--fit">
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Baz</h2></div>
 		</div>
 
-		<pre>
-.grid--outer-gutter</pre>
+<pre><code class="language-markup">&lt;div class="grid grid--fit"&gt;
+	&lt;!-- 3 cells --&gt;
+&lt;/div&gt;
+</code></pre>
+
+		<div class="grid">
+			<div class="cell--fit"><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div class="cell--fit"><h2>Baz</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid"&gt;
+	&lt;div class="cell--fit"&gt;Foo&lt;/div&gt;
+	&lt;div&gt;Bar&lt;/div&gt;
+	&lt;div class="cell--fit"&gt;Baz&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+		<!-- . -->
+
+		<h3>Full</h3>
+		<p>[C] <code>.grid--full</code> <code>.cell--full</code></p>
+		<p class="fade">CSS <code>flex: 0 0 100%;</code></p>
 
 		<blockquote>
-			And inner gutter<br>
+			The story of the Cell who wanted to be as big as a Row.
+		</blockquote>
+
+		<p>Each cell take 100% width.<br>This can be triggered with the <code>--full</code> modifier.</p>
+		<p class="fade">This make a nice stack for mobile first!</p>
+
+		<div class="grid grid--full">
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Baz</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--full"&gt;
+	&lt;!-- ... --&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+		<!-- . -->
+
+		<h3>Size by fraction</h3>
+		<p>[C] <code>.grid--4</code> <code>.cell--2on3</code></p>
+		<p class="fade">CSS <code>flex: 0 0 75%;</code></p>
+
+		<blockquote>
+			Any number of `columns`, anywhere&hellip;
+		</blockquote>
+
+		<h4>Grid fraction sizing</h4>
+
+		<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>grid--{n}</code> modifier, where <code>n</code> is the column total number.</p>
+		<p class="fade">Too many cells will cause the grid to wrap on more than one raw!</p>
+		<p class="fade">But this is also where the overflow pattern happens!</p>
+
+		<div class="grid grid--4">
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Foo</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2>Foo</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--4"&gt;
+	&lt;!-- 6 cells --&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+		<h4>Cell fraction sizing</h4>
+
+		<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>cell--{m}on{n}</code> modifier, where <code>n</code> is the column total number, and <code>m</code> is the desired width in columns.</p>
+
+		<div class="grid grid--3">
+			<div class="cell--2of3"><h2>Foo 2/3</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div><h2 style="background: #444;">Bar</h2></div>
+			<div class="cell--2of3"><h2>Foo 2/3</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--3"&gt;
+	&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
+	&lt;div&gt;Bar&lt;/div&gt;
+	&lt;div&gt;Bar&lt;/div&gt;
+	&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+
+		<h2>Align</h2>
+
+		<!-- . -->
+
+		<h3>Cell alignment</h3>
+
+		<blockquote>
+			Vertical align, made easy<br>
 		</blockquote>
 
 		<div class="grid grid--gutter">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
+			<div class="cell--bottom"><h2>.cell--bottom</h2></div>
+			<div><h2>Bar<br>is<br>quite<br>quite<br>long</h2></div>
+			<div class="cell--middle"><h2>.cell--middle</h2></div>
+			<div class="cell--top"><h2>.cell--top</h2></div>
 		</div>
 
-		<pre>
-.grid--gutter</pre>
+<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
+	&lt;div class="cell--bottom"&gt;...&lt;/div&gt;
+	&lt;div class=""&gt;...&lt;/div&gt;
+	&lt;div class="cell--middle"&gt;...&lt;/div&gt;
+	&lt;div class="cell--top"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+		<blockquote>
+			And horizontal too<br>
+		</blockquote>
+
+		<div class="grid grid--gutter grid--3 grid--center">
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+		</div>
+
+
+
+		<h2>Gutters</h2>
+
+		<blockquote>
+			You got inner gutter...<br>
+		</blockquote>
+
+		<div class="grid grid--gutter">
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
+	&lt;!-- &hellip; --&gt;
+&lt;/div&gt;
+</code></pre>
+
+		<blockquote>
+			...and outer gutter...<br>
+		</blockquote>
+
+		<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--outer-gutter"&gt;
+	&lt;!-- &hellip; --&gt;
+&lt;/div&gt;
+</code></pre>
+
+		<blockquote>
+			...and both, of course!<br>
+		</blockquote>
+
+		<div class="grid grid--gutter grid--outer-gutter" style="background: rgba(0,0,0,.125);">
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--outer-gutter"&gt;
+	&lt;!-- &hellip; --&gt;
+&lt;/div&gt;
+</code></pre>
 
 		<blockquote>
 			Grids comes together well.<br>
@@ -124,26 +273,14 @@
 
 		<div style="background: salmon">content</div>
 		<div class="grid grid--gutter">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
 		</div>
 		<div class="grid grid--gutter">
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
-			<div>
-				<div><h2>Baz</h2></div>
-			</div>
+			<div><h2>Foo</h2></div>
+			<div><h2>Bar</h2></div>
+			<div><h2>Baz</h2></div>
 		</div>
 		<div style="background: salmon">content</div>
 
@@ -197,80 +334,26 @@
 
 		<h2>Cells</h2>
 
-		<h3>Cell sizing</h3>
+		<h2>Dont bloat my markup!</h2>
 
 		<blockquote>
-			You can force cell size,<br>
-			with keywords like <code>2of3</code>.
+			Same can be achieved with mixins<br>
 		</blockquote>
 
-		<div class="grid grid--gutter">
-			<div class="cell--2of3">
-				<div><h2>.cell--2of3</h2></div>
-			</div>
-			<div>
-				<div><h2>…fill…</h2></div>
-			</div>
-		</div>
+<pre><code class="language-scss">.grid {
+	@include grid("gutter center");
+}
 
-		<blockquote>
-			Or make if full width,<br>
-			(which is basis for mobile first approach).
+.cell {
+	@include cell("");
+}
+</code></pre>
+
+<!-- 		<blockquote>
+			So easy to make it vertical!<br>
 		</blockquote>
 
-		<div class="grid grid--gutter">
-			<div class="cell--full">
-				<div><h2>.cell--full</h2></div>
-			</div>
-			<div>
-				<div><h2>…fill…</h2></div>
-			</div>
-			<div>
-				<div><h2>…fill…</h2></div>
-			</div>
-		</div>
-
-		<blockquote>
-			You can make a cell to fit its content,<br>
-			and the rest be fluid.
-		</blockquote>
-
-		<div class="grid grid--gutter">
-			<div class="cell--fit">
-				<div><h2>.cell--fit</h2></div>
-			</div>
-			<div>
-				<div><h2>…fill…</h2></div>
-			</div>
-		</div>
-
-		<h3>Cell alignement</h3>
-
-		<blockquote>
-			Vertical align, made easy<br>
-		</blockquote>
-
-		<div class="grid grid--gutter">
-			<div class="cell--bottom">
-				<div><h2>.cell--bottom</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar<br>is<br>quite<br>quite<br>long</h2></div>
-			</div>
-			<div class="cell--middle">
-				<div><h2>.cell--middle</h2></div>
-			</div>
-			<div class="cell--top">
-				<div><h2>.cell--top</h2></div>
-			</div>
-		</div>
-
-
-		<blockquote>
-			And horizontal too<br>
-		</blockquote>
-
-		<div class="grid grid--gutter grid--3 grid--center">
+		<div class="grid grid--vertical" style="min-height: 25em;">
 			<div>
 				<div><h2>Foo</h2></div>
 			</div>
@@ -280,30 +363,9 @@
 			<div>
 				<div><h2>Baz</h2></div>
 			</div>
-			<div>
-				<div><h2>Foo</h2></div>
-			</div>
-			<div>
-				<div><h2>Bar</h2></div>
-			</div>
 		</div>
 
-		<h2>Dont bloat my markup!</h2>
-
-		<blockquote>
-			Same can be achieved with mixins<br>
-		</blockquote>
-
-		<pre>
-.grid {
-	@include grid("gutter center");
-}
-
-.cell {
-	@include cell("");
-}
-		</pre>
-
+ -->
 		<h2>Responsive grid</h2>
 
 		<blockquote>
@@ -369,6 +431,20 @@
 			</div>
 		</div>
 
+		<h3>Equal height columns</h3>
+
+		<div class="grid">
+			<div style="background-color: rgba(0,0,0,.125);">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis.
+			</div>
+			<div style="background-color: rgba(0,0,0,.25);">
+				Praesent consequat lectus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
+			</div>
+			<div style="background-color: rgba(0,0,0,.125);">
+				Praesent consequat lectus purus.
+			</div>
+		</div>
+
 		<h3>Centering</h3>
 
 		<div class="grid grid--vertical grid--middle grid--center" style="border: 1px solid #aaa; min-height: 10em;">
@@ -382,9 +458,8 @@
 		<h3>Sticky footer</h3>
 
 		<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 20em;">
-			<span class="" style="background: #eee">Fifty...</span>
-			<input class="" placeholder="fifty!">
-			<div class="cell--fit">sticky thing</div>
+			<section class="">BODY</section>
+			<section class="cell--fit" style="height: 3em; background: #eee">Sticky footah</section>
 		</div>
 
 
@@ -411,6 +486,8 @@
 	<!-- build:js main.min.js -->
 	<script src="js/main.js"></script>
 	<!-- /build -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 
 </body>
 </html>

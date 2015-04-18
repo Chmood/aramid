@@ -11,3 +11,19 @@
 
 // Demo page
 @import "demo";
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
+
+
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+
+	code {
+		background: transparent;
+	}
+}
+
+pre[class*=language-]>code[data-language] {
+	// Auto scrollbars removal
+	overflow: auto;
+}

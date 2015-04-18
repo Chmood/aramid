@@ -5,6 +5,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -2027,6 +2028,25 @@ pre {
   background-color: #444;
   color: white;
   border-radius: 4px;
+}
+
+.fade {
+  color: #888;
+}
+
+code {
+  padding: 2px 4px;
+  background: #555;
+  color: white;
+  border-radius: 4px;
+}
+
+:not(pre) > code[class*=language-] code, pre[class*=language-] code {
+  background: transparent;
+}
+
+pre[class*=language-] > code[data-language] {
+  overflow: auto;
 }
 
 
