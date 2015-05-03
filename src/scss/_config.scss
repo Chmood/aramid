@@ -1,21 +1,14 @@
 /* CONFIG */
 
 
-// Grid
+///////////////////////////////////////////////////////////////////////////////
+// BASE
 
 $gutter:                  1.2em;
 
-$responsive-grid:					true;
-$auto-cell:								true;
 
-$generate-classes:				true;
-$n-children-max:          6;
-$prefix:                  "";
-$classname-cell: 	        "cell";
-$classname-grid:   		    "grid";
-
-
-// Breakpoints
+///////////////////////////////////////////////////////////////////////////////
+// BREAKPOINTS
 
 $breakpoints: (			// px
   'xxs':   25em,    // 400
@@ -27,3 +20,37 @@ $breakpoints: (			// px
 );
 
 $debug: true;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// WRAP
+
+// Fixed sizes, ala Bootstrap
+$wrap-site-sizes: (
+	's': (bp('s') - 2 * $gutter), 
+	'm': (bp('m') - 2 * $gutter), 
+	'l': (bp('l') - 2 * $gutter), 
+);
+
+// Relative sizes, in percent
+$wrap-site-sizes: (
+	's': 90%, 
+	'm': 80%, 
+	'l': 75%, 
+);
+
+
+///////////////////////////////////////////////////////////////////////////////
+// GRID
+
+$responsive-grid:					true;
+$auto-cell:								true;
+
+$generate-classes:				true;
+$n-children-max:          6;
+$prefix:                  "";
+$classname-cell: 	        "cell";
+$classname-grid:   		    "grid";
+
+
+///////////////////////////////////////////////////////////////////////////////

@@ -3,8 +3,9 @@
 window.onload = function () {
   'use strict';
 
-  var $togglers = document.querySelectorAll('[data-toggle]');
+  // TOGGLERS
 
+  var $togglers = document.querySelectorAll('[data-toggle]');
 
   Array.prototype.forEach.call($togglers, function(el){
 

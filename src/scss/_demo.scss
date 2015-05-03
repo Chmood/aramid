@@ -1,6 +1,9 @@
 // DEMO STYLES ////////////////////////////////////////////
 
 
+/////////////////////////////////////////////////////////////////
+// GLOBAL
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -15,15 +18,56 @@ body {
 }
 
 
-.container {
-  padding: $gutter;
+// NAVBAR
+.navbar {
+
+  margin-left: -($gutter / 2);
+
+  a {
+    display: block;
+    padding: ($gutter / 2);
+    margin-right: 2em;
+    text-align: center;
+    color: #ddd;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
-// 
+
+/////////////////////////////////////////////////////////////////
+// WRAP
+
+body {
+  background-color: #eed;
+}
+
+.wrap-site {      background-color: white; }
+
+.wrap--header {   background-color: #444; color: #ddd; }
+.wrap--main {     background-color: white; 
+                  padding-top: ($gutter * 2); padding-bottom: ($gutter * 2);}
+.wrap--aside {    background-color: #ddd; }
+.wrap--footer {   background-color: #888; }
+
+// .container {
+//   background: rgba(127,0,0,.125);
+//   padding-top: $gutter;
+//   padding-bottom: $gutter;
+// }
+
+
+/////////////////////////////////////////////////////////////////
+// GRID
+
 
 h2 {
   text-align: center;
-  border-bottom: 2px solid;
+//  border-bottom: 2px solid;
   margin-top: (2 * $gutter);
 //  font-size: 3em;
 }
@@ -51,6 +95,7 @@ pre {
   background-color: #444;
   color: white;
   border-radius: 4px;
+  margin-bottom: (2 * $gutter) !important;
 }
 
 .fade { color: #888; }

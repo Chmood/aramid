@@ -1,0 +1,117 @@
+///////////////////////////////////////////////////////////////////////////////
+// CUSTOM CONFIG (TODO  : move this)
+
+
+
+/******************************************************************************
+ * SITE-WRAPPER
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+
+$gutter:                  1.2em !default;
+
+//$responsive-wrap:         true !default;
+//$auto-container:          true !default;
+
+$generate-classes:        true !default;
+$prefix:                  "" !default;
+$classname-wrap-site:     "wrap-site" !default;
+//$classname-wrap:          "wrap" !default;
+$classname-container:     "container" !default;
+
+$breakpoints:             ('s': 50em) !default;
+$wrap-site-sizes:         ('s': (50em - 2 * $gutter)) !default;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PLACEHOLDERS
+
+// Variables
+
+// First breakpoint's size in $wrap-site-size map
+$wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
+
+
+%container--fit {
+	margin-left: auto;
+	margin-right: auto;
+
+	@each $key, $value in $wrap-site-sizes {
+		@media (min-width: bp($key)) { width: $value; }
+	}
+}
+
+%wrap-site--fit {
+	@extend %container--fit;
+	
+	@media (min-width: bp($wrap-site-size-first)) {
+		padding-top: $gutter;
+		padding-bottom: $gutter;
+		background-clip: content-box;
+	}
+}
+
+
+%wrap-site--sticky-footer {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+%sticky-footer-filler { flex: 1; }
+
+%container--gutter {
+	padding-left: $gutter;
+	padding-right: $gutter;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+
+@mixin wrap-site($mods: "") {
+
+	@each $mod in $mods {
+
+		@if     $mod == "fit" {               @extend %wrap-site--fit; }
+		@elseif $mod == "fit-container" {
+						 .#{$classname-container} { 	@extend %container--fit; } }
+
+		@elseif $mod == "sticky-footer" {     @extend %wrap-site--sticky-footer; }
+
+		@else { @warn "Unknown modifier `#{$mod}` for mixin `wrap-site()`"; }
+	}
+}
+
+@mixin container($with-gutter: false) {
+
+	@if $with-gutter {                      @extend %container--gutter; }
+}
+
+@mixin sticky-footer-filler() {           @extend %sticky-footer-filler; }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate-classes {
+
+	// Wrap-site
+	.#{$prefix}#{$classname-wrap-site}--fit {               @include wrap-site("fit"); }
+	.#{$prefix}#{$classname-wrap-site}--fit-#{$classname-container}
+		{													                            @include wrap-site("fit-container"); }
+
+	// Container
+	.#{$prefix}#{$classname-container} {                    @include container($with-gutter: true); }
+
+	// Sticky footer
+	.#{$prefix}#{$classname-wrap-site}--sticky-footer {     @include wrap-site("sticky-footer"); }
+	.#{$prefix}sticky-footer-filler {                       @include sticky-footer-filler; }
+}
+
+
+

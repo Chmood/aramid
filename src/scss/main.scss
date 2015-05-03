@@ -6,15 +6,14 @@
 @import "normalize";
 
 // Layout
-@import "breakpoint";
-@import "grid";
+@import "neon/breakpoint";
+@import "neon/wrap";
+@import "neon/grid";
 
 // Demo page
 @import "demo";
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
-
-
 
 :not(pre)>code[class*=language-], pre[class*=language-] {
 

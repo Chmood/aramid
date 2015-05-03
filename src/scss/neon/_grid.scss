@@ -3,7 +3,7 @@
  ******************************************************************************/
 
 ///////////////////////////////////////////////////////////////////////////////
-// CONFIGURATION
+// DEFAULT CONFIGURATION
 
 $gutter:                  1.2em !default;
 
@@ -73,6 +73,8 @@ $breakpoints: 						('m': 65em) !default;
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
+// Variables
+
 // Auto-cell selector
 $cell-selector: "*";	// By default, all direct children of .grid are .cell's (implicit)
 @if not $auto-cell {	$cell-selector: ".#{$prefix}#{$classname-cell}"; }
@@ -93,7 +95,15 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		@elseif $mod == "fill" { 							@extend %cell--fill; }
 		@elseif $mod == "full" { 							@extend %cell--full;	}	
 		@else {
-			@warn "Unknown modifier `#{$mod}` for mixin `cell`.";
+
+			@for $i from 2 through $n-children-max {
+				@for $j from 1 through ($i - 1) {
+
+					@if $mod == "#{$j}of#{$i}" {		@include cellSize($i, $j); }
+				}
+			}
+
+			//@warn "Unknown modifier `#{$mod}` for mixin `cell`.";
 		}
 	}
 }
@@ -130,7 +140,12 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		@elseif $mod == "right" { 						@extend %grid--right; }
 
 		@else {
-			@warn "Unknown modifier `#{$mod}` for mixin `grid`.";
+
+			@for $i from 2 through $n-children-max {
+				@if $mod == "#{$i}" {							& > #{$cell-selector} {	@include cellSize($i); } }
+			}
+
+//			@warn "Unknown modifier `#{$mod}` for mixin `grid`.";
 		}
 	}
 }
@@ -163,24 +178,24 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		.#{$prefix}#{$classname-grid}--#{$mod} {        @include grid($mod); }
 	}
 
+	// allows correct vertical rythm between grids
+	// TODO : not doable with mixins ? /!\
+	.#{$prefix}#{$classname-grid} + .#{$prefix}#{$classname-grid} {
+		padding-top: $gutter; }
+
 
 	// Static size
 
 	@for $i from 2 through $n-children-max {
-		.#{$prefix}#{$classname-grid}--#{$i} > * {
-			@include cellSize($i);
-		}
+		.#{$prefix}#{$classname-grid}--#{$i} {					@include grid("#{$i}"); }
 
 		@for $j from 1 through ($i - 1) {
-			.#{$prefix}#{$classname-cell}--#{$j}of#{$i} {
-				@include cellSize($i, $j);
-			}
+			.#{$prefix}#{$classname-cell}--#{$j}of#{$i} {	@include cell("#{$j}of#{$i}"); }
 		}
 	}
 
 
-	///////////////////////////////////////////////////////////////////////////////
-	// RESPONSIVE
+	// Responsive
 
 	@if $responsive-grid {
 
@@ -188,26 +203,18 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		
 		.#{$prefix}#{$classname-grid}--responsive {  		@include grid("responsive"); }
 
-		// allows correct vertical rythm between grids
-		// TODO : not doable with mixins ? /!\
-		.#{$prefix}#{$classname-grid} + .#{$prefix}#{$classname-grid} {
-			padding-top: $gutter; }
-
-
-		// Responsive classnames
-
 		@each $breakpoint-name, $breakpoint-width in $breakpoints {
 
 			@media (min-width: $breakpoint-width) {
 
 				@for $i from 2 through $n-children-max {
-					.#{$prefix}#{$classname-grid}--#{$breakpoint-name}-#{$i} > * {
-						@include cellSize($i);
+					.#{$prefix}#{$classname-grid}--#{$breakpoint-name}-#{$i} {
+						@include grid("#{$i}");
 					}
 
 					@for $j from 1 through ($i - 1) {
 						.#{$prefix}#{$classname-cell}--#{$breakpoint-name}-#{$j}of#{$i} {
-							@include cellSize($i, $j);
+							@include cell("#{$j}of#{$i}");
 						}
 					}
 				}
@@ -230,4 +237,7 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 ul.grid,
 ol.grid {
 	margin: 0;
+	padding-left: 0;
+
+	li { list-style-type: none; }
 }
