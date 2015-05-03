@@ -49,59 +49,59 @@ body {
 .wrap-site {      background-color: white; }
 
 .wrap--header {   background-color: #444; color: #ddd; }
-.wrap--main {     background-color: white; 
+.wrap--main {     background-color: white;
+                  background-image: url("http://basehold.it/i/#{$gutter-in-px}/ff0000"); 
                   padding-top: ($gutter * 2); padding-bottom: ($gutter * 2);}
 .wrap--aside {    background-color: #ddd; }
 .wrap--footer {   background-color: #888; }
 
-// .container {
-//   background: rgba(127,0,0,.125);
-//   padding-top: $gutter;
-//   padding-bottom: $gutter;
-// }
 
 
 /////////////////////////////////////////////////////////////////
 // GRID
 
 
+h1:not(:first-child) {
+  margin-top: (4 * $gutter);
+}
+
 h2 {
-  text-align: center;
-//  border-bottom: 2px solid;
   margin-top: (2 * $gutter);
-//  font-size: 3em;
 }
 
 h3 {
   margin-top: (2 * $gutter);
   text-transform: uppercase;
-  font-size: 1.2rem;
   color: #008040;
 }
 
 .grid h2 {
-  background: #333; color: #eee; margin: 0; border: 0; text-align: center; padding: $gutter; font-weight: 900;}
+  background: #333; color: #eee; margin: 0; border: 0; text-align: center; padding: ($gutter / 2); font-weight: 900;}
 
 .content { background: #eee; padding: ($gutter); }
 
 blockquote {
-  margin-bottom: $gutter;
-  font-size: 1.5rem;
+  @include v-rhythm(24);
   color: #888;
+  font-style: italic;
+  border-left: 8px solid;
+  margin-left: $gutter;
+  padding-left: $gutter;
 }
 
 pre {
-  padding: $gutter;
+  padding: ($gutter * 0.5) !important;
   background-color: #444;
   color: white;
   border-radius: 4px;
   margin-bottom: (2 * $gutter) !important;
+  margin-top: (1 * $gutter) !important;
 }
 
 .fade { color: #888; }
 
 code {
-  padding: 2px 4px; 
+  padding: 0 4px; 
   background: #555;
   color: white;
   border-radius: 4px;

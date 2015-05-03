@@ -4,6 +4,7 @@
 
 // Base
 @import "normalize";
+@import "neon/type";
 
 // Layout
 @import "neon/breakpoint";
@@ -13,13 +14,11 @@
 // Demo page
 @import "demo";
 
+// Prism JS - Syntax highlighter
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
 
 :not(pre)>code[class*=language-], pre[class*=language-] {
-
-	code {
-		background: transparent;
-	}
+	code {background: transparent;}
 }
 
 pre[class*=language-]>code[data-language] {

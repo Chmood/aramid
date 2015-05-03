@@ -5,18 +5,18 @@
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
 
-$gutter:                  1.2em !default;
+$prefix:                  "" !default;
+$gutter:                  2.4rem !default;
+$breakpoints: 						('s': 44em) !default;
 
 $responsive-grid:					true !default;
 $auto-cell:								true !default;
 
 $generate-classes:				true !default;
-$n-children-max:          6 !default;
-$prefix:                  "" !default;
+$n-children-max:          12 !default;
 $classname-cell: 	        "cell" !default;
 $classname-grid:   		    "grid" !default;
 
-$breakpoints: 						('m': 65em) !default;
 
 ///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS

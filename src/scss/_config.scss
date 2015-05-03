@@ -4,53 +4,49 @@
 ///////////////////////////////////////////////////////////////////////////////
 // BASE
 
-$gutter:                  1.2em;
+// $prefix:                  "";
+
+// $gutter:                  2.4rem;
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // BREAKPOINTS
 
-$breakpoints: (			// px
-  'xxs':   25em,    // 400
-  'xs':    35em,    // 560
-  's':     44em,    // 560
-  'm':     65em,    // 880
-  'l':     82em,    // 1120
-  'xl':    95em,    // 1248
-);
+// $debug: true;
 
-$debug: true;
+// $breakpoints: (			// px
+//   'xs':    35em,    // 560
+//   's':     44em,    // 560
+//   'm':     65em,    // 880
+//   'l':     82em,    // 1120
+//   'xl':    95em,    // 1248
+// );
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // WRAP
 
-// Fixed sizes, ala Bootstrap
-$wrap-site-sizes: (
-	's': (bp('s') - 2 * $gutter), 
-	'm': (bp('m') - 2 * $gutter), 
-	'l': (bp('l') - 2 * $gutter), 
-);
+// //$responsive-wrap:         true !default;
+// //$auto-container:          true !default;
 
-// Relative sizes, in percent
-$wrap-site-sizes: (
-	's': 90%, 
-	'm': 80%, 
-	'l': 75%, 
-);
+// $generate-classes:        true !default;
+// $classname-wrap-site:     "wrap-site" !default;
+// //$classname-wrap:          "wrap" !default;
+// $classname-container:     "container" !default;
+
+// $wrap-site-sizes:         ('s': (50em - 2 * $gutter));
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // GRID
 
-$responsive-grid:					true;
-$auto-cell:								true;
+// $responsive-grid:					true;
+// $auto-cell:								true;
 
-$generate-classes:				true;
+// $generate-classes:				true;
 $n-children-max:          6;
-$prefix:                  "";
-$classname-cell: 	        "cell";
-$classname-grid:   		    "grid";
+// $classname-cell: 	        "cell";
+// $classname-grid:   		    "grid";
 
 
 ///////////////////////////////////////////////////////////////////////////////

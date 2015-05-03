@@ -1,8 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-// CUSTOM CONFIG (TODO  : move this)
-
-
-
 /******************************************************************************
  * SITE-WRAPPER
  ******************************************************************************/
@@ -10,21 +5,33 @@
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
 
-
-$gutter:                  1.2em !default;
+$prefix:                  "" !default;
+$gutter:                  2.4rem !default;
+$breakpoints:             ('m': 65em) !default;
 
 //$responsive-wrap:         true !default;
 //$auto-container:          true !default;
 
 $generate-classes:        true !default;
-$prefix:                  "" !default;
 $classname-wrap-site:     "wrap-site" !default;
 //$classname-wrap:          "wrap" !default;
 $classname-container:     "container" !default;
 
-$breakpoints:             ('s': 50em) !default;
-$wrap-site-sizes:         ('s': (50em - 2 * $gutter)) !default;
+$wrap-site-sizes:         ('m': 80%) !default;
 
+// Fixed sizes, ala Bootstrap
+// $wrap-site-sizes: (
+// 	's': (bp('s') - 2 * $gutter), 
+// 	'm': (bp('m') - 2 * $gutter), 
+// 	'l': (bp('l') - 2 * $gutter), 
+// );
+
+// Relative sizes, in percent
+// $wrap-site-sizes: (
+// 	's': 90%, 
+// 	'm': 80%, 
+// 	'l': 75%, 
+// );
 
 ///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS

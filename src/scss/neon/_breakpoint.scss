@@ -1,3 +1,12 @@
+/******************************************************************************
+ * BREAKPOINT
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+$prefix:                  "" !default;
+
 $debug: true !default;
 
 $breakpoints: (
@@ -18,7 +27,7 @@ $breakpoints: (
   Let's choose our breakpoints in the between (by averaging values)
   (anyway, this should follow a logarithmic progression)
 */
-  'xxs':   25em,    // 400
+//  'xxs':   25em,    // 400
   'xs':    35em,    // 560
   's':     44em,    // 560
 //  'sm':    54em,    // 720
@@ -29,14 +38,17 @@ $breakpoints: (
 //  'xxl':   110em   // 1520
 ) !default;
 
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
 @function bp($breakpoint) {
   @return map-get($breakpoints, $breakpoint);
 }
 
-// @mixin breakpoint($bp) {
-//   // TODO
-// }
 
+///////////////////////////////////////////////////////////////////////////////
+// CLASSES
 
 .debug {
 
@@ -45,7 +57,7 @@ $breakpoints: (
     bottom: 0;
     right: 0;
     padding: .5em 2em;
-    color: green;
+    color: #0f0;
     background: rgba(0,0,0,.875);
 
   } @else {

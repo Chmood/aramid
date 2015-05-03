@@ -1,0 +1,63 @@
+/******************************************************************************
+ * TYPE
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+$prefix:                  "" !default;
+
+$pixels-per-rem:					10;
+$fontsize-base:           1.6rem !default;  // 16 px
+$lineheight-base:         1.5 !default;     // 24 px
+
+
+// Variables
+
+$gutter:                  ($fontsize-base * $lineheight-base);
+$gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
+
+// MIXINS
+
+@mixin v-rhythm($font-size: $fontsize-base,
+								$font-size-base: $fontsize-base,
+								$line-height: $lineheight-base) {
+
+	$font-size-em: ($font-size / $pixels-per-rem * 1rem);
+	$font-size-ratio: ($font-size-em / $font-size-base);
+	$n-base: (round($font-size-ratio) / $font-size-ratio);
+
+	font-size: $font-size-em;
+	line-height: ($n-base * $lineheight-base );
+}
+
+
+// CLASSES
+
+html {
+	font-size: ($pixels-per-rem * 1px);  // Ths is one rem
+}
+
+body {
+	font-size: $fontsize-base;
+	line-height: $lineheight-base;
+}
+
+
+h1,h2,h3,h4,h5,h6,
+p,
+blockquote {
+	margin-top: 0;
+	margin-bottom: $gutter;
+	// background: rgba(255,0,0,0.125);
+
+}
+
+h1 { @include v-rhythm(48); }
+h2 { @include v-rhythm(32); }
+h3 { @include v-rhythm(24); }
+h4 { @include v-rhythm(20); }
+h5 { @include v-rhythm(16); }
+h6 { @include v-rhythm(14); }
+
+
