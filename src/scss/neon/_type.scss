@@ -19,18 +19,59 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 
 // MIXINS
 
+// @mixin v-rhythm($font-size: $fontsize-base,
+// 								$font-size-base: $fontsize-base,
+// 								$line-height: $lineheight-base) {
+
+// 	$font-size-em: ($font-size / $pixels-per-rem * 1rem);
+// 	$font-size-ratio: ($font-size-em / $font-size-base);
+// 	$n-base: (round($font-size-ratio) / $font-size-ratio);
+
+// 	font-size: $font-size-em;
+// 	line-height: ($n-base * $lineheight-base );
+// }
+
 @mixin v-rhythm($font-size: $fontsize-base,
 								$font-size-base: $fontsize-base,
-								$line-height: $lineheight-base) {
+								$line-height: $lineheight-base,
+                $scale: 1,
+                $compact: false,
+                $cap-height: 0.70) {
 
-	$font-size-em: ($font-size / $pixels-per-rem * 1rem);
-	$font-size-ratio: ($font-size-em / $font-size-base);
-	$n-base: (round($font-size-ratio) / $font-size-ratio);
+  $font-size: ($font-size / $pixels-per-rem * 1rem);  // Convert unitless (px) into rem
 
-	font-size: $font-size-em;
-	line-height: ($n-base * $lineheight-base );
+	// rhythm unit (in rem)
+	$rhythm: $line-height * $font-size / $scale;
+	$rhythm: $line-height * $font-size-base / $scale; // equals $gutter
+ 
+	// number of rhythm units that can fit the font-size
+	$lines: ceil(($font-size + 0.0001rem) / $rhythm);
+ 
+	// calculate the new line-height
+	$line-height: $rhythm * $lines / $font-size;
+
+	@if $compact {
+		$line-height: $line-height / 2;
+	}
+
+	font-size: $font-size;
+	line-height: $line-height;
+
+	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
+//	$baseline-distance: 0;
+
+  margin-top: 0;
+	margin-bottom: 0;
+	padding-top: $baseline-distance;
+	padding-bottom: $baseline-distance;
+	margin-bottom: $gutter - (2 * $baseline-distance);
+
+  // border-top: $baseline-distance solid transparent; // Border size rounding error ?
+  // border-bottom: $gutter - $baseline-distance solid transparent; // Border size rounding error ?
+  background-clip: padding-box;
+
+  //background-color: rgba(255,0,0,0.075);
 }
-
 
 // CLASSES
 
@@ -46,18 +87,20 @@ body {
 
 h1,h2,h3,h4,h5,h6,
 p,
-blockquote {
-	margin-top: 0;
-	margin-bottom: $gutter;
-	// background: rgba(255,0,0,0.125);
-
+blockquote,
+ul, ol {
+	@include v-rhythm(16);
+	//background: rgba(255,0,0,0.125);
 }
 
-h1 { @include v-rhythm(48); }
+h1 { @include v-rhythm(46); }
 h2 { @include v-rhythm(32); }
-h3 { @include v-rhythm(24); }
+h3 { @include v-rhythm(22); }
 h4 { @include v-rhythm(20); }
 h5 { @include v-rhythm(16); }
 h6 { @include v-rhythm(14); }
 
+$fontsize-mod-ratio:	0.8;
 
+.small-text { @include v-rhythm((($fontsize-base * $pixels-per-rem * $fontsize-mod-ratio) / 1rem)); }
+.big-text { 	@include v-rhythm((($fontsize-base * $pixels-per-rem / $fontsize-mod-ratio) / 1rem)); }

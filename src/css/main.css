@@ -409,39 +409,104 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 p,
-blockquote {
+blockquote,
+ul, ol {
+  font-size: 1.6rem;
+  line-height: 1.5;
   margin-top: 0;
-  margin-bottom: 2.4rem;
+  margin-bottom: 0;
+  padding-top: 0.64rem;
+  padding-bottom: 0.64rem;
+  margin-bottom: 1.12rem;
+  background-clip: padding-box;
 }
 
 h1 {
-  font-size: 4.8rem;
-  line-height: 1.5;
+  font-size: 4.6rem;
+  line-height: 1.04348;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.79rem;
+  padding-bottom: 0.79rem;
+  margin-bottom: 0.82rem;
+  background-clip: padding-box;
 }
 
 h2 {
   font-size: 3.2rem;
   line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1.28rem;
+  padding-bottom: 1.28rem;
+  margin-bottom: -0.16rem;
+  background-clip: padding-box;
 }
 
 h3 {
-  font-size: 2.4rem;
-  line-height: 1;
+  font-size: 2.2rem;
+  line-height: 1.09091;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.43rem;
+  padding-bottom: 0.43rem;
+  margin-bottom: 1.54rem;
+  background-clip: padding-box;
 }
 
 h4 {
   font-size: 2rem;
   line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.4rem;
+  background-clip: padding-box;
 }
 
 h5 {
   font-size: 1.6rem;
   line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.64rem;
+  padding-bottom: 0.64rem;
+  margin-bottom: 1.12rem;
+  background-clip: padding-box;
 }
 
 h6 {
   font-size: 1.4rem;
   line-height: 1.71429;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.71rem;
+  padding-bottom: 0.71rem;
+  margin-bottom: 0.98rem;
+  background-clip: padding-box;
+}
+
+.small-text {
+  font-size: 1.28rem;
+  line-height: 1.875;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.752rem;
+  padding-bottom: 0.752rem;
+  margin-bottom: 0.896rem;
+  background-clip: padding-box;
+}
+
+.big-text {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.4rem;
+  background-clip: padding-box;
 }
 
 /******************************************************************************
@@ -1927,16 +1992,7 @@ body {
   background-color: #888;
 }
 
-h1:not(:first-child) {
-  margin-top: 9.6rem;
-}
-
-h2 {
-  margin-top: 4.8rem;
-}
-
 h3 {
-  margin-top: 4.8rem;
   text-transform: uppercase;
   color: #008040;
 }
@@ -1944,11 +2000,17 @@ h3 {
 .grid h2 {
   background: #333;
   color: #eee;
-  margin: 0;
-  border: 0;
   text-align: center;
-  padding: 1.2rem;
-  font-weight: 900;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.64rem;
+  padding-bottom: 0.64rem;
+  margin-bottom: 1.12rem;
+  background-clip: padding-box;
 }
 
 .content {
@@ -1957,8 +2019,14 @@ h3 {
 }
 
 blockquote {
-  font-size: 2.4rem;
-  line-height: 1;
+  font-size: 2.2rem;
+  line-height: 1.09091;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.43rem;
+  padding-bottom: 0.43rem;
+  margin-bottom: 1.54rem;
+  background-clip: padding-box;
   color: #888;
   font-style: italic;
   border-left: 8px solid;
@@ -1966,13 +2034,23 @@ blockquote {
   padding-left: 2.4rem;
 }
 
-pre {
-  padding: 1.2rem !important;
-  background-color: #444;
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.64rem;
+  padding-bottom: 0.64rem;
+  margin-bottom: 1.12rem;
+  background-clip: padding-box;
   color: white;
   border-radius: 4px;
-  margin-bottom: 4.8rem !important;
-  margin-top: 2.4rem !important;
+}
+pre[class*="language-"] code {
+  padding: 0 2.4rem;
+  background: transparent;
 }
 
 .fade {
@@ -1980,14 +2058,10 @@ pre {
 }
 
 code {
-  padding: 0 4px;
+  padding: 0.25rem 0.5rem;
   background: #555;
   color: white;
   border-radius: 4px;
-}
-
-:not(pre) > code[class*=language-] code, pre[class*=language-] code {
-  background: transparent;
 }
 
 pre[class*=language-] > code[data-language] {

@@ -62,26 +62,33 @@ body {
 
 
 h1:not(:first-child) {
-  margin-top: (4 * $gutter);
+//  margin-top: (4 * $gutter);
 }
 
 h2 {
-  margin-top: (2 * $gutter);
+//  margin-top: (2 * $gutter);
 }
 
 h3 {
-  margin-top: (2 * $gutter);
+//  margin-top: (2 * $gutter);
   text-transform: uppercase;
   color: #008040;
 }
 
 .grid h2 {
-  background: #333; color: #eee; margin: 0; border: 0; text-align: center; padding: ($gutter / 2); font-weight: 900;}
+  background: #333;
+  color: #eee;
+  text-align: center;
+//  padding: ($gutter / 2);
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @include v-rhythm(16);
+}
 
 .content { background: #eee; padding: ($gutter); }
 
 blockquote {
-  @include v-rhythm(24);
+  @include v-rhythm(22);
   color: #888;
   font-style: italic;
   border-left: 8px solid;
@@ -89,19 +96,26 @@ blockquote {
   padding-left: $gutter;
 }
 
-pre {
-  padding: ($gutter * 0.5) !important;
-  background-color: #444;
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+//  padding: ($gutter * 0.5) !important;
+  @include v-rhythm(16);
   color: white;
   border-radius: 4px;
-  margin-bottom: (2 * $gutter) !important;
-  margin-top: (1 * $gutter) !important;
+  // margin-bottom: (2 * $gutter) !important;
+  // margin-top: (1 * $gutter) !important;
+
+  code {
+    padding: 0 $gutter;
+    background: transparent    
+  }
 }
 
 .fade { color: #888; }
 
 code {
-  padding: 0 4px; 
+  padding: 0.25rem 0.5rem; 
   background: #555;
   color: white;
   border-radius: 4px;
