@@ -1,9 +1,9 @@
 {
-  "name": "gulp-boilerplate",
-  "version": "0.0.0",
-  "description": "A gulp project time-saver and memento",
-  "repository": "foobar.tld",
-  "main": "index.html",
+  "name": "aramid",
+  "version": "0.0.1",
+  "description": "Yet another Sass framework - Aromatic and strong",
+  "repository": "https://github.com/Chmood/aramid",
+  "main": "dist/main.min.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
