@@ -328,17 +328,12 @@ gulp.task("watch", function () {
 ////////////////////////////////////////
 // USER TASKS
 
-gulp.task("style-n-guide", function() { runSequence("styles","styleguide");});
+gulp.task("style-n-guide", function() { runSequence("styles","styleguide"); });
 gulp.task("compile", ["scripts", "style-n-guide", "markup"]);
 gulp.task("graphics", ["images", "sprites"]);
 gulp.task("swatch", ["serve", "watch"]);
 
-gulp.task("build", function() {
-  runSequence(
-    "clean",
-    ["compile", "graphics"],
-    "swatch"
-  );
-});
+gulp.task("build", function() { runSequence( "clean", ["compile", "graphics"] ); });
+gulp.task("bwatch", function() { runSequence( "build", "swatch" ); });
 
 gulp.task("default", ["swatch"]);
