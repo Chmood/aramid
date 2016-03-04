@@ -1,22 +1,6 @@
 // DEMO STYLES ////////////////////////////////////////////
 
 
-/////////////////////////////////////////////////////////////////
-// GLOBAL
-
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  overflow-x: hidden;  // basically for really narrow viewports (long word overflow)
-}
-
 
 // NAVBAR
 .navbar {
@@ -50,7 +34,7 @@ body {
 
 .wrap--header {   background-color: #444; color: #ddd; }
 .wrap--main {     background-color: white;
-                  background-image: url("http://basehold.it/i/#{$gutter-in-px}/ff0000"); 
+                  background-image: url("http://basehold.it/i/#{$gutter-in-px}/ff0000");
                   padding-top: ($gutter * 2); padding-bottom: ($gutter * 2);}
 .wrap--aside {    background-color: #ddd; }
 .wrap--footer {   background-color: #888; }
@@ -96,6 +80,23 @@ blockquote {
   padding-left: $gutter;
 }
 
+
+
+
+// PRISM.JS
+
+// Prism JS - Syntax highlighter
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+//	code {background: transparent;}
+}
+
+pre[class*=language-]>code[data-language] {
+	// Auto scrollbars removal
+	overflow: auto;
+}
+
 pre[class*="language-"] {
   margin: 0;
   padding: 0;
@@ -108,14 +109,14 @@ pre[class*="language-"] {
 
   code {
     padding: 0 $gutter;
-    background: transparent    
+    background: transparent
   }
 }
 
 .fade { color: #888; }
 
 code {
-  padding: 0.25rem 0.5rem; 
+  padding: 0.25rem 0.5rem;
   background: #555;
   color: white;
   border-radius: 4px;

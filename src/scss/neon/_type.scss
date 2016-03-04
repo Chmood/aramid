@@ -43,10 +43,10 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 	// rhythm unit (in rem)
 	$rhythm: $line-height * $font-size / $scale;
 	$rhythm: $line-height * $font-size-base / $scale; // equals $gutter
- 
+
 	// number of rhythm units that can fit the font-size
 	$lines: ceil(($font-size + 0.0001rem) / $rhythm);
- 
+
 	// calculate the new line-height
 	$line-height: $rhythm * $lines / $font-size;
 

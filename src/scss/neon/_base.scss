@@ -1,0 +1,19 @@
+/* BASE */
+
+
+// A much more intuitive box model than the default one
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  // Force father of all to be full height
+  height: 100%;
+}
+
+body {
+  // Force page body to be at least as tall as viewport
+  min-height: 100%;
+  // Kill horizontal scroll
+  overflow-x: hidden;  // basically for really narrow viewports (long word overflow)
+}
