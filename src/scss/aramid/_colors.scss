@@ -1,0 +1,221 @@
+/******************************************************************************
+ * COLORS
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+
+$colors: (
+  'primary':                   #f80,
+  'secondary':                 #248,
+  'ternary':                   #844
+) !default;
+
+$grays: (
+  'lightest':                  #eee,
+  'lighter':                   #ccc,
+  'light':                     #aaa,
+  'normal':                    #888,
+  'dark':                      #666,
+  'darker':                    #333,
+  'darkest':                   #111,
+) !default;
+
+$color-variation-ratio:        80% !default;
+$color-variation-ratio-more:   35% !default;
+$color-variation-ratio-most:   10% !default;
+
+
+// $color-names: ( 'primary', 'secondary', 'ternary' ) !default;
+
+
+// FUNCTIONS
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+@function gray($variation: 'normal') {
+  @return map-get($grays, $variation);
+}
+
+// @each $color in $colors {
+// }
+
+
+// Base colors
+
+$color-primary:                color("primary");
+$color-secondary:              color("secondary");
+$color-ternary:                color("ternary");
+
+// Grays
+
+$color-gray-lightest:          gray("lightest");
+$color-gray-lighter:           gray("lighter");
+$color-gray-light:             gray("light");
+$color-gray:                   gray();
+$color-gray-dark:              gray("dark");
+$color-gray-darker:            gray("darker");
+$color-gray-darkest:           gray("darkest");
+
+
+// Color variations
+
+$color-primary-lightest:       mix($color-primary, white, $color-variation-ratio-most);
+$color-primary-lighter:        mix($color-primary, white, $color-variation-ratio-more);
+$color-primary-light:          mix($color-primary, white, $color-variation-ratio);
+$color-primary-dark:           mix($color-primary, black, $color-variation-ratio);
+$color-primary-darker:         mix($color-primary, black, $color-variation-ratio-more);
+$color-primary-darkest:        mix($color-primary, black, $color-variation-ratio-most);
+
+$color-secondary-lightest:     mix($color-secondary, white, $color-variation-ratio-most);
+$color-secondary-lighter:      mix($color-secondary, white, $color-variation-ratio-more);
+$color-secondary-light:        mix($color-secondary, white, $color-variation-ratio);
+$color-secondary-dark:         mix($color-secondary, black, $color-variation-ratio);
+$color-secondary-darker:       mix($color-secondary, black, $color-variation-ratio-more);
+$color-secondary-darkest:      mix($color-secondary, black, $color-variation-ratio-most);
+
+$color-ternary-lightest:       mix($color-ternary, white, $color-variation-ratio-most);
+$color-ternary-lighter:        mix($color-ternary, white, $color-variation-ratio-more);
+$color-ternary-light:          mix($color-ternary, white, $color-variation-ratio);
+$color-ternary-dark:           mix($color-ternary, black, $color-variation-ratio);
+$color-ternary-darker:         mix($color-ternary, black, $color-variation-ratio-more);
+$color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio-most);
+
+
+// PLACEHOLDERS
+
+// color
+
+%color-primary-lightest {      color: $color-primary-lightest; }
+%color-primary-lighter {       color: $color-primary-lighter; }
+%color-primary-light {         color: $color-primary-light; }
+%color-primary {               color: $color-primary; }
+%color-primary-dark {          color: $color-primary-dark; }
+%color-primary-darker {        color: $color-primary-darker; }
+%color-primary-darkest {       color: $color-primary-darkest; }
+
+%color-secondary-lightest {    color: $color-secondary-lightest; }
+%color-secondary-lighter {     color: $color-secondary-lighter; }
+%color-secondary-light {       color: $color-secondary-light; }
+%color-secondary {             color: $color-secondary; }
+%color-secondary-dark {        color: $color-secondary-dark; }
+%color-secondary-darker {      color: $color-secondary-darker; }
+%color-secondary-darkest {     color: $color-secondary-darkest; }
+
+%color-ternary-lightest {      color: $color-ternary-lightest; }
+%color-ternary-lighter {       color: $color-ternary-lighter; }
+%color-ternary-light {         color: $color-ternary-light; }
+%color-ternary {               color: $color-ternary; }
+%color-ternary-dark {          color: $color-ternary-dark; }
+%color-ternary-darker {        color: $color-ternary-darker; }
+%color-ternary-darkest {       color: $color-ternary-darkest; }
+
+%color-gray-lightest {         color: $color-gray-lightest; }
+%color-gray-lighter {          color: $color-gray-lighter; }
+%color-gray-light {            color: $color-gray-light; }
+%color-gray {                  color: $color-gray; }
+%color-gray-dark {             color: $color-gray-dark; }
+%color-gray-darker {           color: $color-gray-darker; }
+%color-gray-darkest {          color: $color-gray-darkest; }
+
+// background
+
+%bg-primary-lightest {         background-color: $color-primary-lightest; }
+%bg-primary-lighter {          background-color: $color-primary-lighter; }
+%bg-primary-light {            background-color: $color-primary-light; }
+%bg-primary {                  background-color: $color-primary; }
+%bg-primary-dark {             background-color: $color-primary-dark; }
+%bg-primary-darker {           background-color: $color-primary-darker; }
+%bg-primary-darkest {          background-color: $color-primary-darkest; }
+
+%bg-secondary-lightest {       background-color: $color-secondary-lightest; }
+%bg-secondary-lighter {        background-color: $color-secondary-lighter; }
+%bg-secondary-light {          background-color: $color-secondary-light; }
+%bg-secondary {                background-color: $color-secondary; }
+%bg-secondary-dark {           background-color: $color-secondary-dark; }
+%bg-secondary-darker {         background-color: $color-secondary-darker; }
+%bg-secondary-darkest {        background-color: $color-secondary-darkest; }
+
+%bg-ternary-lightest {         background-color: $color-ternary-lightest; }
+%bg-ternary-lighter {          background-color: $color-ternary-lighter; }
+%bg-ternary-light {            background-color: $color-ternary-light; }
+%bg-ternary {                  background-color: $color-ternary; }
+%bg-ternary-dark {             background-color: $color-ternary-dark; }
+%bg-ternary-darker {           background-color: $color-ternary-darker; }
+%bg-ternary-darkest {          background-color: $color-ternary-darkest; }
+
+%bg-gray-lightest {            background-color: $color-gray-lightest; }
+%bg-gray-lighter {             background-color: $color-gray-lighter; }
+%bg-gray-light {               background-color: $color-gray-light; }
+%bg-gray {                     background-color: $color-gray; }
+%bg-gray-dark {                background-color: $color-gray-dark; }
+%bg-gray-darker {              background-color: $color-gray-darker; }
+%bg-gray-darkest {             background-color: $color-gray-darkest; }
+
+
+
+// CLASSES
+
+// color
+
+.color-primary-lightest {      @extend %color-primary-lightest; }
+.color-primary-lighter {       @extend %color-primary-lighter; }
+.color-primary-light {         @extend %color-primary-light; }
+.color-primary {               @extend %color-primary; }
+.color-primary-dark {          @extend %color-primary-dark; }
+.color-primary-darker {        @extend %color-primary-darker; }
+.color-primary-darkest {       @extend %color-primary-darkest; }
+
+.color-secondary-lightest {    @extend %color-secondary-lightest; }
+.color-secondary-lighter {     @extend %color-secondary-lighter; }
+.color-secondary-light {       @extend %color-secondary-light; }
+.color-secondary {             @extend %color-secondary; }
+.color-secondary-dark {        @extend %color-secondary-dark; }
+.color-secondary-darker {      @extend %color-secondary-darker; }
+.color-secondary-darkest {     @extend %color-secondary-darkest; }
+
+.color-ternary-lightest {      @extend %color-ternary-lightest; }
+.color-ternary-lighter {       @extend %color-ternary-lighter; }
+.color-ternary-light {         @extend %color-ternary-light; }
+.color-ternary {               @extend %color-ternary; }
+.color-ternary-dark {          @extend %color-ternary-dark; }
+.color-ternary-darker {        @extend %color-ternary-darker; }
+.color-ternary-darkest {       @extend %color-ternary-darkest; }
+
+
+// background
+
+.bg-primary-lightest {         @extend %bg-primary-lightest; }
+.bg-primary-lighter {          @extend %bg-primary-lighter; }
+.bg-primary-light {            @extend %bg-primary-light; }
+.bg-primary {                  @extend %bg-primary; }
+.bg-primary-dark {             @extend %bg-primary-dark; }
+.bg-primary-darker {           @extend %bg-primary-darker; }
+.bg-primary-darkest {          @extend %bg-primary-darkest; }
+
+.bg-secondary-lightest {       @extend %bg-secondary-lightest; }
+.bg-secondary-lighter {        @extend %bg-secondary-lighter; }
+.bg-secondary-light {          @extend %bg-secondary-light; }
+.bg-secondary {                @extend %bg-secondary; }
+.bg-secondary-dark {           @extend %bg-secondary-dark; }
+.bg-secondary-darker {         @extend %bg-secondary-darker; }
+.bg-secondary-darkest {        @extend %bg-secondary-darkest; }
+
+.bg-ternary-lightest {         @extend %bg-ternary-lightest; }
+.bg-ternary-lighter {          @extend %bg-ternary-lighter; }
+.bg-ternary-light {            @extend %bg-ternary-light; }
+.bg-ternary {                  @extend %bg-ternary; }
+.bg-ternary-dark {             @extend %bg-ternary-dark; }
+.bg-ternary-darker {           @extend %bg-ternary-darker; }
+.bg-ternary-darkest {          @extend %bg-ternary-darkest; }
+
+.bg-gray-lightest {            @extend %bg-gray-lightest; }
+.bg-gray-lighter {             @extend %bg-gray-lighter; }
+.bg-gray-light {               @extend %bg-gray-light; }
+.bg-gray {                     @extend %bg-gray; }
+.bg-gray-dark {                @extend %bg-gray-dark; }
+.bg-gray-darker {              @extend %bg-gray-darker; }
+.bg-gray-darkest {             @extend %bg-gray-darkest; }

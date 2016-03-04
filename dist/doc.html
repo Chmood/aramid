@@ -1,1 +1,6 @@
-<!doctype html><html><head><meta charset=utf-8><title>Neon CSS</title><link rel=stylesheet href=main.min.css></head><body><div class="wrap-site wrap-site--ft wrap-site--fit-container wrap-site--sticky-footer"><div class="wrap wrap--header"><div class=container><h1>Neon CSS - Documentation</h1></div></div>[CONTENT]</div><div class="wrap wrap--aside"><div class=container><h4>This footer is sticky!</h4></div></div><div class="wrap wrap--footer"><div class=container><h4>Neon CSS</h4></div></div><div class=debug></div><script src=main.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js></script></body></html>
+<!doctype html><html><head><meta charset=utf-8><title>Neon CSS</title><link rel=stylesheet href=css/main.min.css></head><body><div class="wrap-site wrap-site--ft wrap-site--fit-container wrap-site--sticky-footer"><div class="wrap wrap--header"><div class=container><h1>Neon CSS - Documentation</h1></div></div>[CONTENT]</div><div class=debug></div><script src=js/main.min.js></script><div id=svg-sprites style="display: none;"></div><script type=text/javascript>
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "img/symbol/svg/sprite.symbol.svg", false);
+    ajax.send();
+    document.getElementById("svg-sprites").innerHTML += ajax.responseText;
+  </script><script src=https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js></script></body></html>

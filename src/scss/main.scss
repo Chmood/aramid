@@ -1,16 +1,31 @@
+/******************************************************************************
+ * MAIN.SCSS
+ ******************************************************************************/
+
+// Only imports
 
 // Config
 @import "config";
 
 // Base
 @import "normalize";
-@import "neon/base";
-@import "neon/type";
+@import "aramid/base";
+@import "aramid/type";
 
 // Layout
-@import "neon/breakpoint";
-@import "neon/wrap";
-@import "neon/grid";
+@import "aramid/breakpoint";
+@import "aramid/wrap";
+@import "aramid/grid";
+
+// Colors
+@import "aramid/colors";
+
 
 // Demo page
 @import "demo";
+
+
+
+h1 {
+	color: $color-primary !important;
+}
