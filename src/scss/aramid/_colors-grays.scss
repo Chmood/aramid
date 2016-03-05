@@ -5,6 +5,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
 
+$prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $grays: (
   'lightest':                  #eee,
   'lighter':                   #ccc,
@@ -65,22 +68,25 @@ $color-gray-darkest:           gray("darkest");
 ///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-// color
+@if $generate-classes {
 
-.color-gray-lightest {         @extend %color-gray-lightest; }
-.color-gray-lighter {          @extend %color-gray-lighter; }
-.color-gray-light {            @extend %color-gray-light; }
-.color-gray {                  @extend %color-gray; }
-.color-gray-dark {             @extend %color-gray-dark; }
-.color-gray-darker {           @extend %color-gray-darker; }
-.color-gray-darkest {          @extend %color-gray-darkest; }
+  // color
 
-// background
+  .color-gray-lightest {         @extend %color-gray-lightest; }
+  .color-gray-lighter {          @extend %color-gray-lighter; }
+  .color-gray-light {            @extend %color-gray-light; }
+  .color-gray {                  @extend %color-gray; }
+  .color-gray-dark {             @extend %color-gray-dark; }
+  .color-gray-darker {           @extend %color-gray-darker; }
+  .color-gray-darkest {          @extend %color-gray-darkest; }
 
-.bg-gray-lightest {            @extend %bg-gray-lightest; }
-.bg-gray-lighter {             @extend %bg-gray-lighter; }
-.bg-gray-light {               @extend %bg-gray-light; }
-.bg-gray {                     @extend %bg-gray; }
-.bg-gray-dark {                @extend %bg-gray-dark; }
-.bg-gray-darker {              @extend %bg-gray-darker; }
-.bg-gray-darkest {             @extend %bg-gray-darkest; }
+  // background
+
+  .bg-gray-lightest {            @extend %bg-gray-lightest; }
+  .bg-gray-lighter {             @extend %bg-gray-lighter; }
+  .bg-gray-light {               @extend %bg-gray-light; }
+  .bg-gray {                     @extend %bg-gray; }
+  .bg-gray-dark {                @extend %bg-gray-dark; }
+  .bg-gray-darker {              @extend %bg-gray-darker; }
+  .bg-gray-darkest {             @extend %bg-gray-darkest; }
+}

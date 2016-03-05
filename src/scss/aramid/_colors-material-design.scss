@@ -5,6 +5,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
 
+$prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $colors: (
   'primary':                   'mdp-cyan',
   'secondary':                 'mdp-deep-orange',

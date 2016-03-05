@@ -6,6 +6,7 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
 
 $fontsizes: (
 	'base': 								16
@@ -48,3 +49,7 @@ $gutter-quarter:     			$gutter / 4;
 
 ///////////////////////////////////////////////////////////////////////////////
 // CLASSES
+
+@if $generate-classes {
+
+}

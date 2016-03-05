@@ -6,6 +6,7 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
 
 $fontsizes: (
 	'smaller': 							12,
@@ -77,29 +78,32 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 ///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-html {
-	font-size: (n2px($pixels-per-rem));  // Ths is one rem
+@if $generate-classes {
+
+	html {
+		font-size: (n2px($pixels-per-rem));  // Ths is one rem
+	}
+
+	body {
+		font-size: $fontsize-base;
+		line-height: $lineheight-base;
+	}
+
+
+	h1,h2,h3,h4,h5,h6,
+	p,
+	blockquote,
+	ul, ol {
+		@include v-rhythm();
+	}
+
+	h1 { @include v-rhythm(fontsize("huge")); }
+	h2 { @include v-rhythm(fontsize("biggest")); }
+	h3 { @include v-rhythm(fontsize("bigger"), $compact: true); }
+	h4 { @include v-rhythm(fontsize("big")); }
+	h5 { @include v-rhythm(fontsize("base")); }
+	h6 { @include v-rhythm(fontsize("small")); }
+
+	.small-text { @include v-rhythm(fontsize("small")); }
+	.big-text { 	@include v-rhythm(fontsize("big")); }
 }
-
-body {
-	font-size: $fontsize-base;
-	line-height: $lineheight-base;
-}
-
-
-h1,h2,h3,h4,h5,h6,
-p,
-blockquote,
-ul, ol {
-	@include v-rhythm();
-}
-
-h1 { @include v-rhythm(fontsize("huge")); }
-h2 { @include v-rhythm(fontsize("biggest")); }
-h3 { @include v-rhythm(fontsize("bigger"), $compact: true); }
-h4 { @include v-rhythm(fontsize("big")); }
-h5 { @include v-rhythm(fontsize("base")); }
-h6 { @include v-rhythm(fontsize("small")); }
-
-.small-text { @include v-rhythm(fontsize("small")); }
-.big-text { 	@include v-rhythm(fontsize("big")); }

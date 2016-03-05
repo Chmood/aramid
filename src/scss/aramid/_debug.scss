@@ -6,64 +6,69 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $debug:                   true !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-.tpl-title {
-  display: none;
-}
-
-@if $debug {
-
-  // Main debu zone
-
-  .debug {
-
-    @if $debug {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: .5em 2em;
-      color: #0f0;
-      background: rgba(0,0,0,.875);
-      z-index: 4000;
-
-    } @else {
-      display: none;
-    }
+@if $generate-classes {
+  
+  .tpl-title {
+    display: none;
   }
 
+  @if $debug {
 
-  // TODO: better!
+    // Main debu zone
 
-  // Template labels
+    .debug {
 
-  .wrap {
+      @if $debug {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: .5em 2em;
+        color: #0f0;
+        background: rgba(0,0,0,.875);
+        z-index: 4000;
 
-    @media screen and (min-width: bp("s")) {
-      position: relative;
+      } @else {
+        display: none;
+      }
     }
-  }
 
-  .wrap-label {
 
-    @media screen and (min-width: bp("s")) {
-      position: absolute;
-      bottom: -2px;
-      right: 0;
-      display: inline-block;
-      padding: 2px 8px;
-      font-size: 90%;
-      font-style: italic;
-      color: white;
-      // background-color: $brand-primary;  // BOOTSTRAP
-      background-color: $color-secondary;
-      box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
-      z-index: 2000;
-      font-family: monospace;
+    // TODO: better!
+
+    // Template labels
+
+    .wrap {
+
+      @media screen and (min-width: bp("s")) {
+        position: relative;
+      }
+    }
+
+    .wrap-label {
+
+      @media screen and (min-width: bp("s")) {
+        position: absolute;
+        bottom: -2px;
+        right: 0;
+        display: inline-block;
+        padding: 2px 8px;
+        font-size: 90%;
+        font-style: italic;
+        color: white;
+        // background-color: $brand-primary;  // BOOTSTRAP
+        background-color: $color-secondary;
+        box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
+        z-index: 2000;
+        font-family: monospace;
+      }
     }
   }
 }

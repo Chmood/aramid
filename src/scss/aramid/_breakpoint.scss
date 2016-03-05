@@ -6,6 +6,8 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $debug:                   true !default;
 
 // Common screen sizes, in em unit (1em = 16px, browser default font-size)
@@ -51,6 +53,16 @@ $breakpoints: (
 
 
 ///////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// TODO : media query mixin !!!
+
+
+///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 // TODO; visible-bp / hidden-bp
+
+@if $generate-classes {
+  
+}

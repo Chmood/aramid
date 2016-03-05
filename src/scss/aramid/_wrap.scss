@@ -6,13 +6,14 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $gutter:                  2.4rem !default;
 $breakpoints:             ('m': 65em) !default;
 
 //$responsive-wrap:         true !default;
 //$auto-container:          true !default;
 
-$generate-classes:        true !default;
 $classname-wrap-site:     "wrap-site" !default;
 //$classname-wrap:          "wrap" !default;
 $classname-container:     "container" !default;
@@ -21,16 +22,16 @@ $wrap-site-sizes:         ('m': 80%) !default;
 
 // Fixed sizes, ala Bootstrap
 // $wrap-site-sizes: (
-// 	's': (bp('s') - 2 * $gutter), 
-// 	'm': (bp('m') - 2 * $gutter), 
-// 	'l': (bp('l') - 2 * $gutter), 
+// 	's': (bp('s') - 2 * $gutter),
+// 	'm': (bp('m') - 2 * $gutter),
+// 	'l': (bp('l') - 2 * $gutter),
 // );
 
 // Relative sizes, in percent
 // $wrap-site-sizes: (
-// 	's': 90%, 
-// 	'm': 80%, 
-// 	'l': 75%, 
+// 	's': 90%,
+// 	'm': 80%,
+// 	'l': 75%,
 // );
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -53,7 +54,7 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 
 %wrap-site--fit {
 	@extend %container--fit;
-	
+
 	@media (min-width: bp($wrap-site-size-first)) {
 		padding-top: $gutter;
 		padding-bottom: $gutter;
@@ -119,6 +120,3 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 	.#{$prefix}#{$classname-wrap-site}--sticky-footer {     @include wrap-site("sticky-footer"); }
 	.#{$prefix}sticky-footer-filler {                       @include sticky-footer-filler; }
 }
-
-
-

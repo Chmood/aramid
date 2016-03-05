@@ -6,13 +6,14 @@
 // DEFAULT CONFIGURATION
 
 $prefix:                  "" !default;
+$generate-classes:        true !default;
+
 $gutter:                  2.4rem !default;
 $breakpoints: 						('s': 44em) !default;
 
 $responsive-grid:					true !default;
 $auto-cell:								true !default;
 
-$generate-classes:				true !default;
 $n-children-max:          12 !default;
 $classname-cell: 	        "cell" !default;
 $classname-grid:   		    "grid" !default;
@@ -233,18 +234,14 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		}
 	}	// end of responsive-grids
 
+	// Common tag styles
+
+	ul.grid,
+	ol.grid {
+		margin: 0;
+		padding-left: 0;
+
+		li { list-style-type: none; }
+	}
+
 } // end of generate-classes
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Common tag styles
-
-
-ul.grid,
-ol.grid {
-	margin: 0;
-	padding-left: 0;
-
-	li { list-style-type: none; }
-}
