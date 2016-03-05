@@ -13,16 +13,29 @@ $lineheight-base:         1.5 !default;     // 24 px
 
 $fontsize-mod-ratio:			0.8 !default;
 
+$fontsizes: (
+	'smaller': 12,
+	'small': 14,
+	'normal': 16,
+	'big': 20,
+	'bigger': 22,
+	'biggest': 32,
+	'huge': 46
+);
 
-// Computed variables
+
+///////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
 // TODO: Still hardcoded, fontsize/gutter needs decoupling
-
 $gutter:                  ($fontsize-base * $lineheight-base);
 $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 
+
+///////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
-@mixin v-rhythm($font-size: $fontsize-base,
+@mixin v-rhythm($font-size: ($fontsize-base / 1rem * 10),
 								$font-size-base: $fontsize-base,
 								$line-height: $lineheight-base,
                 $scale: 1,
@@ -61,6 +74,8 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
   //background-color: rgba(255,0,0,0.075);
 }
 
+
+///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 html {
@@ -77,7 +92,7 @@ h1,h2,h3,h4,h5,h6,
 p,
 blockquote,
 ul, ol {
-	@include v-rhythm(16);
+	@include v-rhythm();
 }
 
 h1 { @include v-rhythm(46); }
