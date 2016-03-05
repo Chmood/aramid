@@ -1,25 +1,13 @@
 /******************************************************************************
- * MAIN.SCSS
+ * ARAMID.SCSS
  ******************************************************************************/
 // /!\ Only imports here! /!\
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONFIG
-
-@import "config";
-
-
-////////////////////////////////////////////////////////////////////////////////
-// ARAMID
-
-// All-in-one import
-
-// @import "aramid/aramid";
-
-// Cherrypick imports
+// ARAMID COMPONENTS
 
 // Base
-@import "aramid/normalize";
+@import "normalize";
 @import "aramid/base";
 
 // Type
@@ -37,9 +25,3 @@
 
 // Debug
 @import "aramid/debug";
-
-
-////////////////////////////////////////////////////////////////////////////////
-// YOUR STYLESHEETS HERE
-
-@import "demo";
