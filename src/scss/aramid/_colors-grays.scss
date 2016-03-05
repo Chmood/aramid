@@ -1,0 +1,86 @@
+/******************************************************************************
+ * COLORS - GRAYS
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+$grays: (
+  'lightest':                  #eee,
+  'lighter':                   #ccc,
+  'light':                     #aaa,
+  'normal':                    #888,
+  'dark':                      #666,
+  'darker':                    #333,
+  'darkest':                   #111,
+) !default;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+@function gray($variation: 'normal') {
+  @return map-get($grays, $variation);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+// Grays
+
+$color-gray-lightest:          gray("lightest");
+$color-gray-lighter:           gray("lighter");
+$color-gray-light:             gray("light");
+$color-gray:                   gray();
+$color-gray-dark:              gray("dark");
+$color-gray-darker:            gray("darker");
+$color-gray-darkest:           gray("darkest");
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PLACEHOLDERS
+
+// color
+
+%color-gray-lightest {         color: $color-gray-lightest; }
+%color-gray-lighter {          color: $color-gray-lighter; }
+%color-gray-light {            color: $color-gray-light; }
+%color-gray {                  color: $color-gray; }
+%color-gray-dark {             color: $color-gray-dark; }
+%color-gray-darker {           color: $color-gray-darker; }
+%color-gray-darkest {          color: $color-gray-darkest; }
+
+// background
+
+%bg-gray-lightest {            background-color: $color-gray-lightest; }
+%bg-gray-lighter {             background-color: $color-gray-lighter; }
+%bg-gray-light {               background-color: $color-gray-light; }
+%bg-gray {                     background-color: $color-gray; }
+%bg-gray-dark {                background-color: $color-gray-dark; }
+%bg-gray-darker {              background-color: $color-gray-darker; }
+%bg-gray-darkest {             background-color: $color-gray-darkest; }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+// color
+
+.color-gray-lightest {         @extend %color-gray-lightest; }
+.color-gray-lighter {          @extend %color-gray-lighter; }
+.color-gray-light {            @extend %color-gray-light; }
+.color-gray {                  @extend %color-gray; }
+.color-gray-dark {             @extend %color-gray-dark; }
+.color-gray-darker {           @extend %color-gray-darker; }
+.color-gray-darkest {          @extend %color-gray-darkest; }
+
+// background
+
+.bg-gray-lightest {            @extend %bg-gray-lightest; }
+.bg-gray-lighter {             @extend %bg-gray-lighter; }
+.bg-gray-light {               @extend %bg-gray-light; }
+.bg-gray {                     @extend %bg-gray; }
+.bg-gray-dark {                @extend %bg-gray-dark; }
+.bg-gray-darker {              @extend %bg-gray-darker; }
+.bg-gray-darkest {             @extend %bg-gray-darkest; }

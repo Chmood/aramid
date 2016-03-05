@@ -11,54 +11,27 @@ $colors: (
   'ternary':                   #844
 ) !default;
 
-$grays: (
-  'lightest':                  #eee,
-  'lighter':                   #ccc,
-  'light':                     #aaa,
-  'normal':                    #888,
-  'dark':                      #666,
-  'darker':                    #333,
-  'darkest':                   #111,
-) !default;
-
 $color-variation-ratio:        80% !default;
 $color-variation-ratio-more:   35% !default;
 $color-variation-ratio-most:   10% !default;
 
 
-// $color-names: ( 'primary', 'secondary', 'ternary' ) !default;
-
-
+///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
 @function color($color) {
   @return map-get($colors, $color);
 }
 
-@function gray($variation: 'normal') {
-  @return map-get($grays, $variation);
-}
 
-// @each $color in $colors {
-// }
-
+///////////////////////////////////////////////////////////////////////////////
+// VARIABLES
 
 // Base colors
 
 $color-primary:                color("primary");
 $color-secondary:              color("secondary");
 $color-ternary:                color("ternary");
-
-// Grays
-
-$color-gray-lightest:          gray("lightest");
-$color-gray-lighter:           gray("lighter");
-$color-gray-light:             gray("light");
-$color-gray:                   gray();
-$color-gray-dark:              gray("dark");
-$color-gray-darker:            gray("darker");
-$color-gray-darkest:           gray("darkest");
-
 
 // Color variations
 
@@ -84,6 +57,7 @@ $color-ternary-darker:         mix($color-ternary, black, $color-variation-ratio
 $color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio-most);
 
 
+///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS
 
 // color
@@ -112,14 +86,6 @@ $color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio
 %color-ternary-darker {        color: $color-ternary-darker; }
 %color-ternary-darkest {       color: $color-ternary-darkest; }
 
-%color-gray-lightest {         color: $color-gray-lightest; }
-%color-gray-lighter {          color: $color-gray-lighter; }
-%color-gray-light {            color: $color-gray-light; }
-%color-gray {                  color: $color-gray; }
-%color-gray-dark {             color: $color-gray-dark; }
-%color-gray-darker {           color: $color-gray-darker; }
-%color-gray-darkest {          color: $color-gray-darkest; }
-
 // background
 
 %bg-primary-lightest {         background-color: $color-primary-lightest; }
@@ -146,16 +112,8 @@ $color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio
 %bg-ternary-darker {           background-color: $color-ternary-darker; }
 %bg-ternary-darkest {          background-color: $color-ternary-darkest; }
 
-%bg-gray-lightest {            background-color: $color-gray-lightest; }
-%bg-gray-lighter {             background-color: $color-gray-lighter; }
-%bg-gray-light {               background-color: $color-gray-light; }
-%bg-gray {                     background-color: $color-gray; }
-%bg-gray-dark {                background-color: $color-gray-dark; }
-%bg-gray-darker {              background-color: $color-gray-darker; }
-%bg-gray-darkest {             background-color: $color-gray-darkest; }
 
-
-
+///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 // color
@@ -184,7 +142,6 @@ $color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio
 .color-ternary-darker {        @extend %color-ternary-darker; }
 .color-ternary-darkest {       @extend %color-ternary-darkest; }
 
-
 // background
 
 .bg-primary-lightest {         @extend %bg-primary-lightest; }
@@ -210,11 +167,3 @@ $color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio
 .bg-ternary-dark {             @extend %bg-ternary-dark; }
 .bg-ternary-darker {           @extend %bg-ternary-darker; }
 .bg-ternary-darkest {          @extend %bg-ternary-darkest; }
-
-.bg-gray-lightest {            @extend %bg-gray-lightest; }
-.bg-gray-lighter {             @extend %bg-gray-lighter; }
-.bg-gray-light {               @extend %bg-gray-light; }
-.bg-gray {                     @extend %bg-gray; }
-.bg-gray-dark {                @extend %bg-gray-dark; }
-.bg-gray-darker {              @extend %bg-gray-darker; }
-.bg-gray-darkest {             @extend %bg-gray-darkest; }

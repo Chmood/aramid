@@ -86,13 +86,13 @@ blockquote {
 
 .sg-color {
   display: inline-block;
-  width: 10rem;
+  width: 10%;
   padding: $gutter;
   color: white;
 
   &.bg-gray,
   &[class$='ary'] {
-    width: 20rem;
+    width: 20%;
   }
 
   &[class$='lightest'],
