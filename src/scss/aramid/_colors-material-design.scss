@@ -13,6 +13,7 @@ $colors: (
 
 $color-primary-color:   'mdp-cyan' !default;
 $color-secondary-color: 'mdp-deep-orange' !default;
+$color-ternary-color: 'mdp-light-green' !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -74,3 +75,10 @@ $color-secondary-light:   map-get($color-secondary-palette, 3);
 $color-secondary:         map-get($color-secondary-palette, 12);
 $color-secondary-dark:    map-get($color-secondary-palette, 7);
 $color-secondary-darker:  map-get($color-secondary-palette, 9);
+
+$color-ternary-palette: map-get($mdp, $color-ternary-color);
+$color-ternary-lighter: map-get($color-ternary-palette, 0);
+$color-ternary-light:   map-get($color-ternary-palette, 3);
+$color-ternary:         map-get($color-ternary-palette, 12);
+$color-ternary-dark:    map-get($color-ternary-palette, 7);
+$color-ternary-darker:  map-get($color-ternary-palette, 9);

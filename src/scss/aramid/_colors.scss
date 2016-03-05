@@ -14,7 +14,7 @@ $colors: (
 $color-variation-ratios: (
   'little':                    80%,
   'more':                      35%,
-  'most':                      10%,
+  'most':                      7%,
 ) !default;
 
 
@@ -35,32 +35,32 @@ $color-variation-ratios: (
 
 // Base colors
 
-$color-primary:                color("primary");
-$color-secondary:              color("secondary");
-$color-ternary:                color("ternary");
+$color-primary:                color("primary") !default;
+$color-secondary:              color("secondary") !default;
+$color-ternary:                color("ternary") !default;
 
 // Color variations
 
-$color-primary-lightest:       mix($color-primary, white, color-variation-ratio("most"));
-$color-primary-lighter:        mix($color-primary, white, color-variation-ratio("more"));
-$color-primary-light:          mix($color-primary, white, color-variation-ratio("little"));
-$color-primary-dark:           mix($color-primary, black, color-variation-ratio("little"));
-$color-primary-darker:         mix($color-primary, black, color-variation-ratio("more"));
-$color-primary-darkest:        mix($color-primary, black, color-variation-ratio("most"));
+$color-primary-lightest:       mix($color-primary, white, color-variation-ratio("most")) !default;
+$color-primary-lighter:        mix($color-primary, white, color-variation-ratio("more")) !default;
+$color-primary-light:          mix($color-primary, white, color-variation-ratio("little")) !default;
+$color-primary-dark:           mix($color-primary, black, color-variation-ratio("little")) !default;
+$color-primary-darker:         mix($color-primary, black, color-variation-ratio("more")) !default;
+$color-primary-darkest:        mix($color-primary, black, color-variation-ratio("most")) !default;
 
-$color-secondary-lightest:     mix($color-secondary, white, color-variation-ratio("most"));
-$color-secondary-lighter:      mix($color-secondary, white, color-variation-ratio("more"));
-$color-secondary-light:        mix($color-secondary, white, color-variation-ratio("little"));
-$color-secondary-dark:         mix($color-secondary, black, color-variation-ratio("little"));
-$color-secondary-darker:       mix($color-secondary, black, color-variation-ratio("more"));
-$color-secondary-darkest:      mix($color-secondary, black, color-variation-ratio("most"));
+$color-secondary-lightest:     mix($color-secondary, white, color-variation-ratio("most")) !default;
+$color-secondary-lighter:      mix($color-secondary, white, color-variation-ratio("more")) !default;
+$color-secondary-light:        mix($color-secondary, white, color-variation-ratio("little")) !default;
+$color-secondary-dark:         mix($color-secondary, black, color-variation-ratio("little")) !default;
+$color-secondary-darker:       mix($color-secondary, black, color-variation-ratio("more")) !default;
+$color-secondary-darkest:      mix($color-secondary, black, color-variation-ratio("most")) !default;
 
-$color-ternary-lightest:       mix($color-ternary, white, color-variation-ratio("most"));
-$color-ternary-lighter:        mix($color-ternary, white, color-variation-ratio("more"));
-$color-ternary-light:          mix($color-ternary, white, color-variation-ratio("little"));
-$color-ternary-dark:           mix($color-ternary, black, color-variation-ratio("little"));
-$color-ternary-darker:         mix($color-ternary, black, color-variation-ratio("more"));
-$color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio("most"));
+$color-ternary-lightest:       mix($color-ternary, white, color-variation-ratio("most")) !default;
+$color-ternary-lighter:        mix($color-ternary, white, color-variation-ratio("more")) !default;
+$color-ternary-light:          mix($color-ternary, white, color-variation-ratio("little")) !default;
+$color-ternary-dark:           mix($color-ternary, black, color-variation-ratio("little")) !default;
+$color-ternary-darker:         mix($color-ternary, black, color-variation-ratio("more")) !default;
+$color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio("most")) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
