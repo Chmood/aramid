@@ -15,37 +15,23 @@ $fontsizes: (
 	'bigger': 							24,
 	'biggest': 							32,
 	'huge': 								46
-) !default;
-
-$lineheight-base:         1.5 !default;     // 24 px
-$pixels-per-rem:					10;
+);
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
-@function fontsize($size: "base") {
-	@return map-get($fontsizes, $size);
-}
-
-
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
-$fontsize-base:           (fontsize("base") * 0.1rem);
+$fontsize-smaller:        (n2rem(fontsize("smaller")));
+$fontsize-small:          (n2rem(fontsize("small")));
+// $fontsize-base is already defined in _gutter.scss
+$fontsize-big:           	(n2rem(fontsize("big")));
+$fontsize-bigger:         (n2rem(fontsize("bigger")));
+$fontsize-biggest:        (n2rem(fontsize("biggest")));
+$fontsize-huge:           (n2rem(fontsize("huge")));
 
-// GUTTER
-
-// TODO: Still hardcoded, fontsize/gutter needs decoupling
-$gutter:                  ($fontsize-base * $lineheight-base);
-$gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
-
-$gutter-double:      			$gutter * 2;
-$gutter-triple:      			$gutter * 3;
-$gutter-quad:        			$gutter * 4;
-$gutter-half:        			$gutter / 2;
-$gutter-third:       			$gutter / 3;
-$gutter-quarter:     			$gutter / 4;
 
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS
@@ -57,7 +43,7 @@ $gutter-quarter:     			$gutter / 4;
                 $compact: false,
                 $cap-height: 0.70) {
 
-  $font-size: ($font-size / $pixels-per-rem * 1rem);  // Convert unitless (px) into rem
+  $font-size: (n2rem($font-size / $pixels-per-rem ));  // Convert unitless (px) into rem
 
 	// rhythm unit (in rem)
 	$rhythm: $line-height * $font-size / $scale;
@@ -69,9 +55,7 @@ $gutter-quarter:     			$gutter / 4;
 	// calculate the new line-height
 	$line-height: $rhythm * $lines / $font-size;
 
-	@if $compact {
-		$line-height: $line-height / 2;
-	}
+	@if $compact { $line-height: $line-height / 2; }
 
 	// calculate the padding to push the text on the baseline (depends on typeface)
 	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
@@ -94,7 +78,7 @@ $gutter-quarter:     			$gutter / 4;
 // CLASSES
 
 html {
-	font-size: ($pixels-per-rem * 1px);  // Ths is one rem
+	font-size: (n2px($pixels-per-rem));  // Ths is one rem
 }
 
 body {

@@ -1,0 +1,58 @@
+/******************************************************************************
+ * TYPE
+ ******************************************************************************/
+
+///////////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+$prefix:                  "" !default;
+
+$fontsizes: (
+	'base': 								16
+) !default;
+
+$lineheight-base:         1.5 !default; // 24 px
+$pixels-per-rem:					10 !default;	// for easy computation
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+@function fontsize($size: "base") {
+	@return map-get($fontsizes, $size);
+}
+
+@function strip-units($number) { @return $number / ($number * 0 + 1); }
+
+@function n2px($number) {	@return $number * 1px; }
+@function n2em($number) {	@return $number * 1em; }
+@function n2rem($number) {	@return $number * 1rem; }
+
+@function px2rem($px: 0) { @return strip-units($px) / $pixels-per-rem; }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$fontsize-base:           (n2rem(fontsize("base") / $pixels-per-rem));
+
+// GUTTER
+
+// TODO: Still hardcoded, fontsize/gutter needs decoupling
+$gutter:                  ($fontsize-base * $lineheight-base);
+$gutter-in-px:						round(n2rem($gutter / $pixels-per-rem));
+
+$gutter-double:      			$gutter * 2;
+$gutter-triple:      			$gutter * 3;
+$gutter-quad:        			$gutter * 4;
+$gutter-half:        			$gutter / 2;
+$gutter-third:       			$gutter / 3;
+$gutter-quarter:     			$gutter / 4;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CLASSES
