@@ -34,10 +34,20 @@ $pixels-per-rem:					10;
 
 $fontsize-base:           (fontsize("base") * 0.1rem);
 
+// GUTTER
+
 // TODO: Still hardcoded, fontsize/gutter needs decoupling
 $gutter:                  ($fontsize-base * $lineheight-base);
 $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 
+$gutter:             			2.4rem !default;
+
+$gutter-double:      			$gutter * 2;
+$gutter-triple:      			$gutter * 3;
+$gutter-quad:        			$gutter * 4;
+$gutter-half:        			$gutter / 2;
+$gutter-third:       			$gutter / 3;
+$gutter-quarter:     			$gutter / 4;
 
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS

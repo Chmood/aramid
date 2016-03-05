@@ -6,8 +6,8 @@
 // NAVBAR
 .navbar {
 
-  margin-left: -($gutter / 2);
-  padding-top: $gutter / 2;
+  margin-left: -$gutter-half;
+  padding-top: $gutter-half;
 
   a {
     display: block;
