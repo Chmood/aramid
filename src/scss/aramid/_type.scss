@@ -10,7 +10,7 @@ $prefix:                  "" !default;
 $fontsizes: (
 	'smaller': 							12,
 	'small': 								14,
-	'normal': 							16,
+	'base': 								16,
 	'big': 									20,
 	'bigger': 							24,
 	'biggest': 							32,
@@ -24,7 +24,7 @@ $pixels-per-rem:					10;
 ///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
-@function fontsize($size: "normal") {
+@function fontsize($size: "base") {
 	@return map-get($fontsizes, $size);
 }
 
@@ -32,7 +32,7 @@ $pixels-per-rem:					10;
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
-$fontsize-base:           (fontsize("normal") * 0.1rem);
+$fontsize-base:           (fontsize("base") * 0.1rem);
 
 // TODO: Still hardcoded, fontsize/gutter needs decoupling
 $gutter:                  ($fontsize-base * $lineheight-base);
@@ -42,7 +42,7 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
-@mixin v-rhythm($font-size: fontsize("normal"),
+@mixin v-rhythm($font-size: fontsize("base"),
 								$font-size-base: $fontsize-base,
 								$line-height: $lineheight-base,
                 $scale: 1,
@@ -106,7 +106,7 @@ h1 { @include v-rhythm(fontsize("huge")); }
 h2 { @include v-rhythm(fontsize("biggest")); }
 h3 { @include v-rhythm(fontsize("bigger"), $compact: true); }
 h4 { @include v-rhythm(fontsize("big")); }
-h5 { @include v-rhythm(fontsize("normal")); }
+h5 { @include v-rhythm(fontsize("base")); }
 h6 { @include v-rhythm(fontsize("small")); }
 
 .small-text { @include v-rhythm(fontsize("small")); }
