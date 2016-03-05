@@ -65,10 +65,10 @@ h3 {
   background: #333;
   color: #eee;
   text-align: center;
-//  padding: ($gutter / 2);
+  @include v-rhythm(16);
+  padding: ($gutter);
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
-  @include v-rhythm(16);
 }
 
 .content { background: #eee; padding: ($gutter); }
