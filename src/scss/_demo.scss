@@ -47,7 +47,8 @@ body {
 
 
 h1 {
-  color: $color-primary !important;
+  color: $color-primary;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -79,6 +80,26 @@ blockquote {
   border-left: 8px solid;
   margin-left: $gutter;
   padding-left: $gutter;
+}
+
+// Styleguide color blocks
+
+.sg-color {
+  display: inline-block;
+  width: 10rem;
+  padding: $gutter;
+  color: white;
+
+  &.bg-gray,
+  &[class$='ary'] {
+    width: 20rem;
+  }
+
+  &[class$='lightest'],
+  &[class$='lighter'],
+  &[class$='light'] {
+    color: black;
+  }
 }
 
 
