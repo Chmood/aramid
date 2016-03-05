@@ -7,25 +7,32 @@
 
 $prefix:                  "" !default;
 
-$pixels-per-rem:					10;
-$fontsize-base:           1.6rem !default;  // 16 px
-$lineheight-base:         1.5 !default;     // 24 px
-
-$fontsize-mod-ratio:			0.8 !default;
-
 $fontsizes: (
-	'smaller': 12,
-	'small': 14,
-	'normal': 16,
-	'big': 20,
-	'bigger': 22,
-	'biggest': 32,
-	'huge': 46
-);
+	'smaller': 							12,
+	'small': 								14,
+	'normal': 							16,
+	'big': 									20,
+	'bigger': 							24,
+	'biggest': 							32,
+	'huge': 								46
+) !default;
+
+$lineheight-base:         1.5 !default;     // 24 px
+$pixels-per-rem:					10;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+@function fontsize($size: "normal") {
+	@return map-get($fontsizes, $size);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
+
+$fontsize-base:           (fontsize("normal") * 0.1rem);
 
 // TODO: Still hardcoded, fontsize/gutter needs decoupling
 $gutter:                  ($fontsize-base * $lineheight-base);
@@ -35,7 +42,7 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
-@mixin v-rhythm($font-size: ($fontsize-base / 1rem * 10),
+@mixin v-rhythm($font-size: fontsize("normal"),
 								$font-size-base: $fontsize-base,
 								$line-height: $lineheight-base,
                 $scale: 1,
@@ -95,12 +102,12 @@ ul, ol {
 	@include v-rhythm();
 }
 
-h1 { @include v-rhythm(46); }
-h2 { @include v-rhythm(32); }
-h3 { @include v-rhythm(22); }
-h4 { @include v-rhythm(20); }
-h5 { @include v-rhythm(16); }
-h6 { @include v-rhythm(14); }
+h1 { @include v-rhythm(fontsize("huge")); }
+h2 { @include v-rhythm(fontsize("biggest")); }
+h3 { @include v-rhythm(fontsize("bigger"), $compact: true); }
+h4 { @include v-rhythm(fontsize("big")); }
+h5 { @include v-rhythm(fontsize("normal")); }
+h6 { @include v-rhythm(fontsize("small")); }
 
-.small-text { @include v-rhythm((($fontsize-base * $pixels-per-rem * $fontsize-mod-ratio) / 1rem)); }
-.big-text { 	@include v-rhythm((($fontsize-base * $pixels-per-rem / $fontsize-mod-ratio) / 1rem)); }
+.small-text { @include v-rhythm(fontsize("small")); }
+.big-text { 	@include v-rhythm(fontsize("big")); }
