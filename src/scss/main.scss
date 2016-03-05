@@ -11,21 +11,16 @@
 @import "normalize";
 @import "aramid/base";
 @import "aramid/type";
+@import "aramid/colors";
 
 // Layout
 @import "aramid/breakpoint";
 @import "aramid/wrap";
 @import "aramid/grid";
 
-// Colors
-@import "aramid/colors";
+// Debug
+@import "aramid/debug";
 
 
 // Demo page
 @import "demo";
-
-
-
-h1 {
-	color: $color-primary !important;
-}

@@ -91,9 +91,9 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		@elseif $mod == "top" { 							@extend %cell--top; }
 		@elseif $mod == "middle" { 						@extend %cell--middle; }
 		@elseif $mod == "bottom" { 						@extend %cell--bottom; }
-		@elseif $mod == "fit" { 							@extend %cell--fit; }	
+		@elseif $mod == "fit" { 							@extend %cell--fit; }
 		@elseif $mod == "fill" { 							@extend %cell--fill; }
-		@elseif $mod == "full" { 							@extend %cell--full;	}	
+		@elseif $mod == "full" { 							@extend %cell--full;	}
 		@else {
 
 			@for $i from 2 through $n-children-max {
@@ -166,7 +166,7 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 		.#{$prefix}#{$classname-cell}--#{$mod} {        @include cell($mod); }
 	}
 
-	
+
 	// Grid
 
 	$mods: "vertical", "gutter", "outer-gutter", "top", "middle", "bottom",
@@ -200,7 +200,7 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 	@if $responsive-grid {
 
 		@if $debug { .debug::before { content: ("MQ: min") } }
-		
+
 		.#{$prefix}#{$classname-grid}--responsive {  		@include grid("responsive"); }
 
 		@each $breakpoint-name, $breakpoint-width in $breakpoints {
@@ -219,19 +219,26 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 					}
 				}
 
-				@if $debug { .debug::before { content: ('MQ: ' + $breakpoint-name + ' (' + bp($breakpoint-name) + ')'); } }
+				@if $debug {
+					.debug::before {
+						content: (
+							'@mq: ' + $breakpoint-name + ' (' +
+							bp($breakpoint-name) + ' - ' +
+							((bp($breakpoint-name) / 1em) * ($fontsize-base/1rem) ) * 10 + 'px)'
+						);
+					}
+				}
+
 			}
-
 		}
-
 	}	// end of responsive-grids
 
 } // end of generate-classes
 
 
-	
+
 ///////////////////////////////////////////////////////////////////////////////
-// Common styles
+// Common tag styles
 
 
 ul.grid,

@@ -46,8 +46,8 @@ body {
 // GRID
 
 
-h1:not(:first-child) {
-//  margin-top: (4 * $gutter);
+h1 {
+  color: $color-primary !important;
 }
 
 h2 {
@@ -81,10 +81,6 @@ blockquote {
   padding-left: $gutter;
 }
 
-
-h1 {
-  color: $color-primary !important;
-}
 
 
 
