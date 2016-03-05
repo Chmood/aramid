@@ -43,8 +43,17 @@ body {
 
 
 /////////////////////////////////////////////////////////////////
-// GRID
 
+.site-logo {
+  font-weight: bold;
+  background-color: $color-primary !important;
+  color: white !important;
+
+  &:hover,
+  &:active {
+    color: $color-primary-light !important;
+  }
+}
 
 h1 {
   color: $color-primary;
