@@ -11,25 +11,16 @@ $pixels-per-rem:					10;
 $fontsize-base:           1.6rem !default;  // 16 px
 $lineheight-base:         1.5 !default;     // 24 px
 
+$fontsize-mod-ratio:			0.8 !default;
 
-// Variables
+
+// Computed variables
+// TODO: Still hardcoded, fontsize/gutter needs decoupling
 
 $gutter:                  ($fontsize-base * $lineheight-base);
 $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 
 // MIXINS
-
-// @mixin v-rhythm($font-size: $fontsize-base,
-// 								$font-size-base: $fontsize-base,
-// 								$line-height: $lineheight-base) {
-
-// 	$font-size-em: ($font-size / $pixels-per-rem * 1rem);
-// 	$font-size-ratio: ($font-size-em / $font-size-base);
-// 	$n-base: (round($font-size-ratio) / $font-size-ratio);
-
-// 	font-size: $font-size-em;
-// 	line-height: ($n-base * $lineheight-base );
-// }
 
 @mixin v-rhythm($font-size: $fontsize-base,
 								$font-size-base: $fontsize-base,
@@ -54,22 +45,19 @@ $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 		$line-height: $line-height / 2;
 	}
 
+	// calculate the padding to push the text on the baseline (depends on typeface)
+	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
+
 	font-size: $font-size;
 	line-height: $line-height;
-
-	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
-//	$baseline-distance: 0;
-
   margin-top: 0;
 	margin-bottom: 0;
 	padding-top: $baseline-distance;
 	padding-bottom: $baseline-distance;
 	margin-bottom: $gutter - (2 * $baseline-distance);
-
-  // border-top: $baseline-distance solid transparent; // Border size rounding error ?
-  // border-bottom: $gutter - $baseline-distance solid transparent; // Border size rounding error ?
   background-clip: padding-box;
 
+	// TODO: Full debug
   //background-color: rgba(255,0,0,0.075);
 }
 
@@ -90,7 +78,6 @@ p,
 blockquote,
 ul, ol {
 	@include v-rhythm(16);
-	//background: rgba(255,0,0,0.125);
 }
 
 h1 { @include v-rhythm(46); }
@@ -99,8 +86,6 @@ h3 { @include v-rhythm(22); }
 h4 { @include v-rhythm(20); }
 h5 { @include v-rhythm(16); }
 h6 { @include v-rhythm(14); }
-
-$fontsize-mod-ratio:	0.8;
 
 .small-text { @include v-rhythm((($fontsize-base * $pixels-per-rem * $fontsize-mod-ratio) / 1rem)); }
 .big-text { 	@include v-rhythm((($fontsize-base * $pixels-per-rem / $fontsize-mod-ratio) / 1rem)); }

@@ -74,7 +74,7 @@ h3 {
 .content { background: #eee; padding: ($gutter); }
 
 blockquote {
-  @include v-rhythm(22);
+  @include v-rhythm(16);
   color: #888;
   font-style: italic;
   border-left: 8px solid;
