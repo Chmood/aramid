@@ -22,14 +22,6 @@ $pixels-per-rem:					10 !default;	// for easy computation
 	@return map-get($fontsizes, $size);
 }
 
-@function strip-units($number) { @return $number / ($number * 0 + 1); }
-
-@function n2px($number) {	@return $number * 1px; }
-@function n2em($number) {	@return $number * 1em; }
-@function n2rem($number) {	@return $number * 1rem; }
-
-@function px2rem($px: 0) { @return strip-units($px) / $pixels-per-rem; }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
