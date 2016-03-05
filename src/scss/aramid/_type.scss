@@ -40,8 +40,6 @@ $fontsize-base:           (fontsize("base") * 0.1rem);
 $gutter:                  ($fontsize-base * $lineheight-base);
 $gutter-in-px:						round($gutter * $pixels-per-rem / 1rem);
 
-$gutter:             			2.4rem !default;
-
 $gutter-double:      			$gutter * 2;
 $gutter-triple:      			$gutter * 3;
 $gutter-quad:        			$gutter * 4;
