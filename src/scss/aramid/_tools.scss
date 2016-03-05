@@ -32,6 +32,10 @@
   @return strip-units($px) / $pixels-per-rem;
 }
 
+@function rem2px($rem: 0) {
+  @return strip-units($rem) * $pixels-per-rem;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES

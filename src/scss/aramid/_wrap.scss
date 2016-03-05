@@ -1,6 +1,6 @@
 /******************************************************************************
- * SITE-WRAPPER
- ******************************************************************************/
+* WRAP
+******************************************************************************/
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
@@ -87,7 +87,7 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 
 		@if     $mod == "fit" {               @extend %wrap-site--fit; }
 		@elseif $mod == "fit-container" {
-						 .#{$classname-container} { 	@extend %container--fit; } }
+			.#{$classname-container} { 	@extend %container--fit; } }
 
 		@elseif $mod == "sticky-footer" {     @extend %wrap-site--sticky-footer; }
 
@@ -111,7 +111,7 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 	// Wrap-site
 	.#{$prefix}#{$classname-wrap-site}--fit {               @include wrap-site("fit"); }
 	.#{$prefix}#{$classname-wrap-site}--fit-#{$classname-container}
-		{													                            @include wrap-site("fit-container"); }
+	{													                            @include wrap-site("fit-container"); }
 
 	// Container
 	.#{$prefix}#{$classname-container} {                    @include container($with-gutter: true); }

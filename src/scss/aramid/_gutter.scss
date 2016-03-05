@@ -27,13 +27,16 @@ $pixels-per-rem:					10 !default;	// for easy computation
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
+// in rem
 $fontsize-base:           (n2rem(fontsize("base") / $pixels-per-rem));
 
 // GUTTER
 
 // TODO: Still hardcoded, fontsize/gutter needs decoupling
+// in rem
 $gutter:                  ($fontsize-base * $lineheight-base);
-$gutter-in-px:						round(n2rem($gutter / $pixels-per-rem));
+// unitless number
+$gutter-in-px:						round(rem2px($gutter));
 
 $gutter-double:      			$gutter * 2;
 $gutter-triple:      			$gutter * 3;
