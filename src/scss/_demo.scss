@@ -7,6 +7,7 @@
 .navbar {
 
   margin-left: -($gutter / 2);
+  padding-top: $gutter / 2;
 
   a {
     display: block;
@@ -33,10 +34,14 @@ body {
 
 .wrap-site {      background-color: white; }
 
-.wrap--header {   background-color: #444; color: #ddd; }
+.wrap--header {   background-color: $color-gray-darker; color: #ddd; }
+.wrap--hero {     background-color: $color-primary; color: white;
+}
 .wrap--main {     background-color: white;
                   background-image: url("http://basehold.it/i/#{$gutter-in-px}/ff0000");
-                  padding-top: ($gutter * 2); padding-bottom: ($gutter * 2);}
+                  // padding-top: ($gutter * 2);
+                  // padding-bottom: ($gutter * 2);
+}
 .wrap--aside {    background-color: #ddd; }
 .wrap--footer {   background-color: #888; }
 
@@ -47,7 +52,8 @@ body {
 .site-logo {
   font-weight: bold;
   background-color: $color-primary !important;
-  color: white !important;
+  color: $color-gray-darker !important;
+  @include v-rhythm(fontsize("big"));
 
   &:hover,
   &:active {
@@ -58,6 +64,12 @@ body {
 h1 {
   color: $color-primary;
   text-transform: uppercase;
+
+  .hero & {
+    color: white;
+    font-weight: normal;
+//    padding: $gutter 0;
+  }
 }
 
 h2 {
