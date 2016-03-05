@@ -11,16 +11,22 @@ $colors: (
   'ternary':                   #844
 ) !default;
 
-$color-variation-ratio:        80% !default;
-$color-variation-ratio-more:   35% !default;
-$color-variation-ratio-most:   10% !default;
+$color-variation-ratios: (
+  'little':                    80%,
+  'more':                      35%,
+  'most':                      10%,
+) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
-@function color($color) {
+@function color($color: "primary") {
   @return map-get($colors, $color);
+}
+
+@function color-variation-ratio($ratio: "little") {
+  @return map-get($color-variation-ratios, $ratio);
 }
 
 
@@ -35,26 +41,26 @@ $color-ternary:                color("ternary");
 
 // Color variations
 
-$color-primary-lightest:       mix($color-primary, white, $color-variation-ratio-most);
-$color-primary-lighter:        mix($color-primary, white, $color-variation-ratio-more);
-$color-primary-light:          mix($color-primary, white, $color-variation-ratio);
-$color-primary-dark:           mix($color-primary, black, $color-variation-ratio);
-$color-primary-darker:         mix($color-primary, black, $color-variation-ratio-more);
-$color-primary-darkest:        mix($color-primary, black, $color-variation-ratio-most);
+$color-primary-lightest:       mix($color-primary, white, color-variation-ratio("most"));
+$color-primary-lighter:        mix($color-primary, white, color-variation-ratio("more"));
+$color-primary-light:          mix($color-primary, white, color-variation-ratio("little"));
+$color-primary-dark:           mix($color-primary, black, color-variation-ratio("little"));
+$color-primary-darker:         mix($color-primary, black, color-variation-ratio("more"));
+$color-primary-darkest:        mix($color-primary, black, color-variation-ratio("most"));
 
-$color-secondary-lightest:     mix($color-secondary, white, $color-variation-ratio-most);
-$color-secondary-lighter:      mix($color-secondary, white, $color-variation-ratio-more);
-$color-secondary-light:        mix($color-secondary, white, $color-variation-ratio);
-$color-secondary-dark:         mix($color-secondary, black, $color-variation-ratio);
-$color-secondary-darker:       mix($color-secondary, black, $color-variation-ratio-more);
-$color-secondary-darkest:      mix($color-secondary, black, $color-variation-ratio-most);
+$color-secondary-lightest:     mix($color-secondary, white, color-variation-ratio("most"));
+$color-secondary-lighter:      mix($color-secondary, white, color-variation-ratio("more"));
+$color-secondary-light:        mix($color-secondary, white, color-variation-ratio("little"));
+$color-secondary-dark:         mix($color-secondary, black, color-variation-ratio("little"));
+$color-secondary-darker:       mix($color-secondary, black, color-variation-ratio("more"));
+$color-secondary-darkest:      mix($color-secondary, black, color-variation-ratio("most"));
 
-$color-ternary-lightest:       mix($color-ternary, white, $color-variation-ratio-most);
-$color-ternary-lighter:        mix($color-ternary, white, $color-variation-ratio-more);
-$color-ternary-light:          mix($color-ternary, white, $color-variation-ratio);
-$color-ternary-dark:           mix($color-ternary, black, $color-variation-ratio);
-$color-ternary-darker:         mix($color-ternary, black, $color-variation-ratio-more);
-$color-ternary-darkest:        mix($color-ternary, black, $color-variation-ratio-most);
+$color-ternary-lightest:       mix($color-ternary, white, color-variation-ratio("most"));
+$color-ternary-lighter:        mix($color-ternary, white, color-variation-ratio("more"));
+$color-ternary-light:          mix($color-ternary, white, color-variation-ratio("little"));
+$color-ternary-dark:           mix($color-ternary, black, color-variation-ratio("little"));
+$color-ternary-darker:         mix($color-ternary, black, color-variation-ratio("more"));
+$color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio("most"));
 
 
 ///////////////////////////////////////////////////////////////////////////////
