@@ -117,10 +117,15 @@ blockquote {
 
 // Styleguide color blocks
 
+.sg-colors {
+  font-size: 0;
+}
+
 .sg-color {
+  font-size: $fontsize-base;
   display: inline-block;
-  width: 10%;
-  padding: $gutter;
+  width: (100% / 8);
+  padding: $gutter-double $gutter;  // lucky :)
   color: white;
   @include shadow(1);
   transition: box-shadow 0.125s;
@@ -131,7 +136,7 @@ blockquote {
 
   &.bg-gray,
   &[class$='ary'] {
-    width: 20%;
+    width: (100% / 4);
   }
 
   &[class$='lightest'],
