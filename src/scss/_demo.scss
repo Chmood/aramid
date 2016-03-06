@@ -186,6 +186,7 @@ blockquote {
   width: (100% / 8);
   padding: $gutter-double $gutter;  // lucky :)
   color: white;
+  text-transform: uppercase;
   @include shadow(1);
   transition: box-shadow 0.125s;
 
