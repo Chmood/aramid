@@ -9,7 +9,8 @@ $prefix:                  "" !default;
 $generate-classes:        true !default;
 
 $debug:										true !default;
-$debug-vrhythm-bg-color: 	#ff8888 !default;
+$debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
+$debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 
 $fontsizes: (
 	'smaller': 							12,
@@ -85,17 +86,32 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 
 	@if $debug {
 
-    // Line at bottom
-    background-image: repeating-linear-gradient( 0deg,
-    $debug-vrhythm-bg-color,
-    $debug-vrhythm-bg-color 1px,
-    transparent 1px,
-    transparent
-    );
+		@if $debug-vrhythm-bg-type == "lines" {
 
-    background-size: 100% $gutter;
-    padding-top: ($gutter * 2);
-    padding-bottom: ($gutter * 2);
+			// Line at bottom
+			background-image: repeating-linear-gradient( 0deg,
+			$debug-vrhythm-bg-color,
+			$debug-vrhythm-bg-color 1px,
+			transparent 1px,
+			transparent
+			);
+
+			background-size: 100% $gutter;
+		}
+
+		@elseif $debug-vrhythm-bg-type == "stripes" {
+
+			// Even stripes
+			background-image: repeating-linear-gradient( 0deg,
+			$debug-vrhythm-bg-color,
+			$debug-vrhythm-bg-color $gutter,
+			transparent $gutter,
+			transparent
+			);
+
+			background-size: 100% $gutter-double;
+		}
+
   }
 }
 
