@@ -79,6 +79,13 @@ blockquote {
   box-shadow: inset 8px 0 0 0 $color-gray;
 }
 
+.wrap--content {
+  .grid,
+  pre {
+    margin-top: $gutter;
+  }
+}
+
 
 /////////////////////////////////////////////////////////////////
 // WRAP
