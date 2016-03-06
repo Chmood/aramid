@@ -1,0 +1,47 @@
+/******************************************************************************
+ * DEMO - STYLEGUIDE
+ ******************************************************************************/
+
+// Styleguide color blocks
+
+.sg-colors {
+  font-size: 0;
+}
+
+.sg-color {
+  font-size: $fontsize-base;
+  display: inline-block;
+  width: (100% / 8);
+  padding: $gutter-double $gutter;  // lucky :)
+  color: white;
+  text-transform: uppercase;
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+
+  &:hover {
+    @include shadow(3);
+  }
+
+  &.bg-gray,
+  &[class$='ary'] {
+    width: (100% / 4);
+  }
+
+  &[class$='lightest'],
+  &[class$='lighter'],
+  &[class$='light'] {
+    color: black;
+  }
+}
+
+// Styleguide demo-cell
+
+.demo-cell {
+  background: #333;
+  color: #eee;
+  text-align: center;
+  @include v-rhythm(16);
+  padding: ($gutter);
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}

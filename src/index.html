@@ -17,7 +17,7 @@
 			<div class="container">
 				<nav class="navbar">
 					<ul class="grid grid--fit">
-						<li><a class="site-logo" href="/">Aramid CSS</a></li>
+						<li class="site-logo cell--fill"><a href="/">Aramid<span>.css<span></a></li>
 						<li><a href="/dev">Home</a></li>
 						<!-- <li><a href="doc.html">DOC</a></li> -->
 						<li><a href="#colors">Colors</a></li>
@@ -25,6 +25,7 @@
 						<li><a href="#grid">Grid</a></li>
 						<li><a href="#wrap">Wrap</a></li>
 						<li><a href="#patterns">Patterns</a></li>
+						<li class="hamburger"><button>menu <i class="fa fa-bars"></i></button></li>
 					</ul>
 				</nav>
 			</div>
@@ -32,729 +33,721 @@
 
 		<!-- MAIN CONTENT -->
 
-		<div class="wrap wrap--hero">
-			<div class="container hero">
-				<h1 class="title">Aramid CSS</h1>
-				<div class="title-subline">Flavoured but solid Sass framework</div>
+		<div class="wrap wrap--content">
+
+			<div class="wrap wrap--hero">
+				<div class="container hero">
+					<h1 class="title">Aramid CSS</h1>
+					<div class="title-subline">Flavoured but solid Sass framework</div>
+				</div>
 			</div>
-		</div>
 
-		<div class="wrap wrap--main sticky-footer-filler">
+			<div class="wrap wrap--main sticky-footer-filler">
 
 
-			<div class="container">
+				<div class="container">
 
-				<!-- COLORS -->
+					<!-- COLORS -->
 
-				<h1 class="section-title" id="colors">Aramid Colors</h1>
+					<h1 class="section-title" id="colors">Aramid Colors</h1>
 
-				<h2>Gray</h2>
-				<p class="sg-colors">
-					<span class="sg-color bg-gray-lightest">lightest</span>
-					<span class="sg-color bg-gray-lighter">lighter</span>
-					<span class="sg-color bg-gray-light">light</span>
-					<span class="sg-color bg-gray">normal</span>
-					<span class="sg-color bg-gray-dark">dark</span>
-					<span class="sg-color bg-gray-darker">darker</span>
-					<span class="sg-color bg-gray-darkest">darkest</span>
-				</p>
+					<h2>Gray</h2>
+					<p class="sg-colors">
+						<span class="sg-color bg-gray-lightest">lightest</span>
+						<span class="sg-color bg-gray-lighter">lighter</span>
+						<span class="sg-color bg-gray-light">light</span>
+						<span class="sg-color bg-gray">normal</span>
+						<span class="sg-color bg-gray-dark">dark</span>
+						<span class="sg-color bg-gray-darker">darker</span>
+						<span class="sg-color bg-gray-darkest">darkest</span>
+					</p>
 
-				<h2>Primary color</h2>
-				<p class="sg-colors">
-					<span class="sg-color bg-primary-lightest">lightest</span>
-					<span class="sg-color bg-primary-lighter">lighter</span>
-					<span class="sg-color bg-primary-light">light</span>
-					<span class="sg-color bg-primary">normal</span>
-					<span class="sg-color bg-primary-dark">dark</span>
-					<span class="sg-color bg-primary-darker">darker</span>
-					<span class="sg-color bg-primary-darkest">darkest</span>
-				</p>
+					<h2>Primary color</h2>
+					<p class="sg-colors">
+						<span class="sg-color bg-primary-lightest">lightest</span>
+						<span class="sg-color bg-primary-lighter">lighter</span>
+						<span class="sg-color bg-primary-light">light</span>
+						<span class="sg-color bg-primary">normal</span>
+						<span class="sg-color bg-primary-dark">dark</span>
+						<span class="sg-color bg-primary-darker">darker</span>
+						<span class="sg-color bg-primary-darkest">darkest</span>
+					</p>
 
-				<h2>Secondary color</h2>
-				<p class="sg-colors">
-					<span class="sg-color bg-secondary-lightest">lightest</span>
-					<span class="sg-color bg-secondary-lighter">lighter</span>
-					<span class="sg-color bg-secondary-light">light</span>
-					<span class="sg-color bg-secondary">normal</span>
-					<span class="sg-color bg-secondary-dark">dark</span>
-					<span class="sg-color bg-secondary-darker">darker</span>
-					<span class="sg-color bg-secondary-darkest">darkest</span>
-				</p>
+					<h2>Secondary color</h2>
+					<p class="sg-colors">
+						<span class="sg-color bg-secondary-lightest">lightest</span>
+						<span class="sg-color bg-secondary-lighter">lighter</span>
+						<span class="sg-color bg-secondary-light">light</span>
+						<span class="sg-color bg-secondary">normal</span>
+						<span class="sg-color bg-secondary-dark">dark</span>
+						<span class="sg-color bg-secondary-darker">darker</span>
+						<span class="sg-color bg-secondary-darkest">darkest</span>
+					</p>
 
-				<h2>Ternary color</h2>
-				<p class="sg-colors">
-					<span class="sg-color bg-ternary-lightest">lightest</span>
-					<span class="sg-color bg-ternary-lighter">lighter</span>
-					<span class="sg-color bg-ternary-light">light</span>
-					<span class="sg-color bg-ternary">normal</span>
-					<span class="sg-color bg-ternary-dark">dark</span>
-					<span class="sg-color bg-ternary-darker">darker</span>
-					<span class="sg-color bg-ternary-darkest">darkest</span>
-				</p>
+					<h2>Ternary color</h2>
+					<p class="sg-colors">
+						<span class="sg-color bg-ternary-lightest">lightest</span>
+						<span class="sg-color bg-ternary-lighter">lighter</span>
+						<span class="sg-color bg-ternary-light">light</span>
+						<span class="sg-color bg-ternary">normal</span>
+						<span class="sg-color bg-ternary-dark">dark</span>
+						<span class="sg-color bg-ternary-darker">darker</span>
+						<span class="sg-color bg-ternary-darkest">darkest</span>
+					</p>
 
-				<!-- TYPE -->
+					<!-- TYPE -->
 
-				<h1 class="section-title" id="type">Aramid Type</h1>
+					<h1 class="section-title" id="type">Aramid Type</h1>
 
-				<div class="grid grid--gutter">
-					<div>
+					<div class="grid grid--gutter">
+						<div>
 
-						<h2>Headings</h2>
+							<h2>Headings</h2>
 
-						<h3>H1</h3>
-						<div class="headings">
+							<h3>H1</h3>
 							<h1>Lorem ipsum</h1>
 							<h1>Dolor sit amet<br> consectetur</h1>
-						</div>
 
-						<h3>H2</h3>
-						<div class="headings">
+							<h3>H2</h3>
 							<h2>Adipiscing elit</h2>
 							<h2>Pellentesque<br> consequat</h2>
-						</div>
 
-						<h3>H3</h3>
-						<div class="headings">
+							<h3>H3</h3>
 							<h3>Pellentesque consequat</h3>
 							<h3>consectetur<br> Diam nec</h3>
-						</div>
 
-						<h3>H4</h3>
-						<div class="headings">
+							<h3>H4</h3>
 							<h4>Posuere leo. Ut magna.</h4>
 							<h4>Ut magna nisl<br> tristique ac ultricies vitae</h4>
-						</div>
 
-						<h3>H5</h3>
-						<div class="headings">
+							<h3>H5</h3>
 							<h5>Vehicula in turpis quisque</h5>
 							<h5>In rhoncus nulla<br> Nec interdum magna</h5>
-						</div>
 
-						<h3>H6</h3>
-						<div class="headings">
+							<h3>H6</h3>
 							<h6>Proin sit amet rutrum orci</h6>
 							<h6>Sed commodo enim eu est aliquam<br> Sed sollicitudin massa fermentum</h6>
+
 						</div>
+						<div>
+
+							<h2>Text</h2>
+							<!-- TODO: BUG on big fontsize
+							<h3>Insane</h3>
+							<p class="insane-text">
+							Maecenas pharetra magna ac dui pulvinar.
+							</p>
+
+							<h3>Giant</h3>
+							<p class="giant-text">
+								Suspendisse tempor tellus libero, vel molestie mi molestie vitae.
+							</p>
+							-->
+
+							<h3>Huge</h3>
+							<p class="huge-text">
+								Curabitur vulputate purus arcu. Praesent id convallis est. Phasellus fermentum dui a diam fringilla.
+							</p>
+
+							<h3>Biggest</h3>
+							<p class="biggest-text">
+								Eu mollis diam pulvinar non. Nulla gravida id magna non porttitor. Fusce semper tincidunt urna blandit ultricies.
+							</p>
+
+							<h3>Bigger</h3>
+							<p class="bigger-text">
+								Proin eu vehicula sem. Integer ullamcorper enim risus, non tincidunt nibh porta vel. Morbi posuere volutpat leo.
+							</p>
+
+							<h3>Big</h3>
+							<p class="big-text">
+								Sodales euismod leo tellus a urna. Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin vitae ex erat. Vivamus mattis metus mi, vitae ornare augue maximus non.
+							</p>
+
+							<h3>Normal</h3>
+							<p class="">
+								Vestibulum non pellentesque eros. Ut convallis nibh nec purus euismod rutrum. Nam sagittis, ante a accumsan porttitor.
+							</p>
+							<p class="">
+								Aliquam erat volutpat. Praesent fringilla ac ex ut accumsan. Metus ligula porta ante. Praesent bibendum nisi ut tellus facilisis, a vestibulum tortor commodo.
+							</p>
+
+							<h3>Small</h3>
+							<p class="small-text">
+								Quisque non pharetra felis. Etiam in aliquet erat. Suspendisse potenti. Pellentesque consectetur, sapien ut auctor tincidunt, turpis purus volutpat risus, ut euismod dui nunc accumsan felis. Pellentesque quis tristique erat. Nunc at varius diam.
+							</p>
+
+							<h3>Smaller</h3>
+							<p class="smaller-text">
+								Aliquam erat volutpat. Praesent fringilla ac ex ut accumsan. Aliquam sit amet nisl et libero vestibulum fringilla eu sit amet tortor. Sed sed sollicitudin lectus. Praesent pulvinar nisl lectus, vel fringilla mi faucibus. Nulla aliquet maximus arcu, eget cursus justo rhoncus vel. Vivamus vehicula erat at ornare ultricies.
+							</p>
 
-					</div>
-					<div>
-
-						<h2>Text</h2>
-						<!--
-						<h3>Insane</h3>
-						<p class="insane-text">
-						Maecenas pharetra magna ac dui pulvinar.
-						</p>
-
-						<h3>Giant</h3>
-						<p class="giant-text">
-							Suspendisse tempor tellus libero, vel molestie mi molestie vitae.
-						</p>
-						-->
-
-						<h3>Huge</h3>
-						<p class="huge-text">
-							Curabitur vulputate purus arcu. Praesent id convallis est. Phasellus fermentum dui a diam fringilla.
-						</p>
-
-						<h3>Biggest</h3>
-						<p class="biggest-text">
-							Eu mollis diam pulvinar non. Nulla gravida id magna non porttitor. Fusce semper tincidunt urna blandit ultricies.
-						</p>
-
-						<h3>Bigger</h3>
-						<p class="bigger-text">
-							Proin eu vehicula sem. Integer ullamcorper enim risus, non tincidunt nibh porta vel. Morbi posuere volutpat leo.
-						</p>
-
-						<h3>Big</h3>
-						<p class="big-text">
-							Sodales euismod leo tellus a urna. Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin vitae ex erat. Vivamus mattis metus mi, vitae ornare augue maximus non.
-						</p>
-
-						<h3>Normal</h3>
-						<p class="">
-							Vestibulum non pellentesque eros. Ut convallis nibh nec purus euismod rutrum. Nam sagittis, ante a accumsan porttitor.
-						</p>
-						<p class="">
-							Aliquam erat volutpat. Praesent fringilla ac ex ut accumsan. Metus ligula porta ante. Praesent bibendum nisi ut tellus facilisis, a vestibulum tortor commodo.
-						</p>
-
-						<h3>Small</h3>
-						<p class="small-text">
-							Quisque non pharetra felis. Etiam in aliquet erat. Suspendisse potenti. Pellentesque consectetur, sapien ut auctor tincidunt, turpis purus volutpat risus, ut euismod dui nunc accumsan felis. Pellentesque quis tristique erat. Nunc at varius diam.
-						</p>
-
-						<h3>Smaller</h3>
-						<p class="smaller-text">
-							Aliquam erat volutpat. Praesent fringilla ac ex ut accumsan. Aliquam sit amet nisl et libero vestibulum fringilla eu sit amet tortor. Sed sed sollicitudin lectus. Praesent pulvinar nisl lectus, vel fringilla mi faucibus. Nulla aliquet maximus arcu, eget cursus justo rhoncus vel. Vivamus vehicula erat at ornare ultricies.
-						</p>
-
-					</div>
-				</div>
-
-
-				<h2>Misc</h2>
-
-				<h3>List</h3>
-				<ul>
-					<li>Item 1</li>
-					<li>Item 2</li>
-					<li>Item 3</li>
-				</ul>
-
-				<h3>Blockquote</h3>
-				<blockquote>Proin posuere, lacus a euismod bibendum, nisl ipsum eleifend nibh, ac pulvinar leo nunc suscipit ex.</blockquote>
-
-
-				<!-- GRID -->
-
-				<h1 class="section-title" id="grid">Aramid Grid</h1>
-
-				<blockquote>
-					Hi! <br>
-					Grids with flexbox are awesome, just have a look!
-				</blockquote>
-
-				<h2>Size</h2>
-
-				<!-- . -->
-
-				<h3>Fill (default)</h3>
-
-				<p>[C] <code>.grid--fill</code> <code>.cell--fill</code></p>
-				<p class="fade">CSS <code>flex-grow: 1;</code></p>
-
-				<blockquote>
-					We all share the same room.
-				</blockquote>
-
-				<p>Each cell has the same size, depending on the numbers of cells in the grid.<br>This is the cell default behaviour, which can be triggered with the <code>--fill</code> modifier, in case of overiding.</p>
-
-				<div class="grid">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid"&gt;
-	&lt;div&gt;Foo&lt;/div&gt;
-	&lt;div&gt;Bar&lt;/div&gt;
-	&lt;div&gt;Baz&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-				<div class="grid">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-					<div><div class="demo-cell" style="background: #444;">Boo</div></div>
-					<div><div class="demo-cell">Faz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid"&gt;
-	&lt;div&gt;Foo&lt;/div&gt;
-	&lt;div&gt;Bar&lt;/div&gt;
-	&lt;div&gt;Baz&lt;/div&gt;
-	&lt;div&gt;Boo&lt;/div&gt;
-	&lt;div&gt;Faz&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<!-- . -->
-
-				<h3>Fit</h3>
-				<p>[C] <code>.grid--fit</code> <code>.cell--fit</code></p>
-				<p class="fade">CSS <code>flex: none;</code></p>
-
-				<blockquote>
-					Don't take more than a mouthful.
-				</blockquote>
-
-				<p>Each cell take minimal amount of space allowing to fit its content.<br>This can be triggered with the <code>--fit</code> modifier.</p>
-
-				<div class="grid grid--fit">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--fit"&gt;
-	&lt;!-- 3 cells --&gt;
-&lt;/div&gt;</code></pre>
-
-				<div class="grid">
-					<div class="cell--fit"><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div class="cell--fit"><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid"&gt;
-	&lt;div class="cell--fit"&gt;Foo&lt;/div&gt;
-	&lt;div&gt;Bar&lt;/div&gt;
-	&lt;div class="cell--fit"&gt;Baz&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<!-- . -->
-
-				<h3>Full</h3>
-				<p>[C] <code>.grid--full</code> <code>.cell--full</code></p>
-				<p class="fade">CSS <code>flex: 0 0 100%;</code></p>
-
-				<blockquote>
-					The story of the Cell who wanted to be as big as a Row.
-				</blockquote>
-
-				<p>Each cell take 100% width.<br>This can be triggered with the <code>--full</code> modifier.</p>
-				<p class="fade">This make a nice stack for mobile first!</p>
-
-				<div class="grid grid--full">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--full"&gt;
-	&lt;!-- ... --&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<!-- . -->
-
-				<h3>Size by fraction</h3>
-				<p>[C] <code>.grid--4</code> <code>.cell--2on3</code></p>
-				<p class="fade">CSS <code>flex: 0 0 75%;</code></p>
-
-				<blockquote>
-					Any number of `columns`, anywhere&hellip;
-				</blockquote>
-
-				<h4>Grid fraction sizing</h4>
-
-				<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>grid--{n}</code> modifier, where <code>n</code> is the column total number.</p>
-				<p class="fade">Too many cells will cause the grid to wrap on more than one raw!</p>
-				<p class="fade">But this is also where the overflow pattern happens!</p>
-
-				<div class="grid grid--4">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell">Foo</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--4"&gt;
-	&lt;!-- 6 cells --&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<h4>Cell fraction sizing</h4>
-
-				<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>cell--{m}on{n}</code> modifier, where <code>n</code> is the column total number, and <code>m</code> is the desired width in columns.</p>
-
-				<div class="grid grid--3">
-					<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-					<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--3"&gt;
-	&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
-	&lt;div&gt;Bar&lt;/div&gt;
-	&lt;div&gt;Bar&lt;/div&gt;
-	&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-
-
-				<h2>Align</h2>
-
-				<!-- . -->
-
-				<h3>Cell alignment</h3>
-
-				<blockquote>
-					Vertical align, made easy<br>
-				</blockquote>
-
-				<div class="grid">
-					<div class="cell--bottom"><div class="demo-cell">.cell--bottom</div></div>
-					<div><div class="demo-cell">Bar<br>is<br>quite<br>quite<br>long</div></div>
-					<div class="cell--middle"><div class="demo-cell">.cell--middle</div></div>
-					<div class="cell--top"><div class="demo-cell">.cell--top</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
-	&lt;div class="cell--bottom"&gt;...&lt;/div&gt;
-	&lt;div class=""&gt;...&lt;/div&gt;
-	&lt;div class="cell--middle"&gt;...&lt;/div&gt;
-	&lt;div class="cell--top"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<blockquote>
-					And horizontal too<br>
-				</blockquote>
-
-				<div class="grid grid--3 grid--center">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-				</div>
-
-				<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--3 grid--center"&gt;
-	&lt;!-- &hellip; --&gt;
-&lt;/div&gt;</code></pre>
-
-
-				<h2>Gutters</h2>
-
-				<blockquote>
-					You got inner gutter...<br>
-				</blockquote>
-
-				<div class="grid grid--gutter">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
-	&lt;!-- &hellip; --&gt;
-&lt;/div&gt;</code></pre>
-
-				<blockquote>
-					...and outer gutter...<br>
-				</blockquote>
-
-				<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--outer-gutter"&gt;
-	&lt;!-- &hellip; --&gt;
-&lt;/div&gt;</code></pre>
-
-				<blockquote>
-					...and both, of course!<br>
-				</blockquote>
-
-				<div class="grid grid--gutter grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-
-		<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--outer-gutter"&gt;
-	&lt;!-- &hellip; --&gt;
-&lt;/div&gt;</code></pre>
-
-				<blockquote>
-					Grids comes together well.<br>
-				</blockquote>
-
-				<div style="background: salmon">content</div>
-				<div class="grid grid--gutter">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-				<div class="grid grid--gutter">
-					<div><div class="demo-cell">Foo</div></div>
-					<div><div class="demo-cell">Bar</div></div>
-					<div><div class="demo-cell">Baz</div></div>
-				</div>
-				<div style="background: salmon">content</div>
-
-				<h3>Nested grids</h3>
-
-				<blockquote>
-					Grids can be nested forever
-				</blockquote>
-
-				<div class="grid grid--gutter">
-					<div class="cell--2of3 cell--middle">
-						<div class="grid grid--gutter grid--3 grid--center">
-							<div class="cell--2of3">
-								<div class="demo-cell">1</div>
-							</div>
-							<div>
-								<div class="demo-cell">2</div>
-							</div>
-							<div>
-								<div class="demo-cell">3</div>
-							</div>
-							<div class="cell--2of3">
-								<div class="demo-cell">4</div>
-							</div>
-							<div>
-								<div class="demo-cell">5</div>
-							</div>
-							<div>
-								<div class="demo-cell">6</div>
-							</div>
 						</div>
 					</div>
-					<div class="cell--1of3">
-						<div class="grid">
-							<div class="cell--full">
-								<div class="demo-cell">NO<br>GUTTER<br>AT ALL</div>
-								<div class="demo-cell">DOLOR<br>SIT<br>AMET</div>
-							</div>
-							<div class="cell--1of3">
-								<div class="demo-cell">1</div>
-							</div>
-							<div class="cell--1of3">
-								<div class="demo-cell">2</div>
-							</div>
-							<div class="cell--1of3">
-								<div class="demo-cell">3</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<h2>Dont bloat my markup!</h2>
 
-				<blockquote>
-					Same can be achieved with mixins<br>
-				</blockquote>
+					<h2>Misc</h2>
 
-		<pre><code class="language-scss">.grid {
-	@include grid("gutter center");
-}
+					<h3>List</h3>
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+					</ul>
 
-.cell {
-	@include cell("");
-}
-		</code></pre>
+					<h3>Blockquote</h3>
+					<blockquote>Proin posuere, lacus a euismod bibendum, nisl ipsum eleifend nibh, ac pulvinar leo nunc suscipit ex.</blockquote>
 
-				<h2>Vertical grid</h2>
 
-				<blockquote>
-					So easy to make it vertical!<br>
-				</blockquote>
+					<!-- GRID -->
 
-				<div class="grid grid--vertical" style="min-height: 48rem; background: #ddd">
-					<div>
+					<h1 class="section-title" id="grid">Aramid Grid</h1>
+
+					<blockquote>
+						Hi! <br>
+						Grids with flexbox are awesome, just have a look!
+					</blockquote>
+
+					<h2>Size</h2>
+
+					<!-- . -->
+
+					<h3>Fill (default)</h3>
+
+					<p>[C] <code>.grid--fill</code> <code>.cell--fill</code></p>
+					<p class="fade">CSS <code>flex-grow: 1;</code></p>
+
+					<blockquote>
+						We all share the same room.
+					</blockquote>
+
+					<p>Each cell has the same size, depending on the numbers of cells in the grid.<br>This is the cell default behaviour, which can be triggered with the <code>--fill</code> modifier, in case of overiding.</p>
+
+					<div class="grid">
 						<div><div class="demo-cell">Foo</div></div>
-					</div>
-					<div>
-						<div><div class="demo-cell">Bar</div></div>
-					</div>
-					<div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
 						<div><div class="demo-cell">Baz</div></div>
 					</div>
-				</div>
-				<pre><code class="language-markup">&lt;div class="grid grid--vertical"&gt;
-	&lt;!-- &hellip; --&gt;
-&lt;/div&gt;</code></pre>
 
+			<pre><code class="language-markup">&lt;div class="grid"&gt;
+		&lt;div&gt;Foo&lt;/div&gt;
+		&lt;div&gt;Bar&lt;/div&gt;
+		&lt;div&gt;Baz&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
 
-				<h2>Responsive grid</h2>
-
-				<blockquote>
-					Resize your browser to see it in action
-				</blockquote>
-
-				<div class="grid grid--gutter grid--responsive">
-					<div class="cell--s-1of2 cell--l-2of3">
-						<div class="demo-cell"></div>
+					<div class="grid">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="demo-cell" style="background: #444;">Boo</div></div>
+						<div><div class="demo-cell">Faz</div></div>
 					</div>
-					<div class="cell--s-1of2 cell--l-1of3">
-						<div class="demo-cell"></div>
+
+			<pre><code class="language-markup">&lt;div class="grid"&gt;
+		&lt;div&gt;Foo&lt;/div&gt;
+		&lt;div&gt;Bar&lt;/div&gt;
+		&lt;div&gt;Baz&lt;/div&gt;
+		&lt;div&gt;Boo&lt;/div&gt;
+		&lt;div&gt;Faz&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<!-- . -->
+
+					<h3>Fit</h3>
+					<p>[C] <code>.grid--fit</code> <code>.cell--fit</code></p>
+					<p class="fade">CSS <code>flex: none;</code></p>
+
+					<blockquote>
+						Don't take more than a mouthful.
+					</blockquote>
+
+					<p>Each cell take minimal amount of space allowing to fit its content.<br>This can be triggered with the <code>--fit</code> modifier.</p>
+
+					<div class="grid grid--fit">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
 					</div>
-				</div>
 
-				<div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
-					<div><div class="demo-cell"></div></div>
-					<div><div class="demo-cell"></div></div>
-					<div class="cell--full">
-						<div class="demo-cell"></div>
+			<pre><code class="language-markup">&lt;div class="grid grid--fit"&gt;
+		&lt;!-- 3 cells --&gt;
+	&lt;/div&gt;</code></pre>
+
+					<div class="grid">
+						<div class="cell--fit"><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div class="cell--fit"><div class="demo-cell">Baz</div></div>
 					</div>
-					<div><div class="demo-cell"></div></div>
-					<div><div class="demo-cell"></div></div>
-					<div><div class="demo-cell"></div></div>
-					<div><div class="demo-cell"></div></div>
-					<div><div class="demo-cell"></div></div>
-				</div>
+
+			<pre><code class="language-markup">&lt;div class="grid"&gt;
+		&lt;div class="cell--fit"&gt;Foo&lt;/div&gt;
+		&lt;div&gt;Bar&lt;/div&gt;
+		&lt;div class="cell--fit"&gt;Baz&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
 
 
-				<!-- WRAP -->
+					<!-- . -->
 
-				<h1 class="section-title" id="wrap">Aramid Wrap</h1>
+					<h3>Full</h3>
+					<p>[C] <code>.grid--full</code> <code>.cell--full</code></p>
+					<p class="fade">CSS <code>flex: 0 0 100%;</code></p>
 
-				<blockquote>
-					Hey! <br>
-					Aramid CSS also includes a responsive site-wrapper component!
-				</blockquote>
+					<blockquote>
+						The story of the Cell who wanted to be as big as a Row.
+					</blockquote>
 
-				<h2>Taxonomy</h2>
+					<p>Each cell take 100% width.<br>This can be triggered with the <code>--full</code> modifier.</p>
+					<p class="fade">This make a nice stack for mobile first!</p>
 
-				<p>
-					Here is the site structure :
-				</p>
-				<ul>
-					<li><code>body</code> Parent of all things</li>
-					<li><code>.site-wrap</code> This is the main site wrapper</li>
-					<li><code>.wrap</code> One chunk of content (may be 100% width)</li>
-					<li><code>.container</code> The main `column` of content, constrained width</li>
-					<li><em>&hellip;your content&hellip;</em> Here comes your stuff (or grid things)</li>
-				</ul>
-
-		<pre><code class="language-markup">&lt;body&gt;
-	&lt;div class="wrap-site"&gt;
-		&lt;div class="wrap"&gt;
-			&lt;div class="container"&gt;
-				&lt;!-- &hellip;your content&hellip; --&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="wrap"&gt;
-			&lt;div class="container"&gt;
-				&lt;!-- &hellip;your content&hellip; --&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;!-- more wrap's --&gt;
-	&lt;/div&gt;
-&lt;/body&gt;</code></pre>
-
-
-				<h2>Classes</h2>
-
-
-				<h3>Wrapper</h3>
-
-				<h4>--fit</h4>
-
-				<p>[C] <code>.wrap-site--fit</code></p>
-				<p>[M] <code>@include wrap-site('fit')</code></p>
-
-				<h4>--fit-container</h4>
-
-				<p>[C] <code>.wrap-site--fit-container</code></p>
-				<p>[M] <code>@include wrap-site('fit-container')</code></p>
-
-				<h4>--sticky-footer</h4>
-
-				<p>[C] <code>.wrap-site--sticky-footer</code></p>
-				<p>[M] <code>@include wrap-site('sticky-footer')</code></p>
-
-				<!-- <p class="fade">CSS <code>flex-grow: 1;</code></p> -->
-
-				<h3>Wrap</h3>
-
-				<h4>--sticky-footer-filler</h4>
-
-				<p>[C] <code>.sticky-footer-filler</code></p>
-				<p>[M] <code>@include sticky-footer-filler()</code></p>
-
-				<h3>Container</h3>
-
-				<h4>.container (base class)</h4>
-
-				<p>[C] <code>.container</code></p>
-				<p>[M] <code>@include container()</code></p>
-
-		<!--  -->
-
-
-				<h1 class="section-title" id="patterns">Flex patterns</h1>
-
-				<h3>Media object</h3>
-
-				<div class="grid grid--gutter">
-					<div class="cell--fit">
-						<img src="http://placehold.it/100x100" alt="">
+					<div class="grid grid--full">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
 					</div>
-					<div>
-						<h4 style="margin-top: 0">Media object title</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-					</div>
-				</div>
 
-				<div class="grid grid--gutter">
-					<div class="cell--fit">
-						<img src="http://placehold.it/100x100" alt="">
+			<pre><code class="language-markup">&lt;div class="grid grid--full"&gt;
+		&lt;!-- ... --&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<!-- . -->
+
+					<h3>Size by fraction</h3>
+					<p>[C] <code>.grid--4</code> <code>.cell--2on3</code></p>
+					<p class="fade">CSS <code>flex: 0 0 75%;</code></p>
+
+					<blockquote>
+						Any number of `columns`, anywhere&hellip;
+					</blockquote>
+
+					<h4>Grid fraction sizing</h4>
+
+					<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>grid--{n}</code> modifier, where <code>n</code> is the column total number.</p>
+					<p class="fade">Too many cells will cause the grid to wrap on more than one raw!</p>
+					<p class="fade">But this is also where the overflow pattern happens!</p>
+
+					<div class="grid grid--4">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell">Foo</div></div>
 					</div>
-					<div>
-						<h4 style="margin-top: 0">Media object title</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
-						<div class="grid grid--gutter">
-							<div class="cell--fit">
-								<img src="http://placehold.it/100x100" alt="">
+
+			<pre><code class="language-markup">&lt;div class="grid grid--4"&gt;
+		&lt;!-- 6 cells --&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<h4>Cell fraction sizing</h4>
+
+					<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>cell--{m}on{n}</code> modifier, where <code>n</code> is the column total number, and <code>m</code> is the desired width in columns.</p>
+
+					<div class="grid grid--3">
+						<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+						<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
+					</div>
+
+			<pre><code class="language-markup">&lt;div class="grid grid--3"&gt;
+		&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
+		&lt;div&gt;Bar&lt;/div&gt;
+		&lt;div&gt;Bar&lt;/div&gt;
+		&lt;div class="cell--2of3"&gt;Foo 2/3&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+
+
+
+					<h2>Align</h2>
+
+					<!-- . -->
+
+					<h3>Cell alignment</h3>
+
+					<blockquote>
+						Vertical align, made easy<br>
+					</blockquote>
+
+					<div class="grid">
+						<div class="cell--bottom"><div class="demo-cell">.cell--bottom</div></div>
+						<div><div class="demo-cell">Bar<br>is<br>quite<br>quite<br>long</div></div>
+						<div class="cell--middle"><div class="demo-cell">.cell--middle</div></div>
+						<div class="cell--top"><div class="demo-cell">.cell--top</div></div>
+					</div>
+
+			<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
+		&lt;div class="cell--bottom"&gt;...&lt;/div&gt;
+		&lt;div class=""&gt;...&lt;/div&gt;
+		&lt;div class="cell--middle"&gt;...&lt;/div&gt;
+		&lt;div class="cell--top"&gt;...&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<blockquote>
+						And horizontal too<br>
+					</blockquote>
+
+					<div class="grid grid--3 grid--center">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+					</div>
+
+					<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--3 grid--center"&gt;
+		&lt;!-- &hellip; --&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<h2>Gutters</h2>
+
+					<blockquote>
+						You got inner gutter...<br>
+					</blockquote>
+
+					<div class="grid grid--gutter">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+					</div>
+
+			<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
+		&lt;!-- &hellip; --&gt;
+	&lt;/div&gt;</code></pre>
+
+					<blockquote>
+						...and outer gutter...<br>
+					</blockquote>
+
+					<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+					</div>
+
+			<pre><code class="language-markup">&lt;div class="grid grid--outer-gutter"&gt;
+		&lt;!-- &hellip; --&gt;
+	&lt;/div&gt;</code></pre>
+
+					<blockquote>
+						...and both, of course!<br>
+					</blockquote>
+
+					<div class="grid grid--gutter grid--outer-gutter" style="background: rgba(0,0,0,.125);">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+					</div>
+
+			<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--outer-gutter"&gt;
+		&lt;!-- &hellip; --&gt;
+	&lt;/div&gt;</code></pre>
+
+					<blockquote>
+						Grids comes together well.<br>
+					</blockquote>
+
+					<div style="background: salmon">content</div>
+					<div class="grid grid--gutter">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+					</div>
+					<div class="grid grid--gutter">
+						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="demo-cell">Baz</div></div>
+					</div>
+					<div style="background: salmon">content</div>
+
+					<h3>Nested grids</h3>
+
+					<blockquote>
+						Grids can be nested forever
+					</blockquote>
+
+					<div class="grid grid--gutter">
+						<div class="cell--2of3 cell--middle">
+							<div class="grid grid--gutter grid--3 grid--center">
+								<div class="cell--2of3">
+									<div class="demo-cell">1</div>
+								</div>
+								<div>
+									<div class="demo-cell">2</div>
+								</div>
+								<div>
+									<div class="demo-cell">3</div>
+								</div>
+								<div class="cell--2of3">
+									<div class="demo-cell">4</div>
+								</div>
+								<div>
+									<div class="demo-cell">5</div>
+								</div>
+								<div>
+									<div class="demo-cell">6</div>
+								</div>
 							</div>
-							<div>
-								<h4 style="margin-top: 0">Media object title</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+						</div>
+						<div class="cell--1of3">
+							<div class="grid">
+								<div class="cell--full">
+									<div class="demo-cell">NO<br>GUTTER<br>AT ALL</div>
+									<div class="demo-cell">DOLOR<br>SIT<br>AMET</div>
+								</div>
+								<div class="cell--1of3">
+									<div class="demo-cell">1</div>
+								</div>
+								<div class="cell--1of3">
+									<div class="demo-cell">2</div>
+								</div>
+								<div class="cell--1of3">
+									<div class="demo-cell">3</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<h3>Equal height columns</h3>
+					<h2>Dont bloat my markup!</h2>
 
-				<div class="grid">
-					<div style="background-color: rgba(0,0,0,.125);">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis.
+					<blockquote>
+						Same can be achieved with mixins<br>
+					</blockquote>
+
+			<pre><code class="language-scss">.grid {
+		@include grid("gutter center");
+	}
+
+	.cell {
+		@include cell("");
+	}
+			</code></pre>
+
+					<h2>Vertical grid</h2>
+
+					<blockquote>
+						So easy to make it vertical!<br>
+					</blockquote>
+
+					<div class="grid grid--vertical" style="min-height: 48rem; background: #ddd">
+						<div>
+							<div><div class="demo-cell">Foo</div></div>
+						</div>
+						<div>
+							<div><div class="demo-cell">Bar</div></div>
+						</div>
+						<div>
+							<div><div class="demo-cell">Baz</div></div>
+						</div>
 					</div>
-					<div style="background-color: rgba(0,0,0,.25);">
-						Praesent consequat lectus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
+					<pre><code class="language-markup">&lt;div class="grid grid--vertical"&gt;
+		&lt;!-- &hellip; --&gt;
+	&lt;/div&gt;</code></pre>
+
+
+					<h2>Responsive grid</h2>
+
+					<blockquote>
+						Resize your browser to see it in action
+					</blockquote>
+
+					<div class="grid grid--gutter grid--responsive">
+						<div class="cell--s-1of2 cell--l-2of3">
+							<div class="demo-cell"></div>
+						</div>
+						<div class="cell--s-1of2 cell--l-1of3">
+							<div class="demo-cell"></div>
+						</div>
 					</div>
-					<div style="background-color: rgba(0,0,0,.125);">
-						Praesent consequat lectus purus.
+
+					<div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
+						<div><div class="demo-cell"></div></div>
+						<div><div class="demo-cell"></div></div>
+						<div class="cell--full">
+							<div class="demo-cell"></div>
+						</div>
+						<div><div class="demo-cell"></div></div>
+						<div><div class="demo-cell"></div></div>
+						<div><div class="demo-cell"></div></div>
+						<div><div class="demo-cell"></div></div>
+						<div><div class="demo-cell"></div></div>
 					</div>
+
+
+					<!-- WRAP -->
+
+					<h1 class="section-title" id="wrap">Aramid Wrap</h1>
+
+					<blockquote>
+						Hey! <br>
+						Aramid CSS also includes a responsive site-wrapper component!
+					</blockquote>
+
+					<h2>Taxonomy</h2>
+
+					<p>
+						Here is the site structure :
+					</p>
+					<ul>
+						<li><code>body</code> Parent of all things</li>
+						<li><code>.site-wrap</code> This is the main site wrapper</li>
+						<li><code>.wrap</code> One chunk of content (may be 100% width)</li>
+						<li><code>.container</code> The main `column` of content, constrained width</li>
+						<li><em>&hellip;your content&hellip;</em> Here comes your stuff (or grid things)</li>
+					</ul>
+
+			<pre><code class="language-markup">&lt;body&gt;
+		&lt;div class="wrap-site"&gt;
+			&lt;div class="wrap"&gt;
+				&lt;div class="container"&gt;
+					&lt;!-- &hellip;your content&hellip; --&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="wrap"&gt;
+				&lt;div class="container"&gt;
+					&lt;!-- &hellip;your content&hellip; --&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;!-- more wrap's --&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;</code></pre>
+
+
+					<h2>Classes</h2>
+
+
+					<h3>Wrapper</h3>
+
+					<h4>--fit</h4>
+
+					<p>[C] <code>.wrap-site--fit</code></p>
+					<p>[M] <code>@include wrap-site('fit')</code></p>
+
+					<h4>--fit-container</h4>
+
+					<p>[C] <code>.wrap-site--fit-container</code></p>
+					<p>[M] <code>@include wrap-site('fit-container')</code></p>
+
+					<h4>--sticky-footer</h4>
+
+					<p>[C] <code>.wrap-site--sticky-footer</code></p>
+					<p>[M] <code>@include wrap-site('sticky-footer')</code></p>
+
+					<!-- <p class="fade">CSS <code>flex-grow: 1;</code></p> -->
+
+					<h3>Wrap</h3>
+
+					<h4>--sticky-footer-filler</h4>
+
+					<p>[C] <code>.sticky-footer-filler</code></p>
+					<p>[M] <code>@include sticky-footer-filler()</code></p>
+
+					<h3>Container</h3>
+
+					<h4>.container (base class)</h4>
+
+					<p>[C] <code>.container</code></p>
+					<p>[M] <code>@include container()</code></p>
+
+			<!--  -->
+
+
+					<h1 class="section-title" id="patterns">Flex patterns</h1>
+
+					<h3>Media object</h3>
+
+					<div class="grid grid--gutter">
+						<div class="cell--fit">
+							<img src="http://placehold.it/100x100" alt="">
+						</div>
+						<div>
+							<h4 style="margin-top: 0">Media object title</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+						</div>
+					</div>
+
+					<div class="grid grid--gutter">
+						<div class="cell--fit">
+							<img src="http://placehold.it/100x100" alt="">
+						</div>
+						<div>
+							<h4 style="margin-top: 0">Media object title</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+							<div class="grid grid--gutter">
+								<div class="cell--fit">
+									<img src="http://placehold.it/100x100" alt="">
+								</div>
+								<div>
+									<h4 style="margin-top: 0">Media object title</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<h3>Equal height columns</h3>
+
+					<div class="grid">
+						<div style="background-color: rgba(0,0,0,.125);">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis.
+						</div>
+						<div style="background-color: rgba(0,0,0,.25);">
+							Praesent consequat lectus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus.
+						</div>
+						<div style="background-color: rgba(0,0,0,.125);">
+							Praesent consequat lectus purus.
+						</div>
+					</div>
+
+					<h3>Centering</h3>
+
+					<div class="grid grid--vertical grid--middle grid--center" style="border: 1px solid #aaa; min-height: 16.8rem;">
+						<div class="cell--fit" style="background: lime;">centered<br>thing</div>
+					</div>
+
+					<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 16.8rem;">
+						<div class="cell--fit" style="background: orange; margin: auto;"><code>margin: auto;</code></div>
+					</div>
+
+					<h3>Sticky footer</h3>
+
+					<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 24rem;">
+						<section class="">BODY</section>
+						<section class="cell--fit" style="height: 3em; background: #eee">Sticky footah</section>
+					</div>
+
+
+					<h3>Input addons</h3>
+
+					<div class="grid" style="border: 1px solid #aaa">
+						<span class="cell--1of4" style="text-align: right; background: #eee; padding: 3px 1em;">Label</span>
+						<input class="" style="border: none; padding: 3px 1em;">
+						<button class="cell--fit" style="border: none; padding: 3px 1em;">Go!</button>
+					</div>
+
+
+				<!-- End of MAIN CONTENT -->
+
 				</div>
-
-				<h3>Centering</h3>
-
-				<div class="grid grid--vertical grid--middle grid--center" style="border: 1px solid #aaa; min-height: 16.8rem;">
-					<div class="cell--fit" style="background: lime;">centered<br>thing</div>
-				</div>
-
-				<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 16.8rem;">
-					<div class="cell--fit" style="background: orange; margin: auto;"><code>margin: auto;</code></div>
-				</div>
-
-				<h3>Sticky footer</h3>
-
-				<div class="grid grid--vertical" style="border: 1px solid #aaa; min-height: 24rem;">
-					<section class="">BODY</section>
-					<section class="cell--fit" style="height: 3em; background: #eee">Sticky footah</section>
-				</div>
-
-
-				<h3>Input addons</h3>
-
-				<div class="grid" style="border: 1px solid #aaa">
-					<span class="cell--1of4" style="text-align: right; background: #eee; padding: 3px 1em;">Label</span>
-					<input class="" style="border: none; padding: 3px 1em;">
-					<button class="cell--fit" style="border: none; padding: 3px 1em;">Go!</button>
-				</div>
-
-
-			<!-- End of MAIN CONTENT -->
-
 			</div>
-		</div>
 
-		<div class="wrap wrap--aside">
-			<div class="container">
-				<h4>This footer is sticky!</h4>
+			<div class="wrap wrap--aside">
+				<div class="container">
+					<h4>This footer is sticky!</h4>
+				</div>
 			</div>
-		</div>
 
-		<div class="wrap wrap--footer">
-			<div class="container">
-				<h4>Aramid CSS</h4>
+			<div class="wrap wrap--footer">
+				<div class="container">
+					<h4>Aramid CSS</h4>
+				</div>
 			</div>
+
 		</div>
 
 	</div>

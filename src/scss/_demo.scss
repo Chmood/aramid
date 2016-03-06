@@ -2,95 +2,33 @@
  * DEMO
  ******************************************************************************/
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,400italic);
+/* Reset button */
 
-// NAVBAR
-.navbar {
+ button {
+   border: 0;
+   background-color: inherit;
+   color: inherit;
+ }
 
-  margin-left: -$gutter-half;
-  padding-top: $gutter-half;
+/* Typefaces */
 
-  a {
-    display: block;
-    padding: ($gutter / 2);
-    margin-right: 2em;
-    text-align: center;
-    color: #ddd;
-    text-decoration: none;
-    text-transform: uppercase;
+// Google fonts import
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,400italic");
 
-    &:hover {
-      color: white;
-    }
-  }
-}
+body { font-family: 'Roboto', sans-serif; }
+
+// Font awesome
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
 
 /////////////////////////////////////////////////////////////////
-// WRAP
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-.wrap {
-  @extend %vrhythm--bg-debug;
-}
-
-.wrap-site {
-  background-color: white;
-}
-
-.wrap--header {
-  background-color: $color-gray-darker; color: #ddd;
-}
-
-.wrap--hero {
-  background-color: $color-primary; color: white;
-  padding: $gutter-quad 0;
-}
-
-.wrap--main {
-  padding-top: ($gutter * 2);
-  padding-bottom: ($gutter * 2);
-}
-
-.wrap--aside {    background-color: #ddd; }
-.wrap--footer {   background-color: #888; }
-
-
-
-/////////////////////////////////////////////////////////////////
-
-.site-logo {
-  font-weight: bold;
-  // background-color: $color-primary !important;
-  // color: $color-gray-darker !important;
-  color: $color-secondary !important;
-  @include v-rhythm(fontsize("big"));
-
-  &:hover,
-  &:active {
-    // color: $color-primary-light !important;
-    color: $color-secondary-light !important;
-  }
-}
+// BASE
 
 h1 {
   margin-top: $gutter-double;
   color: $color-primary;
   text-transform: uppercase;
   font-weight: 900;
-}
-
-.section-title {
-  margin-top: $gutter-quad;
-  margin-bottom: $gutter-double;
-  box-shadow: inset 0 (- $gutter-quarter) 0 0 $color-primary;
-
-  &:first-child {
-    margin-top: $gutter-double;
-  }
 }
 
 h2 {
@@ -120,18 +58,6 @@ h5 {
   color: $color-primary;
 }
 
-.demo-cell {
-  background: #333;
-  color: #eee;
-  text-align: center;
-  @include v-rhythm(16);
-  padding: ($gutter);
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
-}
-
-.content { background: #eee; padding: ($gutter); }
-
 /* base */
 
 ul,
@@ -153,12 +79,43 @@ blockquote {
   box-shadow: inset 8px 0 0 0 $color-gray;
 }
 
-.pre {
-  // TODO: not working!
-  margin-top: $gutter !important;
+
+/////////////////////////////////////////////////////////////////
+// WRAP
+
+/* Wrap */
+
+.wrap { @extend %vrhythm--bg-debug; }
+
+.wrap-site {    background-color: white;
+                color: $color-gray-darker; }
+.wrap--header { background-color: $color-gray-darker;
+                color: #ddd; }
+.wrap--hero {   background-color: $color-primary;
+                color: white; }
+.wrap--aside {  background-color: #ddd; }
+.wrap--footer { background-color: #888; }
+
+.wrap--hero {   padding: $gutter-quad 0; }
+.wrap--main {   padding: $gutter-double 0; }
+
+
+/////////////////////////////////////////////////////////////////
+// MISC
+
+/* Section title */
+
+.section-title {
+  margin-top: $gutter-quad;
+  margin-bottom: $gutter-double;
+  box-shadow: inset 0 (- $gutter-quarter) 0 0 $color-primary;
+
+  &:first-child {
+    margin-top: $gutter-double;
+  }
 }
 
-// Page hero / title
+/* Page hero / title */
 
 .title {
   @include v-rhythm(fontsize("giant"));
@@ -172,84 +129,4 @@ blockquote {
   @include v-rhythm(fontsize("big"));
   color: $color-primary-lighter;
   font-style: italic;
-}
-
-// Styleguide headings
-
-.headings {
-  // padding-left: $gutter-double;
-}
-
-// Styleguide color blocks
-
-.sg-colors {
-  font-size: 0;
-}
-
-.sg-color {
-  font-size: $fontsize-base;
-  display: inline-block;
-  width: (100% / 8);
-  padding: $gutter-double $gutter;  // lucky :)
-  color: white;
-  text-transform: uppercase;
-  @include shadow(1);
-  transition: box-shadow 0.125s;
-
-  &:hover {
-    @include shadow(3);
-  }
-
-  &.bg-gray,
-  &[class$='ary'] {
-    width: (100% / 4);
-  }
-
-  &[class$='lightest'],
-  &[class$='lighter'],
-  &[class$='light'] {
-    color: black;
-  }
-}
-
-
-
-
-// PRISM.JS
-
-// Prism JS - Syntax highlighter
-@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
-
-:not(pre)>code[class*=language-], pre[class*=language-] {
-//	code {background: transparent;}
-}
-
-pre[class*=language-]>code[data-language] {
-	// Auto scrollbars removal
-	overflow: auto;
-}
-
-pre[class*="language-"] {
-  margin: 0;
-  padding: 0;
-//  padding: ($gutter * 0.5) !important;
-  @include v-rhythm(16);
-  color: white;
-  border-radius: 4px;
-  // margin-bottom: (2 * $gutter) !important;
-  // margin-top: (1 * $gutter) !important;
-
-  code {
-    padding: 0 $gutter;
-    background: transparent
-  }
-}
-
-.fade { color: #888; }
-
-code {
-  padding: 0.25rem 0.5rem;
-  background: #555;
-  color: white;
-  border-radius: 4px;
 }

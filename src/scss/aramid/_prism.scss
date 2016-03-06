@@ -1,0 +1,40 @@
+// PRISM.JS
+
+/* PRISM.JS */
+
+// Prism JS - Syntax highlighter
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+//	code {background: transparent;}
+}
+
+pre[class*=language-]>code[data-language] {
+	// Auto scrollbars removal
+	overflow: auto;
+}
+
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+//  padding: ($gutter * 0.5) !important;
+  @include v-rhythm(16);
+  color: white;
+  border-radius: 4px;
+  // margin-bottom: (2 * $gutter) !important;
+  // margin-top: (1 * $gutter) !important;
+
+  code {
+    padding: 0 $gutter;
+    background: transparent
+  }
+}
+
+.fade { color: #888; }
+
+code {
+  padding: 0.25rem 0.5rem;
+  background: #555;
+  color: white;
+  border-radius: 4px;
+}

@@ -43,8 +43,13 @@
 // Debug
 @import "aramid/debug";
 
+// Styleguide
+@import "aramid/prism";
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // YOUR STYLESHEETS HERE
 
 @import "demo";
+@import "demo-navbar";
+@import "demo-styleguide";

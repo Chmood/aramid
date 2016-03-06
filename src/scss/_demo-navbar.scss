@@ -1,0 +1,160 @@
+/******************************************************************************
+ * DEMO - NAVBAR
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
+
+ $navbar-height: $gutter-double;
+ $navbar-height-tablet: $gutter-triple;
+ $navbar-height-desktop: $gutter-quad;
+
+ $is-header-sticky: true;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// STICKY HEADER
+
+@if $is-header-sticky {
+
+  /* Sticky header */
+
+  .wrap--header {
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+    @include shadow(2);
+  }
+
+  /* Top offset for content */
+
+  .wrap {
+
+    .wrap--content &:first-child {
+      margin-top: $navbar-height;
+
+      @media screen and (min-width: bp("s")) {
+        margin-top: $navbar-height-tablet;
+      }
+
+      @media screen and (min-width: bp("m")) {
+        margin-top: $navbar-height-desktop;
+      }
+    }
+  }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+/* Navbar */
+
+.navbar {
+
+  /* Lateral margins */
+  margin-left: -$gutter-half ;
+  margin-right: -$gutter;
+
+  /* Extra padding */
+  @media screen and (min-width: bp("s")) {
+    padding: $gutter-half 0;
+  }
+
+  @media screen and (min-width: bp("m")) {
+    padding: $gutter 0;
+  }
+
+  > ul {
+    // reset v-rhythm
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  li {
+
+    &:not(.site-logo):not(.hamburger) {
+      display: none;
+    }
+
+    @media screen and (min-width: bp("m")) {
+      font-size: 2rem;
+
+      &:not(.hamburger):not(.foo) {  // Ugly!
+        display: block;
+      }
+
+      &.hamburger { display: none; }
+    }
+
+    a,
+    button {
+
+      @media screen and (min-width: bp("s")) {
+        font-size: 1.8rem;
+      }
+
+      @media screen and (min-width: bp("m")) {
+        font-size: 2rem;
+      }
+
+      transition: color 0.25s,
+      background-color 0.25s;
+    }
+  }
+
+
+  /* Logo */
+
+  .site-logo {
+
+    a {
+      //      font-size: $fontsize-big; // TODO: bug!!!
+      font-size: 2rem; // tmp fix
+      text-align: left;
+      font-weight: 900;
+      color: $color-secondary !important;
+
+      @media screen and (min-width: bp("s")) {
+        font-size: 2.4rem; // tmp fix
+      }
+
+      @media screen and (min-width: bp("m")) {
+        font-size: 2.8rem; // tmp fix
+      }
+
+      &:hover,
+      &:active {
+        // color: $color-primary-light !important;
+        color: $color-secondary-light !important;
+      }
+
+      span {
+        color: $color-gray-lightest;
+        font-style: italic;
+        font-weight: normal;
+      }
+    }
+  }
+
+
+  a,
+  button {
+    display: inline-block;
+    height: $navbar-height;
+    line-height: $navbar-height;
+
+    margin-right: $gutter-half;
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+    text-align: center;
+    color: #ddd;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: white;
+      background-color: $color-gray-darkest;
+    }
+  }
+}
