@@ -122,6 +122,12 @@ blockquote {
   width: 10%;
   padding: $gutter;
   color: white;
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+
+  &:hover {
+    @include shadow(3);
+  }
 
   &.bg-gray,
   &[class$='ary'] {
