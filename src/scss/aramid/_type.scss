@@ -60,7 +60,10 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 	// calculate the new line-height
 	$line-height: $rhythm * $lines / $font-size;
 
-	@if $compact { $line-height: $line-height / 2; }
+	@if $compact {
+		$line-height: $line-height / 2;
+		text-transform: uppercase;	// Compact text cannot handle descendings
+	}
 
 	// calculate the padding to push the text on the baseline (depends on typeface)
 	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
@@ -149,6 +152,10 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 	h5 { @include v-rhythm(fontsize("base")); }
 	h6 { @include v-rhythm(fontsize("small")); }
 
-	.small-text { @include v-rhythm(fontsize("small")); }
-	.big-text { 	@include v-rhythm(fontsize("big")); }
+	.smaller-text { @include v-rhythm(fontsize("smaller")); }
+	.small-text { 	@include v-rhythm(fontsize("small")); }
+	.big-text { 		@include v-rhythm(fontsize("big")); }
+	.bigger-text { 	@include v-rhythm(fontsize("bigger"), $compact: true); }
+	.biggest-text { @include v-rhythm(fontsize("biggest")); }
+	.huge-text { 		@include v-rhythm(fontsize("huge")); }
 }
