@@ -8,6 +8,9 @@
 $prefix:                  "" !default;
 $generate-classes:        true !default;
 
+$debug:										true !default;
+$debug-vrhythm-bg-color: 	#ff8888 !default;
+
 $fontsizes: (
 	'smaller': 							12,
 	'small': 								14,
@@ -76,9 +79,35 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 
 
 ///////////////////////////////////////////////////////////////////////////////
+// PLACEHOLDERS
+
+%vrhythm--bg-debug {
+
+	@if $debug {
+
+    // Line at bottom
+    background-image: repeating-linear-gradient( 0deg,
+    $debug-vrhythm-bg-color,
+    $debug-vrhythm-bg-color 1px,
+    transparent 1px,
+    transparent
+    );
+
+    background-size: 100% $gutter;
+    padding-top: ($gutter * 2);
+    padding-bottom: ($gutter * 2);
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
+
+	.vrhythm-bg-debug { @extend %vrhythm--bg-debug;	}
+
+	// TAGS DEEP OVERRIDE
 
 	html {
 		font-size: (n2px($pixels-per-rem));  // Ths is one rem
