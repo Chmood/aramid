@@ -9,6 +9,7 @@ $prefix:                  "" !default;
 $generate-classes:        true !default;
 
 $debug:										true !default;
+$debug-vrhythm-bg-all: 		false !default;	// paint ALL vrhythmed blocks
 $debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
 $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 
@@ -25,6 +26,7 @@ $fontsizes: (
 
 ///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
@@ -72,13 +74,16 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 	line-height: $line-height;
   margin-top: 0;
 	margin-bottom: 0;
+	background-clip: padding-box;
+
 	padding-top: $baseline-distance;
 	padding-bottom: $baseline-distance;
 	margin-bottom: $gutter - (2 * $baseline-distance);
-  background-clip: padding-box;
 
-	// TODO: Full debug
-  //background-color: rgba(255,0,0,0.075);
+	// Full debug
+	@if $debug-vrhythm-bg-all {
+		background-color: $debug-vrhythm-bg-color;
+	}
 }
 
 
