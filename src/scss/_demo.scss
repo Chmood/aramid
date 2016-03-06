@@ -30,22 +30,31 @@
 // WRAP
 
 body {
-  background-color: #eed;
   font-family: 'Roboto', sans-serif;
 }
 
-.wrap-site {      background-color: white; }
-
-.wrap--header {   background-color: $color-gray-darker; color: #ddd; }
-.wrap--hero {     background-color: $color-primary; color: white;
-  height: $gutter * 12;
-  padding: $gutter-quad 0;
-}
-.wrap--main {     background-color: white;
-  padding-top: ($gutter * 2);
-  padding-bottom: ($gutter * 2);
+.wrap {
   @extend %vrhythm--bg-debug;
 }
+
+.wrap-site {
+  background-color: white;
+}
+
+.wrap--header {
+  background-color: $color-gray-darker; color: #ddd;
+}
+
+.wrap--hero {
+  background-color: $color-primary; color: white;
+  padding: $gutter-quad 0;
+}
+
+.wrap--main {
+  padding-top: ($gutter * 2);
+  padding-bottom: ($gutter * 2);
+}
+
 .wrap--aside {    background-color: #ddd; }
 .wrap--footer {   background-color: #888; }
 
@@ -105,15 +114,21 @@ h4 {
   font-style: italic;
 }
 
-.grid h2 {
-  background: #333;
-  color: #eee;
-  text-align: center;
-  @include v-rhythm(16);
-  padding: ($gutter);
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
+h5 {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: $color-primary;
 }
+
+// .grid h2 {
+//   background: #333;
+//   color: #eee;
+//   text-align: center;
+//   @include v-rhythm(16);
+//   padding: ($gutter);
+//   padding-left: ($gutter / 2);
+//   padding-right: ($gutter / 2);
+// }
 
 .content { background: #eee; padding: ($gutter); }
 
