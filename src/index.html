@@ -222,6 +222,7 @@
 				<!-- . -->
 
 				<h3>Fill (default)</h3>
+
 				<p>[C] <code>.grid--fill</code> <code>.cell--fill</code></p>
 				<p class="fade">CSS <code>flex-grow: 1;</code></p>
 
@@ -232,9 +233,9 @@
 				<p>Each cell has the same size, depending on the numbers of cells in the grid.<br>This is the cell default behaviour, which can be triggered with the <code>--fill</code> modifier, in case of overiding.</p>
 
 				<div class="grid">
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -244,11 +245,11 @@
 &lt;/div&gt;</code></pre>
 
 				<div class="grid">
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Baz</h2></div>
-					<div><h2 style="background: #444;">Boo</h2></div>
-					<div><h2>Faz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
+					<div><div class="demo-cell" style="background: #444;">Boo</div></div>
+					<div><div class="demo-cell">Faz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -273,9 +274,9 @@
 				<p>Each cell take minimal amount of space allowing to fit its content.<br>This can be triggered with the <code>--fit</code> modifier.</p>
 
 				<div class="grid grid--fit">
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--fit"&gt;
@@ -283,9 +284,9 @@
 &lt;/div&gt;</code></pre>
 
 				<div class="grid">
-					<div class="cell--fit"><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div class="cell--fit"><h2>Baz</h2></div>
+					<div class="cell--fit"><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div class="cell--fit"><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -309,9 +310,9 @@
 				<p class="fade">This make a nice stack for mobile first!</p>
 
 				<div class="grid grid--full">
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--full"&gt;
@@ -336,12 +337,12 @@
 				<p class="fade">But this is also where the overflow pattern happens!</p>
 
 				<div class="grid grid--4">
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Foo</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2>Foo</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell">Foo</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--4"&gt;
@@ -354,10 +355,10 @@
 				<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>cell--{m}on{n}</code> modifier, where <code>n</code> is the column total number, and <code>m</code> is the desired width in columns.</p>
 
 				<div class="grid grid--3">
-					<div class="cell--2of3"><h2>Foo 2/3</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div><h2 style="background: #444;">Bar</h2></div>
-					<div class="cell--2of3"><h2>Foo 2/3</h2></div>
+					<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div><div class="demo-cell" style="background: #444;">Bar</div></div>
+					<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--3"&gt;
@@ -379,11 +380,11 @@
 					Vertical align, made easy<br>
 				</blockquote>
 
-				<div class="grid grid--gutter">
-					<div class="cell--bottom"><h2>.cell--bottom</h2></div>
-					<div><h2>Bar<br>is<br>quite<br>quite<br>long</h2></div>
-					<div class="cell--middle"><h2>.cell--middle</h2></div>
-					<div class="cell--top"><h2>.cell--top</h2></div>
+				<div class="grid">
+					<div class="cell--bottom"><div class="demo-cell">.cell--bottom</div></div>
+					<div><div class="demo-cell">Bar<br>is<br>quite<br>quite<br>long</div></div>
+					<div class="cell--middle"><div class="demo-cell">.cell--middle</div></div>
+					<div class="cell--top"><div class="demo-cell">.cell--top</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
@@ -398,12 +399,12 @@
 					And horizontal too<br>
 				</blockquote>
 
-				<div class="grid grid--gutter grid--3 grid--center">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
+				<div class="grid grid--3 grid--center">
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
 				</div>
 
 				<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--3 grid--center"&gt;
@@ -418,9 +419,9 @@
 				</blockquote>
 
 				<div class="grid grid--gutter">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
@@ -432,9 +433,9 @@
 				</blockquote>
 
 				<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--outer-gutter"&gt;
@@ -446,9 +447,9 @@
 				</blockquote>
 
 				<div class="grid grid--gutter grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 
 		<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--outer-gutter"&gt;
@@ -461,14 +462,14 @@
 
 				<div style="background: salmon">content</div>
 				<div class="grid grid--gutter">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 				<div class="grid grid--gutter">
-					<div><h2>Foo</h2></div>
-					<div><h2>Bar</h2></div>
-					<div><h2>Baz</h2></div>
+					<div><div class="demo-cell">Foo</div></div>
+					<div><div class="demo-cell">Bar</div></div>
+					<div><div class="demo-cell">Baz</div></div>
 				</div>
 				<div style="background: salmon">content</div>
 
@@ -482,39 +483,39 @@
 					<div class="cell--2of3 cell--middle">
 						<div class="grid grid--gutter grid--3 grid--center">
 							<div class="cell--2of3">
-								<h2>1</h2>
+								<div class="demo-cell">1</div>
 							</div>
 							<div>
-								<h2>2</h2>
+								<div class="demo-cell">2</div>
 							</div>
 							<div>
-								<h2>3</h2>
+								<div class="demo-cell">3</div>
 							</div>
 							<div class="cell--2of3">
-								<h2>4</h2>
+								<div class="demo-cell">4</div>
 							</div>
 							<div>
-								<h2>5</h2>
+								<div class="demo-cell">5</div>
 							</div>
 							<div>
-								<h2>6</h2>
+								<div class="demo-cell">6</div>
 							</div>
 						</div>
 					</div>
 					<div class="cell--1of3">
 						<div class="grid">
 							<div class="cell--full">
-								<h2>NO<br>GUTTER<br>AT ALL</h2>
-								<h2>DOLOR<br>SIT<br>AMET</h2>
+								<div class="demo-cell">NO<br>GUTTER<br>AT ALL</div>
+								<div class="demo-cell">DOLOR<br>SIT<br>AMET</div>
 							</div>
 							<div class="cell--1of3">
-								<h2>1</h2>
+								<div class="demo-cell">1</div>
 							</div>
 							<div class="cell--1of3">
-								<h2>2</h2>
+								<div class="demo-cell">2</div>
 							</div>
 							<div class="cell--1of3">
-								<h2>3</h2>
+								<div class="demo-cell">3</div>
 							</div>
 						</div>
 					</div>
@@ -543,13 +544,13 @@
 
 				<div class="grid grid--vertical" style="min-height: 48rem; background: #ddd">
 					<div>
-						<div><h2>Foo</h2></div>
+						<div><div class="demo-cell">Foo</div></div>
 					</div>
 					<div>
-						<div><h2>Bar</h2></div>
+						<div><div class="demo-cell">Bar</div></div>
 					</div>
 					<div>
-						<div><h2>Baz</h2></div>
+						<div><div class="demo-cell">Baz</div></div>
 					</div>
 				</div>
 				<pre><code class="language-markup">&lt;div class="grid grid--vertical"&gt;
@@ -565,28 +566,28 @@
 
 				<div class="grid grid--gutter grid--responsive">
 					<div class="cell--s-1of2 cell--l-2of3">
-						<h2></h2>
+						<div class="demo-cell"></div>
 					</div>
 					<div class="cell--s-1of2 cell--l-1of3">
-						<h2></h2>
+						<div class="demo-cell"></div>
 					</div>
 				</div>
 
 				<div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
-					<div><h2></h2></div>
-					<div><h2></h2></div>
+					<div><div class="demo-cell"></div></div>
+					<div><div class="demo-cell"></div></div>
 					<div class="cell--full">
-						<h2></h2>
+						<div class="demo-cell"></div>
 					</div>
-					<div><h2></h2></div>
-					<div><h2></h2></div>
-					<div><h2></h2></div>
-					<div><h2></h2></div>
-					<div><h2></h2></div>
+					<div><div class="demo-cell"></div></div>
+					<div><div class="demo-cell"></div></div>
+					<div><div class="demo-cell"></div></div>
+					<div><div class="demo-cell"></div></div>
+					<div><div class="demo-cell"></div></div>
 				</div>
 
 
-		<!--  -->
+				<!-- WRAP -->
 
 				<h1 class="section-title" id="wrap">Aramid Wrap</h1>
 
@@ -601,16 +602,11 @@
 					Here is the site structure :
 				</p>
 				<ul>
-					<li><code>body</code></li>
-					<p>Parent of all things</p>
-					<li><code>.site-wrap</code></li>
-					<p>This is the main site wrapper</p>
-					<li><code>.wrap</code></li>
-					<p>One chunk of content (may be 100% width)</p>
-					<li><code>.container</code></li>
-					<p>The main `column` of content, constrained width</p>
-					<li><em>&hellip;your content&hellip;</em></li>
-					<p>Here comes your stuff (or grid things)</p>
+					<li><code>body</code> Parent of all things</li>
+					<li><code>.site-wrap</code> This is the main site wrapper</li>
+					<li><code>.wrap</code> One chunk of content (may be 100% width)</li>
+					<li><code>.container</code> The main `column` of content, constrained width</li>
+					<li><em>&hellip;your content&hellip;</em> Here comes your stuff (or grid things)</li>
 				</ul>
 
 		<pre><code class="language-markup">&lt;body&gt;

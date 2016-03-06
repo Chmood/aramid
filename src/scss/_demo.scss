@@ -120,15 +120,15 @@ h5 {
   color: $color-primary;
 }
 
-// .grid h2 {
-//   background: #333;
-//   color: #eee;
-//   text-align: center;
-//   @include v-rhythm(16);
-//   padding: ($gutter);
-//   padding-left: ($gutter / 2);
-//   padding-right: ($gutter / 2);
-// }
+.demo-cell {
+  background: #333;
+  color: #eee;
+  text-align: center;
+  @include v-rhythm(16);
+  padding: ($gutter);
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
 
 .content { background: #eee; padding: ($gutter); }
 
@@ -147,9 +147,15 @@ ul {
 blockquote {
   @include v-rhythm(fontsize("bigger"));
   margin-top: $gutter;
+  margin-bottom: $gutter;
   font-style: italic;
   color: $color-gray-dark;
   box-shadow: inset 8px 0 0 0 $color-gray;
+}
+
+.pre {
+  // TODO: not working!
+  margin-top: $gutter !important;
 }
 
 // Page hero / title
