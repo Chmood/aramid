@@ -20,7 +20,9 @@ $fontsizes: (
 	'big': 									20,
 	'bigger': 							24,
 	'biggest': 							32,
-	'huge': 								46
+	'huge': 								46,
+	'giant': 								62,
+	'insane':								84
 );
 
 
@@ -38,6 +40,8 @@ $fontsize-big:           	(n2rem(fontsize("big")));
 $fontsize-bigger:         (n2rem(fontsize("bigger")));
 $fontsize-biggest:        (n2rem(fontsize("biggest")));
 $fontsize-huge:           (n2rem(fontsize("huge")));
+$fontsize-huge:           (n2rem(fontsize("giant")));
+$fontsize-huge:           (n2rem(fontsize("insane")));
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -163,4 +167,6 @@ $fontsize-huge:           (n2rem(fontsize("huge")));
 	.bigger-text { 	@include v-rhythm(fontsize("bigger"), $compact: true); }
 	.biggest-text { @include v-rhythm(fontsize("biggest")); }
 	.huge-text { 		@include v-rhythm(fontsize("huge")); }
+	.giant-text { 	@include v-rhythm(fontsize("giant")); }
+	.insane-text { 	@include v-rhythm(fontsize("insane")); }
 }

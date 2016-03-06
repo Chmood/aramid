@@ -72,12 +72,20 @@ h1 {
   color: $color-primary;
   text-transform: uppercase;
   font-weight: 900;
+}
 
-  .hero & {
-    color: white;
-    font-weight: 300;
-//    padding: $gutter 0;
-  }
+.title {
+  @include v-rhythm(fontsize("giant"));
+
+  color: white;
+  font-weight: 100;
+  //    padding: $gutter 0;
+}
+
+.title-subline {
+  @include v-rhythm(fontsize("big"));
+  color: $color-primary-lighter;
+  font-style: italic;
 }
 
 h2 {
