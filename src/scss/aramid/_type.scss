@@ -9,6 +9,7 @@ $prefix:                  "" !default;
 $generate-classes:        true !default;
 
 $debug:										true !default;
+// $debug-vrhythm-bg-all: 		true;
 $debug-vrhythm-bg-all: 		false !default;	// paint ALL vrhythmed blocks
 $debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
 $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
@@ -48,6 +49,8 @@ $fontsize-huge:           (n2rem(fontsize("insane")));
 // MIXINS
 
 @mixin v-rhythm($font-size: fontsize("base"),
+								$padding-top: 0,
+								$padding-bottom: 0,
 								$font-size-base: $fontsize-base,
 								$line-height: $lineheight-base,
                 $scale: 1,
@@ -74,15 +77,21 @@ $fontsize-huge:           (n2rem(fontsize("insane")));
 	// calculate the padding to push the text on the baseline (depends on typeface)
 	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
 
+	// calculate the bottom fill
+	$bottom-fill: $gutter - (2 * $baseline-distance);
+
 	font-size: $font-size;
 	line-height: $line-height;
-  margin-top: 0;
-	margin-bottom: 0;
 	background-clip: padding-box;
 
 	padding-top: $baseline-distance;
-	padding-bottom: $baseline-distance;
-	margin-bottom: $gutter - (2 * $baseline-distance);
+	padding-bottom: $baseline-distance + $bottom-fill;
+
+	margin-top: 0;
+	margin-bottom: 0;
+
+	// border: 0.0001rem solid red;
+	// overflow: hidden; // force formating context
 
 	// Full debug
 	@if $debug-vrhythm-bg-all {
