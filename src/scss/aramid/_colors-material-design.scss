@@ -8,12 +8,6 @@
 $prefix:                  "" !default;
 $generate-classes:        true !default;
 
-$colors: (
-  'primary':                   'mdp-cyan',
-  'secondary':                 'mdp-deep-orange',
-  'ternary':                   'mdp-light-green'
-) !default;
-
 $color-primary-color:   'mdp-cyan' !default;
 $color-secondary-color: 'mdp-deep-orange' !default;
 $color-ternary-color: 'mdp-light-green' !default;
