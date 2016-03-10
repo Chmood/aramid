@@ -12,8 +12,9 @@
   font-size: $fontsize-base;
   display: inline-block;
   width: (100% / 8);
-  padding: $gutter-double $gutter;  // lucky :)
+  padding: $gutter-double 0;  // lucky :)
   color: white;
+  text-align: center;
   text-transform: uppercase;
   @include shadow(1);
   transition: box-shadow 0.125s;
