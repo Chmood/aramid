@@ -48,113 +48,110 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-/* Navbar */
+/* NAV */
 
-.navbar {
-
-  /* Lateral margins */
+.nav {background-color: rgba(0,0,0,0.125);
+  // // reset v-rhythm
+  padding: 0;
+  //
+  // /* Lateral margins */
   margin-left: -$gutter-half ;
-  margin-right: -$gutter;
+  margin-right: -$gutter-half;
+  //
+  // /* Extra padding */
+  // @media screen and (min-width: bp("s")) {
+  //   padding: $gutter-half 0;
+  // }
+  //
+  // @media screen and (min-width: bp("m")) {
+  //   padding: $gutter 0;
+  // }
 
-  /* Extra padding */
-  @media screen and (min-width: bp("s")) {
-    padding: $gutter-half 0;
-  }
+  // In case of ul/ol list TODO more selective
+  list-style-type: none;
+  // margin-left: 0;
 
-  @media screen and (min-width: bp("m")) {
-    padding: $gutter 0;
-  }
-
-  > ul {
-    // reset v-rhythm
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  li {
-
-    &:not(.site-logo):not(.hamburger) {
-      display: none;
-    }
-
-    @media screen and (min-width: bp("m")) {
-      font-size: 2rem;
-
-      &:not(.hamburger):not(.foo) {  // Ugly!
-        display: block;
-      }
-
-      &.hamburger { display: none; }
-    }
+  > * {
+    margin-right: $gutter-half;
 
     a,
     button {
+      @include v-rhythm(38);
+      // min-width: 4.8rem;  // min touch size
+      min-width: $gutter-double;  // min touch size
+      display: inline-block;
+      // height: $navbar-height;
+      // line-height: $navbar-height;
 
-      @media screen and (min-width: bp("s")) {
-        font-size: 1.8rem;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+      color: $color-gray;
+      text-decoration: none;
+      text-transform: uppercase;
+      // text-align: center;
+
+      &:hover {background-color: rgba(0,0,0,0.125);
+        color: $color-gray-darker;
+        // background-color: $color-gray-darkest;
       }
-
-      @media screen and (min-width: bp("m")) {
-        font-size: 2rem;
-      }
-
-      transition: color 0.25s,
-      background-color 0.25s;
+      // text-align: center;
+      // transition: color 0.25s,
+      //   background-color 0.25s;
+      //
+      // @media screen and (min-width: bp("s")) {
+      //   font-size: 1.8rem;
+      // }
+      //
+      // @media screen and (min-width: bp("m")) {
+      //   font-size: 2rem;
+      // }
     }
   }
+}
+
+.rhythm-tester {
+  @include v-rhythm(200);
+  background-color: rgba(0,127,0,0.25);
+  text-transform: uppercase;
+}
 
 
-  /* Logo */
+/* NAVBAR */
 
-  .site-logo {
+.navbar {
 
-    a {
-      //      font-size: $fontsize-big; // TODO: bug!!!
-      font-size: 2rem; // tmp fix
-      text-align: left;
-      font-weight: 900;
-      color: $color-secondary !important;
 
-      @media screen and (min-width: bp("s")) {
-        font-size: 2.4rem; // tmp fix
-      }
+}
 
-      @media screen and (min-width: bp("m")) {
-        font-size: 2.8rem; // tmp fix
-      }
 
-      &:hover,
-      &:active {
-        // color: $color-primary-light !important;
-        color: $color-secondary-light !important;
-      }
+/* SITE LOGO */
 
-      span {
-        color: $color-gray-lightest;
-        font-style: italic;
-        font-weight: normal;
-      }
+.site-logo {
+
+  a {
+    //      font-size: $fontsize-big; // TODO: bug!!!
+    font-size: 2rem; // tmp fix
+    font-weight: 900;
+    color: $color-secondary !important;
+
+    @media screen and (min-width: bp("s")) {
+      font-size: 2.4rem;
     }
-  }
 
+    @media screen and (min-width: bp("m")) {
+      font-size: 2.8rem;
+    }
 
-  a,
-  button {
-    display: inline-block;
-    height: $navbar-height;
-    line-height: $navbar-height;
+    &:hover,
+    &:active {
+      // color: $color-primary-light !important;
+      color: $color-secondary-light !important;
+    }
 
-    margin-right: $gutter-half;
-    padding-left: $gutter-half;
-    padding-right: $gutter-half;
-    text-align: center;
-    color: #ddd;
-    text-decoration: none;
-    text-transform: uppercase;
-
-    &:hover {
-      color: white;
-      background-color: $color-gray-darkest;
+    span {
+      color: $color-gray-lightest;
+      font-style: italic;
+      font-weight: normal;
     }
   }
 }
