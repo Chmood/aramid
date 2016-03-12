@@ -2,6 +2,8 @@
  * DEMO
  ******************************************************************************/
 
+$bp-menu-display: 'l';
+
 /* Reset button */
 
  button {
@@ -13,7 +15,7 @@
 /* Typefaces */
 
 // Google fonts import
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,400italic");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,900italic,400italic");
 
 body { font-family: 'Roboto', sans-serif; }
 
@@ -23,6 +25,22 @@ body { font-family: 'Roboto', sans-serif; }
 
 /////////////////////////////////////////////////////////////////
 // BASE
+
+// TAGS
+
+a, button {
+  color: $color-secondary;
+  text-decoration: none; // /!\ a11y hazard /!\
+
+  &:hover,
+  &:focus {
+    color: $color-secondary-darker;
+  }
+}
+
+button {
+  padding: 0;
+}
 
 h1 {
   margin-top: $gutter-double;

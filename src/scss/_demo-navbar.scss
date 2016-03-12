@@ -5,15 +5,124 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
- $navbar-height: $gutter-double;
- $navbar-height-tablet: $gutter-triple;
- $navbar-height-desktop: $gutter-quad;
+ $navbar-height:             2;  // in $gutter unit
+ $navbar-height-tablet:      3;
+ $navbar-height-desktop:     4;
 
- $is-header-sticky: true;
+ $is-header-sticky:          true;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// STICKY HEADER
+// CLASSES
+
+.nav {
+  // /* Lateral margins */
+  margin-left: -$gutter-half ;
+  margin-right: -$gutter-half;
+
+  > * {
+    text-transform: uppercase;
+
+    &.nav__item--active {
+      font-weight: bold;
+    }
+  }
+}
+
+/* NAVBAR */
+
+.navbar {
+  @extend .grid;
+  @extend .grid--fit;
+
+  .nav {
+
+    > * {
+      color: $color-gray;
+
+      @media screen and (min-width: bp('s')) {
+        @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 3);
+        margin-bottom: 0;
+      };
+
+      @media screen and (min-width: bp($bp-menu-display)) {
+        @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 4);
+        margin-bottom: 0;
+      };
+
+      &:hover {
+        color: $color-gray-lighter;
+      }
+
+      &.nav__item--active {
+        color: $color-gray-lighter;
+        // text-decoration: underline;
+        box-shadow: -$gutter-quarter 0 0 0 currentColor;
+
+        @media screen and (min-width: bp($bp-menu-display)) {
+          box-shadow: inset 0 (-$gutter-quarter) 0 0 currentColor;
+        };
+      }
+    }
+
+    &.nav-main {
+      display: none;
+      order: 1000;
+
+      > * {
+        @extend %cell--full;
+      }
+
+      @media screen and (min-width: bp($bp-menu-display)) {
+        display: flex;
+        order: initial;
+
+        > * {
+          flex: none; // @extend .cell--fit bugs me here
+        }
+      }
+
+    }
+
+    &.nav-mobile {
+
+      > * {
+        flex: none;
+        margin-right: 0;
+
+        a, button {
+          color: $color-gray;
+
+          &:hover {
+            color: $color-gray-lighter;
+          }
+        }
+
+        // &:nth-last-child(2) {
+        // }
+      }
+
+      > button.hamburger {
+
+        @media screen and (min-width: bp($bp-menu-display)) {
+          display: none;
+        };
+
+        color: $color-secondary;
+
+        &:hover {
+          color: $color-secondary-light !important;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+
+/* STICKY HEADER */
 
 @if $is-header-sticky {
 
@@ -31,83 +140,57 @@
   .wrap {
 
     .wrap--content &:first-child {
-      margin-top: $navbar-height;
+      margin-top: $navbar-height * $gutter;
 
       @media screen and (min-width: bp("s")) {
-        margin-top: $navbar-height-tablet;
+        margin-top: $navbar-height-tablet * $gutter;
       }
-
       @media screen and (min-width: bp("m")) {
-        margin-top: $navbar-height-desktop;
+        margin-top: $navbar-height-desktop * $gutter;
       }
     }
   }
 
+}
+
+/* SITE LOGO */
+
+.site-logo {
+  text-transform: uppercase;
+
+  a {
+    color: $color-secondary !important;
+    font-weight: 900;
+    font-style: italic;
+
+    @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 2);
+    margin-bottom: 0;
+
+    @media screen and (min-width: bp("s")) {
+      @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 3);
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: bp("m")) {
+      @include v-rhythm(fontsize('biggest'), $baseline-mode: false, $lines: 4);
+      margin-bottom: 0;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-secondary-light !important;
+    }
+
+    span {
+      color: $color-gray-lightest;
+      font-weight: 300;
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// CLASSES
-
-/* NAV */
-
-.nav {background-color: rgba(0,0,0,0.125);
-  // // reset v-rhythm
-  padding: 0;
-  //
-  // /* Lateral margins */
-  margin-left: -$gutter-half ;
-  margin-right: -$gutter-half;
-  //
-  // /* Extra padding */
-  // @media screen and (min-width: bp("s")) {
-  //   padding: $gutter-half 0;
-  // }
-  //
-  // @media screen and (min-width: bp("m")) {
-  //   padding: $gutter 0;
-  // }
-
-  // In case of ul/ol list TODO more selective
-  list-style-type: none;
-  // margin-left: 0;
-
-  > * {
-    margin-right: $gutter-half;
-
-    a,
-    button {
-      @include v-rhythm(38);
-      // min-width: 4.8rem;  // min touch size
-      min-width: $gutter-double;  // min touch size
-      display: inline-block;
-      // height: $navbar-height;
-      // line-height: $navbar-height;
-
-      padding-left: $gutter-half;
-      padding-right: $gutter-half;
-      color: $color-gray;
-      text-decoration: none;
-      text-transform: uppercase;
-      // text-align: center;
-
-      &:hover {background-color: rgba(0,0,0,0.125);
-        color: $color-gray-darker;
-        // background-color: $color-gray-darkest;
-      }
-      // text-align: center;
-      // transition: color 0.25s,
-      //   background-color 0.25s;
-      //
-      // @media screen and (min-width: bp("s")) {
-      //   font-size: 1.8rem;
-      // }
-      //
-      // @media screen and (min-width: bp("m")) {
-      //   font-size: 2rem;
-      // }
-    }
-  }
-}
+// Rhythm tester
+// TODO: houston we still have an issue on bigger fontsizes
 
 .rhythm-tester {
   @include v-rhythm(200);
@@ -117,46 +200,5 @@
   span {
     display: inline-block;
     background-color: rgba(255, 0, 0, 0.125);
-  }
-}
-
-
-/* NAVBAR */
-
-.navbar {
-
-
-}
-
-
-/* SITE LOGO */
-
-.site-logo {
-
-  a {
-    //      font-size: $fontsize-big; // TODO: bug!!!
-    font-size: 2rem; // tmp fix
-    font-weight: 900;
-    color: $color-secondary !important;
-
-    @media screen and (min-width: bp("s")) {
-      font-size: 2.4rem;
-    }
-
-    @media screen and (min-width: bp("m")) {
-      font-size: 2.8rem;
-    }
-
-    &:hover,
-    &:active {
-      // color: $color-primary-light !important;
-      color: $color-secondary-light !important;
-    }
-
-    span {
-      color: $color-gray-lightest;
-      font-style: italic;
-      font-weight: normal;
-    }
   }
 }

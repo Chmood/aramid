@@ -15,23 +15,29 @@
 
 		<div class="wrap wrap--header">
 			<div class="container">
-				<nav class="navbar grid grid--fit">
+				<nav class="navbar">
+
 					<div class="site-logo">
 						<a href="/">Aramid<span>.css<span></a>
 					</div>
-					<ul class="nav cell--fill grid grid--fit">
-						<li><a href="/dev">Home</a></li>
-						<!-- <li><a href="doc.html">DOC</a></li> -->
-						<li><a href="#colors">Colors</a></li>
-						<li><a href="#type">Type</a></li>
-						<li><a href="#grid">Grid</a></li>
-						<li><a href="#wrap">Wrap</a></li>
-						<li><a href="#patterns">Patterns</a></li>
-					</ul>
-					<ul class="nav grid grid--fit">
-						<li class="search"><button><i class="fa fa-search"></i></button></li>
-						<li class="hamburger"><button>menu <i class="fa fa-bars"></i></button></li>
-					</ul>
+
+					<div class="cell--fill"></div>
+
+					<nav class="nav-main nav nav--solid grid--right">
+						<a href="/dev">Home</a>
+						<a href="#colors" class="nav__item--active">Colors</a>
+						<a href="#type">Type</a>
+						<a href="#grid">Grid</a>
+						<a href="#wrap">Wrap</a>
+						<a href="#patterns">Patterns</a>
+					</nav>
+
+					<nav class="nav-mobile nav nav--solid">
+						<div class="login"><button><i class="fa fa-fw fa-user"></i></button></div>
+						<div class="search"><button><i class="fa fa-fw fa-search"></i></button></div>
+						<button class="hamburger" data-toggle=".nav-main"><i class="fa fa-fw fa-bars"></i></button>
+					</nav>
+
 				</nav>
 			</div>
 		</div>
@@ -54,41 +60,46 @@
 
 					<!-- NAVS -->
 
-					<!-- <h1 class="section-title" id="colors">Aramid Navs</h1>
+					<h1 class="section-title" id="colors">Aramid Navs</h1>
 
-					<h3 style="background-color: rgba(255,0,0,0.25);">Simple</h3>
+					<!--
+					<div class="rhythm-tester">
+						<span>V-Rhythm</span> <span>Tester</span>
+					</div>
+					-->
 
-					<div class="rhythm-tester"><span>V-Rhythm</span> <span>Tester</span></div>
+					<h2>Basic nav</h2>
 
-					<ul class="nav grid grid--fit">
+					<nav class="nav grid grid--fit">
+						<a href="/dev">Home</a>
+						<a href="#colors" class="nav__item--active">Colors</a>
+						<a href="#type">Mastering typefaces</a>
+						<a href="#grid">Grid</a>
+						<a href="#wrap">Wrap</a>
+						<a href="#patterns">Patterns</a>
+					</nav>
+
+					<h2>Solid nav</h2>
+
+					<nav class="nav nav--solid grid grid--fit" style="background-color: #333;">
+						<a href="/dev">Home</a>
+						<a href="#colors">.</a>
+						<a href="#type">Type</a>
+						<a href="#grid">Grid</a>
+						<a href="#wrap">Wrap</a>
+						<a href="#patterns">Patterns</a>
+					</nav>
+
+					<!-- <ul class="nav grid grid--fit">
 						<li><a href="/dev">Home</a></li>
-						<li><a href="#colors">Colors</a></li>
 						<li><a href="#type">Type</a></li>
+						<li><a href="#colors">Colors</a></li>
 						<li><a href="#grid">Grid</a></li>
 						<li><a href="#wrap">Wrap</a></li>
 						<li><a href="#patterns">Patterns</a></li>
-					</ul>
+					</ul> -->
 
-					<ul class="nav grid grid--fit">
-						<li><a href="/dev">Home</a></li>
-						<li><a href="#type">Type</a></li>
-						<li><a href="#colors">Colors</a></li>
-						<li><a href="#grid">Grid</a></li>
-						<li><a href="#wrap">Wrap</a></li>
-						<li><a href="#patterns">Patterns</a></li>
-					</ul>
 
-					<h3 style="background-color: rgba(255,0,0,0.25);">Big</h3>
-
-					<ul class="nav grid grid--fit">
-						<li><a href="/dev">Home</a></li>
-						<li><a href="#colors">Colors</a></li>
-						<li><a href="#type">Type</a></li>
-						<li><a href="#grid">Grid</a></li>
-						<li><a href="#wrap">Wrap</a></li>
-						<li><a href="#patterns">Patterns</a></li>
-					</ul>
- -->
 					<!-- COLORS -->
 
 					<h1 class="section-title" id="colors">Aramid Colors</h1>

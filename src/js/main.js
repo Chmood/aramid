@@ -2,7 +2,7 @@
 
 window.onload = function () {
   'use strict';
-
+console.log("uhuh");
   // TOGGLERS
 
   var $togglers = document.querySelectorAll('[data-toggle]');
@@ -12,7 +12,7 @@ window.onload = function () {
     console.log();
 
     var $target = document.querySelectorAll(el.getAttribute('data-toggle'))[0];
-    var classname = el.getAttribute('data-toggle-classname');
+    var classname = el.getAttribute('data-toggle-classname') || "is-collapsed";
 
     el.addEventListener('click', function() {
 

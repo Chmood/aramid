@@ -1,0 +1,49 @@
+/******************************************************************************
+ * NAV
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+/* NAV */
+
+.nav {
+  @extend .grid;
+  @extend .grid--fit;
+  @extend .grid--responsive;
+
+  > * {
+
+    // TODO : make this default for grid--responsive ?
+    @media screen and (min-width: bp("s")) {
+      flex: none;
+      // @extend .cell--fit;
+    }
+
+    // min touch spacing
+    &:not(:last-child) {
+      margin-right: $gutter-half;
+    }
+
+    // min touch size
+    // min-width: 48px;
+    min-width: $gutter-double;  // min touch size
+
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+  }
+
+  &:not(.nav--solid) > * {
+    @include v-rhythm(fontsize('big'));
+  };
+
+  &.nav--solid {
+    margin-left: 0;
+    margin-right: 0;
+
+    > * {
+      @include v-rhythm(fontsize('bigger'), $baseline-mode: false);
+      margin-bottom: 0;
+    }
+  }
+}

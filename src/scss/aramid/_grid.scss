@@ -236,6 +236,11 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 
 	// Common tag styles
 
+	// a grid after a grid fix
+	.#{$prefix}#{$classname-grid} + .#{$prefix}#{$classname-grid} {
+		padding-top: 0;
+	}
+
 	// ul.grid,
 	// ol.grid {
 	// 	margin: 0;

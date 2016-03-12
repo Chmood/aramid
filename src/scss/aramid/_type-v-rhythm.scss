@@ -35,14 +35,13 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 // Source: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/
 
 @mixin v-rhythm($font-size: fontsize("base"),
-								$padding-top: 0,
-								$padding-bottom: 0,
 								$font-size-base: $fontsize-base,
 								$line-height: $lineheight-base,
                 $scale: 1,
                 $compact: false,
                 $cap-height: 0.70,
-								$baseline-mode: $v-rhythm-baseline-mode
+								$baseline-mode: $v-rhythm-baseline-mode,
+								$lines: -1
 								) {
 
   $font-size: (n2rem($font-size / $pixels-per-rem ));  // Convert unitless (px) into rem
@@ -51,7 +50,9 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	$rhythm: $line-height * $font-size-base / $scale; // equals $gutter
 
 	// number of rhythm units that can fit the font-size
-	$lines: ceil(($font-size + 0.0001rem) / $rhythm);
+	@if $lines == -1 {
+		$lines: ceil(($font-size + 0.0001rem) / $rhythm);
+	}
 
 	// calculate the new line-height
 	$line-height: $rhythm * $lines / $font-size;
