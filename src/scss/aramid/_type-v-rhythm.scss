@@ -2,15 +2,19 @@
  * TYPE
  ******************************************************************************/
 
-/* Childof: _type.scss */
+/* Childof: _type.scss */$debug-vrhythm-bg-all: true;
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
+
+$v-rhythm-baseline-mode: 	true;
+// $v-rhythm-baseline-mode: 	false;
 
 // $debug-vrhythm-bg-all: 		true;
 $debug-vrhythm-bg-all: 		false !default;	// paint ALL vrhythmed blocks
 $debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
 $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
+$debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -33,7 +37,9 @@ $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 								$line-height: $lineheight-base,
                 $scale: 1,
                 $compact: false,
-                $cap-height: 0.70) {
+                $cap-height: 0.70,
+								$baseline-mode: $v-rhythm-baseline-mode
+								) {
 
   $font-size: (n2rem($font-size / $pixels-per-rem ));  // Convert unitless (px) into rem
 
@@ -51,29 +57,40 @@ $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 		text-transform: uppercase;	// Compact text cannot handle descendings
 	}
 
-	// calculate the padding to push the text on the baseline (depends on typeface)
-	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
-
-	// calculate the bottom fill
-	$bottom-fill: $gutter - (2 * $baseline-distance);
-
 	font-size: $font-size;
 	line-height: $line-height;
-	background-clip: padding-box;
-
-	padding-top: $baseline-distance;
-	padding-bottom: $baseline-distance + $bottom-fill;
-
+	background-clip: padding-box; // Useless ??
 	margin-top: 0;
 	margin-bottom: 0;
 
-	// border: 0.0001rem solid red;
-	// overflow: hidden; // force formating context
-
 	// Full debug
 	@if $debug-vrhythm-bg-all {
-		background-color: $debug-vrhythm-bg-color;
+		background-color: $debug-vrhythm-block-color;
 	}
+
+	// BLACK MAGIC BASELINE
+
+	@if $baseline-mode {
+
+		// calculate the padding to push the text on the baseline (depends on typeface)
+		$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
+
+		// calculate the bottom fill
+		$bottom-fill: $gutter - (2 * $baseline-distance);
+
+		padding-top: $baseline-distance;
+		padding-bottom: $baseline-distance + $bottom-fill;
+
+
+
+		// Full debug
+		@if $debug-vrhythm-bg-all {
+			box-shadow:
+				inset 0 $baseline-distance 0 0 adjust-hue($debug-vrhythm-block-color, 30deg),
+				inset 0 (-$baseline-distance - $bottom-fill) 0 0 adjust-hue($debug-vrhythm-block-color, -30deg);
+		}
+	}
+
 }
 
 
@@ -88,10 +105,10 @@ $debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 
 			// Line at bottom
 			background-image: repeating-linear-gradient( 0deg,
-			$debug-vrhythm-bg-color,
-			$debug-vrhythm-bg-color 1px,
-			transparent 1px,
-			transparent
+				$debug-vrhythm-bg-color,
+				$debug-vrhythm-bg-color 1px,
+				transparent 1px,
+				transparent
 			);
 
 			background-size: 100% $gutter;
