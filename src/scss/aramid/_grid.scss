@@ -236,12 +236,12 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 
 	// Common tag styles
 
-	ul.grid,
-	ol.grid {
-		margin: 0;
-		padding-left: 0;
-
-		li { list-style-type: none; }
-	}
+	// ul.grid,
+	// ol.grid {
+	// 	margin: 0;
+	// 	padding-left: 0;
+	//
+	// 	li { list-style-type: none; }
+	// }
 
 } // end of generate-classes
