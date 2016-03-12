@@ -9,11 +9,8 @@ $prefix:                  "" !default;
 $generate-classes:        true !default;
 
 $debug:										true !default;
-// $debug-vrhythm-bg-all: 		true;
-$debug-vrhythm-bg-all: 		false !default;	// paint ALL vrhythmed blocks
-$debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
-$debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
 
+// _gutter.scss override
 $fontsizes: (
 	'smaller': 							12,
 	'small': 								14,
@@ -41,108 +38,22 @@ $fontsize-big:           	(n2rem(fontsize("big")));
 $fontsize-bigger:         (n2rem(fontsize("bigger")));
 $fontsize-biggest:        (n2rem(fontsize("biggest")));
 $fontsize-huge:           (n2rem(fontsize("huge")));
-$fontsize-huge:           (n2rem(fontsize("giant")));
-$fontsize-huge:           (n2rem(fontsize("insane")));
+$fontsize-giant:          (n2rem(fontsize("giant")));
+$fontsize-insane:         (n2rem(fontsize("insane")));
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
-@mixin v-rhythm($font-size: fontsize("base"),
-								$padding-top: 0,
-								$padding-bottom: 0,
-								$font-size-base: $fontsize-base,
-								$line-height: $lineheight-base,
-                $scale: 1,
-                $compact: false,
-                $cap-height: 0.70) {
-
-  $font-size: (n2rem($font-size / $pixels-per-rem ));  // Convert unitless (px) into rem
-
-	// rhythm unit (in rem)
-	$rhythm: $line-height * $font-size / $scale;
-	$rhythm: $line-height * $font-size-base / $scale; // equals $gutter
-
-	// number of rhythm units that can fit the font-size
-	$lines: ceil(($font-size + 0.0001rem) / $rhythm);
-
-	// calculate the new line-height
-	$line-height: $rhythm * $lines / $font-size;
-
-	@if $compact {
-		$line-height: $line-height / 2;
-		text-transform: uppercase;	// Compact text cannot handle descendings
-	}
-
-	// calculate the padding to push the text on the baseline (depends on typeface)
-	$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
-
-	// calculate the bottom fill
-	$bottom-fill: $gutter - (2 * $baseline-distance);
-
-	font-size: $font-size;
-	line-height: $line-height;
-	background-clip: padding-box;
-
-	padding-top: $baseline-distance;
-	padding-bottom: $baseline-distance + $bottom-fill;
-
-	margin-top: 0;
-	margin-bottom: 0;
-
-	// border: 0.0001rem solid red;
-	// overflow: hidden; // force formating context
-
-	// Full debug
-	@if $debug-vrhythm-bg-all {
-		background-color: $debug-vrhythm-bg-color;
-	}
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS
-
-%vrhythm--bg-debug {
-
-	@if $debug {
-
-		@if $debug-vrhythm-bg-type == "lines" {
-
-			// Line at bottom
-			background-image: repeating-linear-gradient( 0deg,
-			$debug-vrhythm-bg-color,
-			$debug-vrhythm-bg-color 1px,
-			transparent 1px,
-			transparent
-			);
-
-			background-size: 100% $gutter;
-		}
-
-		@elseif $debug-vrhythm-bg-type == "stripes" {
-
-			// Even stripes
-			background-image: repeating-linear-gradient( 0deg,
-			$debug-vrhythm-bg-color,
-			$debug-vrhythm-bg-color $gutter,
-			transparent $gutter,
-			transparent
-			);
-
-			background-size: 100% $gutter-double;
-		}
-
-  }
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
-
-	.vrhythm-bg-debug { @extend %vrhythm--bg-debug;	}
 
 	// TAGS DEEP OVERRIDE
 
@@ -155,26 +66,20 @@ $fontsize-huge:           (n2rem(fontsize("insane")));
 		line-height: $lineheight-base;
 	}
 
+	h1, .h1 { 			font-size: $fontsize-huge; }
+	h2, .h2 { 			font-size: $fontsize-biggest; }
+	h3, .h3 { 			font-size: $fontsize-bigger; }
+	h4, .h4 { 			font-size: $fontsize-big; }
+	h5, .h5 { 			font-size: $fontsize-base; }
+	h6, .h6 { 			font-size: $fontsize-small; }
 
-	p,
-	blockquote,
-	ul, ol {
-		@include v-rhythm();
-	}
+	.smaller-text { font-size: $fontsize-smaller; }
+	.small-text { 	font-size: $fontsize-small; }
+	.big-text { 		font-size: $fontsize-big; }
+	.bigger-text { 	font-size: $fontsize-bigger; }
+	.biggest-text { font-size: $fontsize-biggest; }
+	.huge-text { 		font-size: $fontsize-huge; }
+	.giant-text { 	font-size: $fontsize-giant; }
+	.insane-text { 	font-size: $fontsize-insane; }
 
-	h1 { @include v-rhythm(fontsize("huge")); }
-	h2 { @include v-rhythm(fontsize("biggest")); }
-	h3 { @include v-rhythm(fontsize("bigger"), $compact: true); }
-	h4 { @include v-rhythm(fontsize("big")); }
-	h5 { @include v-rhythm(fontsize("base")); }
-	h6 { @include v-rhythm(fontsize("small")); }
-
-	.smaller-text { @include v-rhythm(fontsize("smaller")); }
-	.small-text { 	@include v-rhythm(fontsize("small")); }
-	.big-text { 		@include v-rhythm(fontsize("big")); }
-	.bigger-text { 	@include v-rhythm(fontsize("bigger"), $compact: true); }
-	.biggest-text { @include v-rhythm(fontsize("biggest")); }
-	.huge-text { 		@include v-rhythm(fontsize("huge")); }
-	.giant-text { 	@include v-rhythm(fontsize("giant")); }
-	.insane-text { 	@include v-rhythm(fontsize("insane")); }
 }
