@@ -12,7 +12,10 @@
   font-size: $fontsize-base;
   display: inline-block;
   width: (100% / 8);
-  padding: $gutter-double 0;  // lucky :)
+  // padding: $gutter-double 0;  // lucky :)
+  @include v-rhythm(fontsize("small"), $baseline-mode: false);
+  margin-bottom: 0;
+  padding: $gutter-double $gutter-half;
   color: white;
   text-align: center;
   text-transform: uppercase;

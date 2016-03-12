@@ -10,11 +10,14 @@
 $v-rhythm-baseline-mode: 	true;
 // $v-rhythm-baseline-mode: 	false;
 
+$debug-vrhythm-bg: 				true;
 $debug-vrhythm-bg: 				false !default;	// draw debug background
 $debug-vrhythm-bg-selector: ".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
 $debug-vrhythm-bg-type: 	"stripes" !default;	// "lines" or "stripes"
 $debug-vrhythm-bg-color: 	rgba(127, 0, 0, 0.125) !default;
 
+// $debug-vrhythm-block:			true;
+$debug-vrhythm-block: 		false !default;	// draw debug background
 $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 
@@ -64,8 +67,8 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	margin-top: 0;
 	margin-bottom: $gutter;
 
-	// Full debug
-	@if $debug-vrhythm-bg {
+	// Debug blocks
+	@if $debug-vrhythm-block {
 		background-color: $debug-vrhythm-block-color;
 	}
 
@@ -83,10 +86,8 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 		padding-bottom: $baseline-distance + $bottom-fill;
 		margin-bottom: 0;
 
-
-
-		// Full debug
-		@if $debug-vrhythm-bg {
+		// Debug blocks padding
+		@if $debug-vrhythm-block {
 			box-shadow:
 				inset 0 $baseline-distance 0 0 adjust-hue($debug-vrhythm-block-color, 30deg),
 				inset 0 (-$baseline-distance - $bottom-fill) 0 0 adjust-hue($debug-vrhythm-block-color, -30deg);
