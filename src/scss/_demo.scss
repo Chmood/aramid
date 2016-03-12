@@ -92,8 +92,6 @@ blockquote {
 
 /* Wrap */
 
-.wrap:not(.wrap--content) { @extend %vrhythm--bg-debug; }
-
 .wrap-site {    background-color: white;
                 color: $color-gray-darker; }
 .wrap--header { background-color: $color-gray-darker;

@@ -2,7 +2,7 @@
  * TYPE
  ******************************************************************************/
 
-/* Childof: _type.scss */$debug-vrhythm-bg-all: true;
+/* requires: _type.scss */
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
@@ -10,10 +10,11 @@
 $v-rhythm-baseline-mode: 	true;
 // $v-rhythm-baseline-mode: 	false;
 
-// $debug-vrhythm-bg-all: 		true;
-$debug-vrhythm-bg-all: 		false !default;	// paint ALL vrhythmed blocks
-$debug-vrhythm-bg-type: 	"lines" !default;	// "lines" or "stripes"
-$debug-vrhythm-bg-color: 	rgba(255, 0, 0, 0.125) !default;
+$debug-vrhythm-bg: 				false !default;	// draw debug background
+$debug-vrhythm-bg-selector: ".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
+$debug-vrhythm-bg-type: 	"stripes" !default;	// "lines" or "stripes"
+$debug-vrhythm-bg-color: 	rgba(127, 0, 0, 0.125) !default;
+
 $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 
@@ -61,10 +62,10 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	line-height: $line-height;
 	background-clip: padding-box; // Useless ??
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: $gutter;
 
 	// Full debug
-	@if $debug-vrhythm-bg-all {
+	@if $debug-vrhythm-bg {
 		background-color: $debug-vrhythm-block-color;
 	}
 
@@ -80,11 +81,12 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 		padding-top: $baseline-distance;
 		padding-bottom: $baseline-distance + $bottom-fill;
+		margin-bottom: 0;
 
 
 
 		// Full debug
-		@if $debug-vrhythm-bg-all {
+		@if $debug-vrhythm-bg {
 			box-shadow:
 				inset 0 $baseline-distance 0 0 adjust-hue($debug-vrhythm-block-color, 30deg),
 				inset 0 (-$baseline-distance - $bottom-fill) 0 0 adjust-hue($debug-vrhythm-block-color, -30deg);
@@ -161,4 +163,7 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	.huge-text { 		@include v-rhythm(fontsize("huge")); }
 	.giant-text { 	@include v-rhythm(fontsize("giant")); }
 	.insane-text { 	@include v-rhythm(fontsize("insane")); }
+
+	#{$debug-vrhythm-bg-selector} { @extend %vrhythm--bg-debug; }
+
 }
