@@ -8,8 +8,8 @@
 $navbar-height:             2;  // in $gutter unit
 $navbar-height-tablet:      3;
 $navbar-height-desktop:     4;
-$navbar-fontsize:           'bigger';
 
+$navbar-fontsize:           'bigger';
 $is-header-sticky:          true;
 
 
@@ -19,11 +19,8 @@ $is-header-sticky:          true;
 /* NAV */
 
 .nav {
-  // Negative lateral margins for content navs
-  margin-left: -$gutter-half ;
-  margin-right: -$gutter-half;
 
-  /* NAV ITEM */
+/* NAV ITEM STYLING */
 
   > * {
     text-transform: uppercase;
@@ -38,11 +35,13 @@ $is-header-sticky:          true;
 /* NAVBAR */
 
 .navbar {
+
   // navbars are grids, with fitted cells
   @extend .grid;
   @extend .grid--fit;
 
   /* filler */
+
   // the filler splits left and right parts of navbar
   // it's a bloat tag, and it flex fills as much space as needed
   > .navbar__filler {
@@ -55,28 +54,47 @@ $is-header-sticky:          true;
 
     /* Nav items */
 
-    > * {
+    > * {  //background-color: rgba(255,0,0,0.125);
       color: $color-gray;
+      &:hover { color: $color-secondary; }
 
       @media screen and (min-width: bp('s')) {
-        @include v-rhythm(fontsize($navbar-fontsize), $baseline-mode: false, $lines: 3);
+        @include v-rhythm(
+          fontsize($navbar-fontsize),
+          $baseline-mode: false,
+          $lines: $navbar-height-tablet
+        );
         margin-bottom: 0;
       };
 
-      @media screen and (min-width: bp($bp-menu-display)) {
-        @include v-rhythm(fontsize($navbar-fontsize), $baseline-mode: false, $lines: 4);
+      @media screen and (min-width: bp('m')) {
+        @include v-rhythm(
+          fontsize($navbar-fontsize),
+          $baseline-mode: false,
+          $lines: $navbar-height-desktop
+        );
         margin-bottom: 0;
-      };
-
-      &:hover {
-        color: $color-gray-lighter;
+        line-height: $navbar-height-desktop * $gutter !important;
       }
+
+      @media screen and (min-width: bp('l')) {
+        @include v-rhythm(
+          fontsize($navbar-fontsize),
+          $baseline-mode: false,
+          $lines: $navbar-height-desktop
+        );
+        margin-bottom: 0;
+        line-height: $navbar-height-desktop * $gutter !important;
+      }
+
+
+      /* Active item */
 
       &.nav__item--active {
         color: $color-gray-lighter;
-        // text-decoration: underline;
-        box-shadow: -$gutter-quarter 0 0 0 currentColor;
 
+        /* active item extra styling */
+        box-shadow: -$gutter-quarter 0 0 0 currentColor;
         @media screen and (min-width: bp($bp-menu-display)) {
           box-shadow: inset 0 (-$gutter-quarter) 0 0 currentColor;
         };
@@ -86,25 +104,37 @@ $is-header-sticky:          true;
     /* MAIN NAV */
 
     &.nav-main {//background-color: teal;
-      width: 100vw;
-      margin-right: 0;
-
-      padding-top: $gutter;
-      padding-bottom: $gutter;
+      // width: 100vw;
+      width: calc(100% + 2 * 2.4rem);
 
       margin-left: -$gutter;
       margin-right: -$gutter;
+
       padding-left: $gutter-half;
       padding-right: $gutter-half;
 
       background: $color-gray-darkest;
-      order: 1000;
+      order: 1000;  // force main nav to be the last item of navbar
 
+      // vertical padding
+      padding-top: $gutter;
+      padding-bottom: $gutter;
+
+      // Mobile main nav is hidden by default
       &.is-collapsed { display: none; }
 
-      // Makes all items full-width by default
       > * {
+        // Makes all items full-width by default
         @extend %cell--full;
+
+        //
+        @include v-rhythm(
+          fontsize($navbar-fontsize),
+          $baseline-mode: false,
+          $lines: $navbar-height-tablet
+        );
+        margin-bottom: 0;
+        margin-right: 0;
       }
 
       @media screen and (min-width: bp($bp-menu-display)) {
@@ -127,6 +157,7 @@ $is-header-sticky:          true;
       }
     }
 
+
     /* MOBILE NAV */
 
     &.nav-mobile {
@@ -148,15 +179,12 @@ $is-header-sticky:          true;
 
       > button.hamburger {
 
+        color: $color-secondary;
+        &:hover { color: $color-secondary-light; }
+
         @media screen and (min-width: bp($bp-menu-display)) {
           display: none;
         };
-
-        color: $color-secondary;
-
-        &:hover {
-          color: $color-secondary-light;
-        }
       }
     }
 
@@ -207,26 +235,40 @@ $is-header-sticky:          true;
   text-transform: uppercase;
 
   a {
+    display: inline-block;
     color: $color-secondary !important;
     font-weight: 900;
     font-style: italic;
 
-    @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 2);
+    @include v-rhythm(
+      fontsize($navbar-fontsize),
+      $baseline-mode: false,
+      $lines: $navbar-height
+    );
     margin-bottom: 0;
 
     @media screen and (min-width: bp("s")) {
-      @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 3);
+      @include v-rhythm(
+        fontsize('biggest'),
+        $baseline-mode: false,
+        $lines: $navbar-height-tablet
+      );
       margin-bottom: 0;
     }
 
     @media screen and (min-width: bp("m")) {
-      @include v-rhythm(fontsize('biggest'), $baseline-mode: false, $lines: 4);
+      @include v-rhythm(
+        fontsize('huge'),
+        $baseline-mode: false,
+        $lines: $navbar-height-desktop
+      );
       margin-bottom: 0;
     }
 
     &:hover,
     &:active {
       color: $color-secondary-light !important;
+      background-color: rgba(0,0,0,0.25) !important;
     }
 
     span {
