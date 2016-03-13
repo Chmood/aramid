@@ -47,6 +47,7 @@ h1 {
   color: $color-primary;
   text-transform: uppercase;
   font-weight: 900;
+  font-style: italic;
 }
 
 h2 {
@@ -138,18 +139,38 @@ blockquote {
   }
 }
 
-/* Page hero / title */
+/* HERO */
+
+/* Hero title */
 
 .title {
-  @include v-rhythm(fontsize("giant"));
-
   color: white;
   font-weight: 100;
-  //    padding: $gutter 0;
+  font-style: normal;
+
+  @include v-rhythm(fontsize("huge"));
+
+  @media screen and (min-width: bp('s')) {
+    @include v-rhythm(fontsize("giant"));
+  }
+  @media screen and (min-width: bp('m')) {
+    @include v-rhythm(fontsize("insane"));
+  }
+
 }
 
+/* Hero subline */
+
 .title-subline {
-  @include v-rhythm(fontsize("big"));
   color: $color-primary-lighter;
   font-style: italic;
+
+  @include v-rhythm(fontsize("big"));
+
+  @media screen and (min-width: bp('s')) {
+    @include v-rhythm(fontsize("bigger"));
+  }
+  @media screen and (min-width: bp('m')) {
+    @include v-rhythm(fontsize("biggest"));
+  }
 }
