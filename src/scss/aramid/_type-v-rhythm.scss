@@ -64,9 +64,13 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 	font-size: $font-size;
 	line-height: $line-height;
-	background-clip: padding-box; // Useless ??
-	margin-top: 0;
-	margin-bottom: $gutter;
+
+	// background-clip: padding-box; // Useless ??
+	margin-top: 0; // reset *some undefined* tags
+
+	@if not($baseline-mode) {
+		margin-bottom: $gutter;
+	}
 
 	// Debug blocks
 	@if $debug-vrhythm-block {
