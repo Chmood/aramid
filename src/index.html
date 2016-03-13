@@ -34,9 +34,16 @@
 
 					<nav class="nav-mobile nav">
 						<div class="login"><button><i class="fa fa-fw fa-user"></i></button></div>
-						<div class="search"><button><i class="fa fa-fw fa-search"></i></button></div>
+						<div class="search-item" data-toggle=".search"><button><i class="fa fa-fw fa-search"></i></button></div>
 						<button class="hamburger" data-toggle=".nav-main"><i class="fa fa-fw fa-bars"></i></button>
 					</nav>
+
+					<form class="search is-cllapsed">
+						<label for="" class="search__label">search</label>
+						<input class="search__input" placeholder="getting rich"></input>
+						<button class="search__submit" type="submit"><i class="fa fa-fw fa-search"></i></button>
+						<button class="search__close" data-toggle=".search"><i class="fa fa-fw fa-times"></i></button>
+					</form>
 
 				</nav>
 			</div>

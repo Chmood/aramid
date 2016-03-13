@@ -16,6 +16,13 @@ $is-header-sticky:          true;
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
+/* TOOLZ */
+
+// Mobile main nav is hidden by default
+.is-collapsed { display: none; }
+
+
+
 /* NAV */
 
 .nav {
@@ -37,8 +44,8 @@ $is-header-sticky:          true;
 .navbar {
 
   // navbars are grids, with fitted cells
-  @extend .grid;
-  @extend .grid--fit;
+  @extend %grid;
+  @extend %grid--fit;
 
   /* filler */
 
@@ -119,9 +126,6 @@ $is-header-sticky:          true;
       // vertical padding
       padding-top: $gutter;
       padding-bottom: $gutter;
-
-      // Mobile main nav is hidden by default
-      &.is-collapsed { display: none; }
 
       > * {
         // Makes all items full-width by default
@@ -274,6 +278,114 @@ $is-header-sticky:          true;
     span {
       color: $color-gray-lightest;
       font-weight: 300;
+    }
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// SEARCH BAR
+
+.search {
+  @extend %cell--full;
+  flex: 0 0 calc(100% + 4.8rem);
+
+  @extend %grid;
+  // @extend %grid--fit;
+
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+
+  @media screen and (min-width: bp("s")) {}
+  @media screen and (min-width: bp("m")) {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    // margin-top: $gutter;
+    // position: relative;
+    // top: $gutter-quarter;
+    // padding-top: $gutter-double;
+  }
+
+  background-color: white;
+
+  // width: calc(100% + $gutter-double);
+  width: 100vw;
+
+  /* SEARCH ITEMS */
+
+  > * {
+    @include v-rhythm(
+    fontsize($navbar-fontsize),
+    $baseline-mode: false,
+    $lines: 2
+    );
+    margin-bottom: 0;
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+  }
+
+  /* SEARCH INPUT */
+
+  > .search__input {
+
+    color: $color-gray-darkest;
+    box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
+    margin-right: $gutter;
+
+    &:focus,
+    &:hover {
+      box-shadow: inset 0 -2px 0 0 $color-primary;
+    }
+
+    @media screen and (min-width: bp("s")) {
+    }
+
+    // reset inputs
+    border: none;
+    width: 0;
+
+    @extend %cell--fill;
+    // background-color: $color-gray-lightest;
+    background-color: transparent;
+
+  }
+
+  /* SEARCH LABEL */
+
+  > .search__label {
+    display: none;
+    @media screen and (min-width: bp("m")) { display: block; }
+
+    padding-right: $gutter;
+    margin-left: -$gutter-half;
+
+    font-style: italic;
+    text-transform: uppercase;
+    color: $color-gray;
+  }
+
+  /* SEARCH SUBMIT */
+
+  > .search__submit {
+    background-color: $color-secondary;
+
+    color: rgba(255, 255, 255, 0.5);
+    &:hover { color: white; }
+  }
+
+  /* SEARCH CLOSE */
+
+  > .search__close {
+    display: none;
+
+    @media screen and (min-width: bp("s")) {
+      display: block;
     }
   }
 }
