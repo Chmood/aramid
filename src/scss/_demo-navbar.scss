@@ -16,10 +16,14 @@ $is-header-sticky:          true;
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
+/* NAV */
+
 .nav {
-  // /* Lateral margins */
+  // Negative lateral margins for content navs
   margin-left: -$gutter-half ;
   margin-right: -$gutter-half;
+
+  /* NAV ITEM */
 
   > * {
     text-transform: uppercase;
@@ -30,19 +34,29 @@ $is-header-sticky:          true;
   }
 }
 
+
 /* NAVBAR */
 
 .navbar {
+  // navbars are grids, with fitted cells
   @extend .grid;
   @extend .grid--fit;
 
-  /* .nav */
+  /* filler */
+  // the filler splits left and right parts of navbar
+  // it's a bloat tag, and it flex fills as much space as needed
+  > .navbar__filler {
+    @extend %cell--fill;
+  }
+
+  /* NAV IN NAVBAR */
 
   .nav {
 
+    /* Nav items */
+
     > * {
       color: $color-gray;
-      margin-right: 0;
 
       @media screen and (min-width: bp('s')) {
         @include v-rhythm(fontsize($navbar-fontsize), $baseline-mode: false, $lines: 3);
@@ -69,18 +83,24 @@ $is-header-sticky:          true;
       }
     }
 
-    /* nav-main */
+    /* MAIN NAV */
 
     &.nav-main {//background-color: teal;
-      width: 100%;
-      margin-top: $gutter;
-      margin-bottom: $gutter;
+      width: 100vw;
+      margin-right: 0;
 
-      &.is-collapsed {
-        display: none;
-      }
+      padding-top: $gutter;
+      padding-bottom: $gutter;
 
+      margin-left: -$gutter;
+      margin-right: -$gutter;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+
+      background: $color-gray-darkest;
       order: 1000;
+
+      &.is-collapsed { display: none; }
 
       // Makes all items full-width by default
       > * {
@@ -89,29 +109,31 @@ $is-header-sticky:          true;
 
       @media screen and (min-width: bp($bp-menu-display)) {
         width: auto;
-        margin-top: 0;
-        margin-bottom: 0;
 
-        &, &.is-collapsed {
-          display: flex;
-        }
+        padding-top: 0;
+        padding-bottom: 0;
 
+        margin-left: 0;
+        margin-right: 0;
+
+        background: transparent;
         order: initial;
+
+        &, &.is-collapsed { display: flex; }
 
         > * {
           flex: none; // @extend .cell--fit bugs me here
         }
       }
-
     }
 
-    /* nav-mobile */
+    /* MOBILE NAV */
 
     &.nav-mobile {
 
       > * {
-        flex: none;
         margin-right: 0;
+        flex: none;
 
         a, button {
           color: $color-gray;
@@ -120,10 +142,9 @@ $is-header-sticky:          true;
             color: $color-gray-lighter;
           }
         }
-
-        // &:nth-last-child(2) {
-        // }
       }
+
+      /* Hamburger */
 
       > button.hamburger {
 
@@ -134,16 +155,17 @@ $is-header-sticky:          true;
         color: $color-secondary;
 
         &:hover {
-          color: $color-secondary-light !important;
+          color: $color-secondary-light;
         }
       }
-
     }
 
-  }
+  }  // end .nav
+}  // end .navbar
 
-}
 
+////////////////////////////////////////////////////////////////////////////////
+// STICKY HEADER
 
 /* STICKY HEADER */
 
@@ -175,6 +197,9 @@ $is-header-sticky:          true;
   }
 
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// LOGO
 
 /* SITE LOGO */
 
