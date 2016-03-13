@@ -5,66 +5,84 @@
  ////////////////////////////////////////////////////////////////////////////////
  // CONFIGURATION
 
- $nav-fontsize-solid:       'bigger' !default;
- $nav-fontsize-baseline:    'big' !default;
+ $prefix:                  "" !default;
+ $generate-classes:        true !default;
 
- $bp-nav-inline:            'm' !default;
+$nav-fontsize:             'bigger' !default;
+$nav-fontsize-baseline:    'big' !default;
 
- ////////////////////////////////////////////////////////////////////////////////
- // CLASSES
+$bp-nav-inline:            's' !default;
 
-/* NAV */
 
-.nav {
+  ////////////////////////////////////////////////////////////////////////////////
+  // PLACEHOLDERS
+
+// NAV
+
+%nav {
   @extend .grid;
   @extend .grid--fit;
   @extend .grid--responsive;
+}
 
-  // SOLID NAV (default)
+// BASELINE NAV
 
-  margin-left: 0;
-  margin-right: 0;
+%nav--baseline {
+  margin-left: -$gutter-half;
+  margin-right: -$gutter-half;
 
-  /* Solid nav items */
-
+  // Baseline nav item
   > * {
-    @include v-rhythm(fontsize($nav-fontsize-solid), $baseline-mode: false);
-    margin-bottom: 0;
+    @include v-rhythm(fontsize($nav-fontsize-baseline));
+  };
+}
+
+// NAV ITEM
+
+%nav__item {
+
+  @include v-rhythm(
+    fontsize($nav-fontsize),
+    $baseline-mode: false
+  );
+  margin-bottom: 0;
+
+  // TODO : make this default for grid--responsive ?
+  @media screen and (min-width: bp($bp-nav-inline)) {
+    flex: none;
   }
 
-  /* NAV ITEM */
+  // item lateral padding
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
 
-  > * {
+  // a11y - banana test
 
-    // TODO : make this default for grid--responsive ?
-    @media screen and (min-width: bp($bp-nav-inline)) {
-      flex: none;
-      @extend %cell--fit;
-    }
+  // min width touch target size
+  min-width: $gutter-double;
 
-    // item lateral padding
-    padding-left: $gutter-half;
-    padding-right: $gutter-half;
-
-    // a11y - banana test
+  // touch target spacing
+  @media screen and (min-width: bp($bp-nav-inline)) {
     &:not(:last-child) {
-      // touch target spacing
-      @media screen and (min-width: bp($bp-nav-inline)) {
-        margin-right: $gutter-half;
-      }
+      margin-right: $gutter-half;
     }
-    // min width touch target size
-    min-width: $gutter-double;
   }
 
+}
 
-  // BASELINE NAVS
 
-  &.nav--baseline {
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
 
-    > * {
-      @include v-rhythm(fontsize($nav-fontsize-baseline));
-    };
+@if $generate-classes {
+
+/* NAV */
+  .#{$prefix}nav {               @extend %nav;
+
+/* BASELINE NAV */
+    &.#{$prefix}nav--baseline {  @extend %nav--baseline; }
+
+/* NAV ITEM */
+    > * {                        @extend %nav__item; }
   }
-
 }
