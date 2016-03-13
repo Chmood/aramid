@@ -5,11 +5,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
- $navbar-height:             2;  // in $gutter unit
- $navbar-height-tablet:      3;
- $navbar-height-desktop:     4;
+$navbar-height:             2;  // in $gutter unit
+$navbar-height-tablet:      3;
+$navbar-height-desktop:     4;
+$navbar-fontsize:           'bigger';
 
- $is-header-sticky:          true;
+$is-header-sticky:          true;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -35,18 +36,21 @@
   @extend .grid;
   @extend .grid--fit;
 
+  /* .nav */
+
   .nav {
 
     > * {
       color: $color-gray;
+      margin-right: 0;
 
       @media screen and (min-width: bp('s')) {
-        @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 3);
+        @include v-rhythm(fontsize($navbar-fontsize), $baseline-mode: false, $lines: 3);
         margin-bottom: 0;
       };
 
       @media screen and (min-width: bp($bp-menu-display)) {
-        @include v-rhythm(fontsize('bigger'), $baseline-mode: false, $lines: 4);
+        @include v-rhythm(fontsize($navbar-fontsize), $baseline-mode: false, $lines: 4);
         margin-bottom: 0;
       };
 
@@ -65,16 +69,33 @@
       }
     }
 
-    &.nav-main {
-      display: none;
+    /* nav-main */
+
+    &.nav-main {//background-color: teal;
+      width: 100%;
+      margin-top: $gutter;
+      margin-bottom: $gutter;
+
+      &.is-collapsed {
+        display: none;
+      }
+
       order: 1000;
 
+      // Makes all items full-width by default
       > * {
         @extend %cell--full;
       }
 
       @media screen and (min-width: bp($bp-menu-display)) {
-        display: flex;
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &, &.is-collapsed {
+          display: flex;
+        }
+
         order: initial;
 
         > * {
@@ -83,6 +104,8 @@
       }
 
     }
+
+    /* nav-mobile */
 
     &.nav-mobile {
 
