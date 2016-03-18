@@ -5,8 +5,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
- $prefix:                  "" !default;
- $generate-classes:        true !default;
+$prefix:                  "" !default;
+$generate-classes:        true !default;
+
+$pixels-per-rem:          10 !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -15,6 +17,8 @@
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
 }
+
+// From unitless number to value
 
 @function n2px($number) {
   @return $number * 1px;
@@ -27,6 +31,22 @@
 @function n2rem($number) {
   @return $number * 1rem;
 }
+
+// From value to unitless number
+
+@function px2n($px) {
+  @return $px / 1px;
+}
+
+@function em2n($em) {
+  @return $em / 1em;
+}
+
+@function rem2n($rem) {
+  @return $rem / 1rem;
+}
+
+// Unit to other unit var
 
 @function px2rem($px: 0) {
   @return strip-units($px) / $pixels-per-rem;

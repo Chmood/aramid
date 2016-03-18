@@ -1,0 +1,112 @@
+/******************************************************************************
+ * NAV
+ ******************************************************************************/
+
+ ////////////////////////////////////////////////////////////////////////////////
+ // CONFIGURATION
+
+$color-btn-default:            $color-gray;
+$color-btn-default-active:     black;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PLACEHOLDERS
+
+@mixin button(
+  $size: 'base',
+  $background: $color-btn-default,
+  $color: white,
+  $baseline: false
+) {
+  background-color: $background;
+  color: $color;
+
+  text-align: center;
+
+  @if $baseline {
+
+    // Inline button
+    @include v-rhythm(
+    fontsize($size),
+    $baseline-mode: $baseline,
+    $compact: false
+    );
+
+  } @else {
+
+    // Block button
+    @include v-rhythm(
+    fontsize($size),
+    $baseline-mode: $baseline,
+    $compact: true
+    );
+
+    display: inline-block;
+    vertical-align: bottom;
+
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
+  }
+
+  margin-bottom: 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate-classes {
+
+  button {
+    /* Reset button */
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .btn {
+    // TODO: add focus-with-tab a11y behaviour
+    cursor: pointer;
+  }
+
+  ///*button, */.btn {
+  button, .btn {
+    @include button('bigger');
+    padding-left: $gutter-half;
+    padding-right: $gutter-half;
+
+    &:hover, &:active {
+      background-color: $color-btn-default-active;
+    }
+
+    // DEMO
+    text-transform: uppercase;
+
+  }
+
+  .btn--inline {
+    @include button('base', $baseline: false);
+  }
+
+  .btn--transparent {
+    background-color: transparent;
+    color: $color-primary;
+
+    // TODO : hover&active (+ focus) selecta mixin
+    &:hover, &:active {
+      background: transparent;
+      color: darken($color-primary, 20%);
+    }
+  }
+
+  .btn--small {    @include button('base'); }
+  .btn--normal {   @include button('bigger'); }
+  .btn--big {      @include button('biggest'); }
+  .btn--bigger {   @include button('huge', $baseline: true); }
+
+  .btn--primary { background-color: $color-primary; }
+  .btn--secondary { background-color: $color-secondary; }
+  .btn--ternary { background-color: $color-ternary; }
+
+}

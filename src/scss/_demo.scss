@@ -4,14 +4,6 @@
 
 $bp-menu-display: 'm';
 
-/* Reset button */
-
- button {
-   border: 0;
-   background-color: inherit;
-   color: inherit;
- }
-
 /* Typefaces */
 
 // Google fonts import
@@ -28,7 +20,7 @@ body { font-family: 'Roboto', sans-serif; }
 
 // TAGS
 
-a, button {
+a {
   color: $color-secondary;
   text-decoration: none; // /!\ a11y hazard /!\
 
@@ -36,10 +28,6 @@ a, button {
   &:focus {
     color: $color-secondary-darker;
   }
-}
-
-button {
-  padding: 0;
 }
 
 h1 {
