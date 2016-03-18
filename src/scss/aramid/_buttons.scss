@@ -2,19 +2,25 @@
  * NAV
  ******************************************************************************/
 
- ////////////////////////////////////////////////////////////////////////////////
- // CONFIGURATION
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
 
-$color-btn-default:            $color-gray;
-$color-btn-default-active:     black;
+$color-gray:                   #888 !default;
+$color-primary:                #ff8000 !default;
+
+$btn-fontsize-base:            "bigger" !default;
+$btn-color-default:            $color-gray !default;
+$btn-color-default-active:     black !default;
+
+$btn-default-vertical-align:   top !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// PLACEHOLDERS
+// MIXINS
 
 @mixin button(
   $size: 'base',
-  $background: $color-btn-default,
+  $background: $btn-color-default,
   $color: white,
   $baseline: false,
   $compact: true
@@ -28,22 +34,22 @@ $color-btn-default-active:     black;
 
     // Inline button
     @include v-rhythm(
-    fontsize($size),
-    $baseline-mode: $baseline,
-    $compact: false
+      fontsize($size),
+      $baseline-mode: $baseline,
+      $compact: false
     );
 
   } @else {
 
     // Block button
     @include v-rhythm(
-    fontsize($size),
-    $baseline-mode: $baseline,
-    $compact: $compact
+      fontsize($size),
+      $baseline-mode: $baseline,
+      $compact: $compact
     );
 
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: $btn-default-vertical-align;
 
     padding-top: $gutter-half;
     padding-bottom: $gutter-half;
@@ -60,25 +66,29 @@ $color-btn-default-active:     black;
 
   button {
     /* Reset button */
-    padding: 0;
-    border: 0;
+    border: none;
     background-color: inherit;
     color: inherit;
   }
 
   .btn {
-    // TODO: add focus-with-tab a11y behaviour
     cursor: pointer;
+
+    @include qualify(a) {
+      @include hover {
+        color: $color-secondary !important;
+      }
+    }
   }
 
   ///*button, */.btn {
   button, .btn {
-    @include button('bigger');
+    @include button($btn-fontsize-base);
     padding-left: $gutter-half;
     padding-right: $gutter-half;
 
-    &:hover, &:active {
-      background-color: $color-btn-default-active;
+    @include hover {
+      background-color: $btn-color-default-active;
     }
 
     // DEMO
@@ -87,15 +97,14 @@ $color-btn-default-active:     black;
   }
 
   .btn--inline {
-    @include button('base', $baseline: false);
+    @include button('big', $baseline: false);
   }
 
   .btn--transparent {
     background-color: transparent;
     color: $color-primary;
 
-    // TODO : hover&active (+ focus) selecta mixin
-    &:hover, &:active {
+    @include hover {
       background: transparent;
       color: darken($color-primary, 20%);
     }
