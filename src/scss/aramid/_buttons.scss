@@ -16,7 +16,8 @@ $color-btn-default-active:     black;
   $size: 'base',
   $background: $color-btn-default,
   $color: white,
-  $baseline: false
+  $baseline: false,
+  $compact: true
 ) {
   background-color: $background;
   color: $color;
@@ -38,7 +39,7 @@ $color-btn-default-active:     black;
     @include v-rhythm(
     fontsize($size),
     $baseline-mode: $baseline,
-    $compact: true
+    $compact: $compact
     );
 
     display: inline-block;
@@ -100,10 +101,10 @@ $color-btn-default-active:     black;
     }
   }
 
-  .btn--small {    @include button('base'); }
+  .btn--small {    @include button('base', $compact: false); }
   .btn--normal {   @include button('bigger'); }
   .btn--big {      @include button('biggest'); }
-  .btn--bigger {   @include button('huge', $baseline: true); }
+  .btn--bigger {   @include button('huge', $compact: false); }
 
   .btn--primary { background-color: $color-primary; }
   .btn--secondary { background-color: $color-secondary; }
