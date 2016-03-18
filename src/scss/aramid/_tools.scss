@@ -60,6 +60,16 @@ $pixels-per-rem:          10 !default;
 ////////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
+// Hover, active and focus helpers
+
+@mixin hover {
+  // TODO: a slighter variant for focus state
+  // no focus state tweak, until sure of changes sanity
+  @at-root &:hover, &:active/*, &:focus*/ {
+    @content;
+  }
+}
+
 // Class qualifying
 // Source: https://css-tricks.com/snippets/sass/mixin-to-qualify-a-selector/
 
