@@ -1,20 +1,20 @@
 /*globals window, document, console */
 
 window.onload = function () {
-  'use strict';
-console.log("uhuh");
+  "use strict";
+
   // TOGGLERS
 
-  var $togglers = document.querySelectorAll('[data-toggle]');
+  var $togglers = document.querySelectorAll("[data-toggle]");
 
   Array.prototype.forEach.call($togglers, function(el){
 
     console.log();
 
-    var $target = document.querySelectorAll(el.getAttribute('data-toggle'))[0];
-    var classname = el.getAttribute('data-toggle-classname') || "is-collapsed";
+    var $target = document.querySelectorAll(el.getAttribute("data-toggle"))[0];
+    var classname = el.getAttribute("data-toggle-classname") || "is-collapsed";
 
-    el.addEventListener('click', function() {
+    el.addEventListener("click", function() {
 
       if ($target.classList.contains(classname)) {
         $target.classList.remove(classname);
