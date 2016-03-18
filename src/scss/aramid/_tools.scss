@@ -58,6 +58,30 @@ $pixels-per-rem:          10 !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// Class qualifying
+// Source: https://css-tricks.com/snippets/sass/mixin-to-qualify-a-selector/
+
+/// Since the current way to qualify a class from within its ruleset is quite
+/// ugly, here is a mixin providing a friendly API to do so.
+/// @author Hugo Giraudel
+/// @param {String} $element-selector - Element selector
+@mixin qualify($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
+}
+
+/// @alias qualify
+@mixin when-is($args...) {
+  @include qualify($args...) {
+    @content;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
