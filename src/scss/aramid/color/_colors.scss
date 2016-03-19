@@ -12,31 +12,55 @@ $prefix:                  "" !default;
 $generate-classes:        true !default;
 
 $colors: (
-  'primary':                   #f80,
-  'secondary':                 #248,
-  'ternary':                   #844
+  'primary':                           #f80,
+  'secondary':                         #248,
+  'ternary':                           #844
 ) !default;
 
 $color-variation-ratios: (
-'darkest':                   20%,
-'darker':                    35%,
-'dark':                      80%,
-'normal':                    100%,
-'light':                     80%,
-'lighter':                   35%,
-'lightest':                  7%,
+'darkest':                             20%,
+'darker':                              35%,
+'dark':                                80%,
+'normal':                              100%,
+'light':                               80%,
+'lighter':                             35%,
+'lightest':                            7%,
 ) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
-@function color($color: "primary") {
+// Get a named color from the palette
+@function get-color($color) {
   @return map-get($colors, $color);
 }
 
+// Get a variation ratio
 @function color-variation-ratio($ratio: "normal") {
   @return map-get($color-variation-ratios, $ratio);
+}
+
+// Mix a color with black
+@function blacken($color, $ratio: color-variation-ratio("dark")) {
+  @return mix($color, black, $ratio);
+}
+
+// Mix a color with white
+@function whiten($color, $ratio: color-variation-ratio("light")) {
+  @return mix($color, white, $ratio);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+@mixin color($color: 'primary') {
+  color: get-color($color);
+}
+
+@mixin background-color($color: 'primary') {
+  background-color: get-color($color);
 }
 
 
@@ -45,38 +69,38 @@ $color-variation-ratios: (
 
 // Base colors
 
-$color-primary:                color("primary") !default;
-$color-secondary:              color("secondary") !default;
-$color-ternary:                color("ternary") !default;
+$color-primary:                get-color("primary") !default;
+$color-secondary:              get-color("secondary") !default;
+$color-ternary:                get-color("ternary") !default;
 
 // Color variations
 
-$color-primary-lightest:       mix($color-primary, white, color-variation-ratio("lightest")) !default;
-$color-primary-lighter:        mix($color-primary, white, color-variation-ratio("lighter")) !default;
-$color-primary-light:          mix($color-primary, white, color-variation-ratio("light")) !default;
-$color-primary-dark:           mix($color-primary, black, color-variation-ratio("dark")) !default;
-$color-primary-darker:         mix($color-primary, black, color-variation-ratio("darker")) !default;
-$color-primary-darkest:        mix($color-primary, black, color-variation-ratio("darkest")) !default;
+$color-primary-lightest:       whiten($color-primary, color-variation-ratio("lightest")) !default;
+$color-primary-lighter:        whiten($color-primary, color-variation-ratio("lighter")) !default;
+$color-primary-light:          whiten($color-primary) !default;
+$color-primary-dark:           blacken($color-primary) !default;
+$color-primary-darker:         blacken($color-primary, color-variation-ratio("darker")) !default;
+$color-primary-darkest:        blacken($color-primary, color-variation-ratio("darkest")) !default;
 
-$color-secondary-lightest:     mix($color-secondary, white, color-variation-ratio("lightest")) !default;
-$color-secondary-lighter:      mix($color-secondary, white, color-variation-ratio("lighter")) !default;
-$color-secondary-light:        mix($color-secondary, white, color-variation-ratio("light")) !default;
-$color-secondary-dark:         mix($color-secondary, black, color-variation-ratio("dark")) !default;
-$color-secondary-darker:       mix($color-secondary, black, color-variation-ratio("darker")) !default;
-$color-secondary-darkest:      mix($color-secondary, black, color-variation-ratio("darkest")) !default;
+$color-secondary-lightest:     whiten($color-secondary, color-variation-ratio("lightest")) !default;
+$color-secondary-lighter:      whiten($color-secondary, color-variation-ratio("lighter")) !default;
+$color-secondary-light:        whiten($color-secondary) !default;
+$color-secondary-dark:         blacken($color-secondary) !default;
+$color-secondary-darker:       blacken($color-secondary, color-variation-ratio("darker")) !default;
+$color-secondary-darkest:      blacken($color-secondary, color-variation-ratio("darkest")) !default;
 
-$color-ternary-lightest:       mix($color-ternary, white, color-variation-ratio("lightest")) !default;
-$color-ternary-lighter:        mix($color-ternary, white, color-variation-ratio("lighter")) !default;
-$color-ternary-light:          mix($color-ternary, white, color-variation-ratio("light")) !default;
-$color-ternary-dark:           mix($color-ternary, black, color-variation-ratio("dark")) !default;
-$color-ternary-darker:         mix($color-ternary, black, color-variation-ratio("darker")) !default;
-$color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio("darkest")) !default;
+$color-ternary-lightest:       whiten($color-ternary, color-variation-ratio("lightest")) !default;
+$color-ternary-lighter:        whiten($color-ternary, color-variation-ratio("lighter")) !default;
+$color-ternary-light:          whiten($color-ternary) !default;
+$color-ternary-dark:           blacken($color-ternary) !default;
+$color-ternary-darker:         blacken($color-ternary, color-variation-ratio("darker")) !default;
+$color-ternary-darkest:        blacken($color-ternary, color-variation-ratio("darkest")) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS
 
-// color
+// Color
 
 %color-primary-lightest {      color: $color-primary-lightest; }
 %color-primary-lighter {       color: $color-primary-lighter; }
@@ -102,7 +126,7 @@ $color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio(
 %color-ternary-darker {        color: $color-ternary-darker; }
 %color-ternary-darkest {       color: $color-ternary-darkest; }
 
-// background
+// Background
 
 %bg-primary-lightest {         background-color: $color-primary-lightest; }
 %bg-primary-lighter {          background-color: $color-primary-lighter; }
