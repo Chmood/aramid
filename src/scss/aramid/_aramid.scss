@@ -42,32 +42,33 @@ $modules: (
 // MODULES IMPORT
 
 // Base
-@import "aramid/normalize";
-@import "aramid/tools";
-@import "aramid/base";
+@import "aramid/base/normalize";
+@import "aramid/base/tools";
+@import "aramid/base/base";
 
 // Type
-@import "aramid/gutter";
-@import "aramid/type";
-@import "aramid/type-v-rhythm";
+@import "aramid/type/gutter";
+@import "aramid/type/type";
+@import "aramid/type/type-v-rhythm";
 
-// Colors
-@import "aramid/colors-grays";
-@import "aramid/colors-material-design";
-@import "aramid/colors";
+// Color
+@import "aramid/color/colors";
+@import "aramid/color/colors-grays";
+@import "aramid/color/colors-material-design";
 
 // Layout
-@import "aramid/breakpoint";
-@import "aramid/wrap";
-@import "aramid/grid";
+@import "aramid/layout/breakpoint";
+@import "aramid/layout/wrap";
+@import "aramid/layout/grid";
 
-// UI components
-@import "aramid/buttons";
-@import "aramid/nav";
-@import "aramid/shadow";
+
+// Block
+@import "aramid/block/buttons";
+@import "aramid/block/nav";
+
+// Misc
+@import "aramid/misc/shadow";
+@import "aramid/misc/prism";
 
 // Debug
-@import "aramid/debug";
-
-// Styleguide
-@import "aramid/prism";
+@import "aramid/debug/debug";
