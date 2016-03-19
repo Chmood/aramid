@@ -1,5 +1,7 @@
+@if module('buttons') {
+
 /******************************************************************************
- * NAV
+ * BUTTONS
  ******************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -7,6 +9,7 @@
 
 $color-gray:                   #888 !default;
 $color-primary:                #ff8000 !default;
+$color-secondary:              #ff8000 !default;
 
 $btn-fontsize-base:            "bigger" !default;
 $btn-color-default:            $color-gray !default;
@@ -74,11 +77,11 @@ $btn-default-vertical-align:   top !default;
   .btn {
     cursor: pointer;
 
-    @include qualify(a) {
-      @include hover {
-        color: $color-secondary !important;
-      }
-    }
+    // @include qualify(a) {
+    //   @include hover {
+    //     color: $color-secondary;
+    //   }
+    // }
   }
 
   ///*button, */.btn {
@@ -115,8 +118,12 @@ $btn-default-vertical-align:   top !default;
   .btn--big {      @include button('biggest'); }
   .btn--bigger {   @include button('huge', $compact: false); }
 
-  .btn--primary { background-color: $color-primary; }
-  .btn--secondary { background-color: $color-secondary; }
-  .btn--ternary { background-color: $color-ternary; }
+  @if module('colors') {
+    .btn--primary { background-color: $color-primary; }
+    .btn--secondary { background-color: $color-secondary; }
+    .btn--ternary { background-color: $color-ternary; }
+  }
 
 }
+
+} /* END Module */

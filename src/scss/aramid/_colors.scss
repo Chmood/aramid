@@ -1,6 +1,9 @@
+@if module('colors') {
+
 /******************************************************************************
  * COLORS
  ******************************************************************************/
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
@@ -183,3 +186,5 @@ $color-ternary-darkest:        mix($color-ternary, black, color-variation-ratio(
   .bg-ternary-darker {           @extend %bg-ternary-darker; }
   .bg-ternary-darkest {          @extend %bg-ternary-darkest; }
 }
+
+} /* END Module */

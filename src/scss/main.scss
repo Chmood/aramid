@@ -1,61 +1,29 @@
-/******************************************************************************
- * MAIN.SCSS
- ******************************************************************************/
-// /!\ Only imports here! /!\
+ /*************************************************************************
+  * ARAMID MAIN
+  *************************************************************************/
 
-////////////////////////////////////////////////////////////////////////////////
-// CONFIG
+
+///////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
 
 @import "config";
+@import "theme/config";
+// @import "aramid/config";  // Aramid has a decentralized configuration
 
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// STYLES
+
 // ARAMID
+@import "aramid/aramid";
 
-// All-in-one import
+// THEME
+@import "theme/theme";
 
-// TODO update at each build
-// @import "aramid/aramid";
-
-// Cherrypick imports
-
-// Base
-@import "aramid/normalize";
-@import "aramid/tools";
-@import "aramid/base";
-
-// Type
-@import "aramid/gutter";
-@import "aramid/type";
-@import "aramid/type-v-rhythm";
-
-// Colors
-@import "aramid/colors-grays";
-@import "aramid/colors-material-design";
-@import "aramid/colors";
-
-// Layout
-@import "aramid/breakpoint";
-@import "aramid/wrap";
-@import "aramid/grid";
-
-// Misc
-@import "aramid/shadow";
-
-// Debug
-@import "aramid/debug";
-
-// Styleguide
-@import "aramid/prism";
-
-// UI components
-@import "aramid/buttons";
-@import "aramid/nav";
+// CLIENT
+@import "client";
 
 
-////////////////////////////////////////////////////////////////////////////////
-// YOUR STYLESHEETS HERE
-
-@import "demo";
-@import "demo-navbar";
-@import "demo-styleguide";
+/*************************************************************************
+ * [END] ARAMID MAIN
+ *************************************************************************/

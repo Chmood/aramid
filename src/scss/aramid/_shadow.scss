@@ -1,3 +1,8 @@
+@if module('shadow') {
+
+/******************************************************************************
+ * SHADOW
+ ******************************************************************************/
 
 // Kudos to Hugo Giraudel
 // SRC: https://css-tricks.com/snippets/sass/material-shadows-mixin/
@@ -38,3 +43,5 @@
 
   @return 0 $primary-offset $blur $color;
 }
+
+} /* END Module */

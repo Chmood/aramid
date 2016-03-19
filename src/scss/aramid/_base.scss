@@ -1,3 +1,5 @@
+@if module('base') {
+
 /******************************************************************************
  * BASE
  ******************************************************************************/
@@ -22,3 +24,5 @@ body {
   // Kill horizontal scroll
   overflow-x: hidden;  // basically for really narrow viewports (long word overflow)
 }
+
+} /* END Module */

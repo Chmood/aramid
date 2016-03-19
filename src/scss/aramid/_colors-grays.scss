@@ -1,3 +1,5 @@
+@if module('colors-grays') {
+
 /******************************************************************************
  * COLORS - GRAYS
  ******************************************************************************/
@@ -90,3 +92,5 @@ $color-gray-darkest:           gray("darkest");
   .bg-gray-darker {              @extend %bg-gray-darker; }
   .bg-gray-darkest {             @extend %bg-gray-darkest; }
 }
+
+} /* END Module */

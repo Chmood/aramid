@@ -1,6 +1,9 @@
+@if module('colors-material-design') {
+
 /******************************************************************************
  * COLORS - MATERIAL DESIGN
  ******************************************************************************/
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
@@ -82,3 +85,5 @@ $color-ternary-light:   map-get($color-ternary-palette, 3);
 $color-ternary:         map-get($color-ternary-palette, 6);
 $color-ternary-dark:    map-get($color-ternary-palette, 7);
 $color-ternary-darker:  map-get($color-ternary-palette, 9);
+
+} /* END Module */

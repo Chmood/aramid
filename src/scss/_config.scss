@@ -2,7 +2,44 @@
  * ARAMID MAIN CONFIGURATION
  ******************************************************************************/
 
+
+////////////////////////////////////////////////////////////////////////////////
+// MODULES
+
+// $modules: (
+//   'tools':                             true,
+//   'base':                              true,
+//
+//   'gutter':                            true,
+//   'type':                              true,
+//   'type-v-rhythm':                     true,
+//
+//   'colors':                            true,
+//   'colors-grays':                      true,
+//   'colors-material-design':            true,
+//
+//   'breakpoint':                        true,
+//   'wrap':                              true,
+//   'grid':                              true,
+//
+//   'buttons':                           true,
+//   'nav':                               true,
+//   'shadow':                            true,
+//
+//   'debug':                             true,
+//   'prism':                             true,
+//
+// );
+
+//    ^^  MANUAL UPDATE  ^^
+
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
+
+// Your config here
+
 $n-children-max:          6;
+
 
 
 // TODO: ALL default vars here, with smart comments
