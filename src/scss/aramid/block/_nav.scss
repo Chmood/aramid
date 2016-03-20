@@ -39,27 +39,33 @@ $bp-nav-inline:           's' !default;
   };
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
 // NAV ITEM
 
-%nav__item {
+@mixin nav-item(
+  $fontsize: "base",
+  $padding-vertical: $gutter-half,
+  $padding-horizontal: $gutter-half
+) {
 
-  @include v-rhythm(
-    fontsize($nav-fontsize),
-    $baseline-mode: false
-  );
-  margin-bottom: 0;
+  @include v-block($fontsize);
 
   // TODO : make this default for grid--responsive ?
   @media screen and (min-width: bp($bp-nav-inline)) {
     flex: none;
   }
 
-  // item lateral padding
-  padding-left: $gutter-half;
-  padding-right: $gutter-half;
+  // item padding
+  padding-left: $padding-horizontal;
+  padding-right: $padding-horizontal;
+  padding-top: $padding-vertical;
+  padding-bottom: $padding-vertical;
 
   // a11y - banana test
-
   // min width touch target size
   min-width: $gutter-double;
 
@@ -69,7 +75,6 @@ $bp-nav-inline:           's' !default;
       margin-right: $gutter-half;
     }
   }
-
 }
 
 
@@ -85,8 +90,24 @@ $bp-nav-inline:           's' !default;
     &.#{$prefix}nav--baseline {  @extend %nav--baseline; }
 
 /* NAV ITEM */
-    > * {                        @extend %nav__item; }
+    > * {                        @include nav-item($fontsize: $nav-fontsize); }
   }
 }
 
 } /* END Module */
+
+
+.nav-buttons {
+  @extend %nav;
+
+  /* Items */
+  > * {
+    // @include nav-item($fontsize: $nav-fontsize);
+
+  }
+
+  > button,
+  > .btn {
+    // @include nav-item($fontsize: $nav-fontsize);
+  }
+}

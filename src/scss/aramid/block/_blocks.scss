@@ -1,0 +1,92 @@
+@if module('blocks') {
+
+/******************************************************************************
+ * BLOCKS
+ ******************************************************************************/
+
+// requires: ???
+
+///////////////////////////////////////////////////////////////////////////
+// DEFAULT CONFIGURATION
+
+$prefix:                  "" !default;
+$generate-classes:        true !default;
+
+$debug:										true !default;
+
+$block-default-vertical-align:   top !default;
+
+
+// MIXINS
+
+// V-BLOCK
+// Same a v-rhythm with different defaults :
+// * text is vertically centered, instead of baselined
+// * no margin bottom at all
+
+@mixin v-block(
+  $fontsize: "base",
+  $compact: "auto",
+  $padding-vertical: $gutter-half,
+  $padding-horizontal: $gutter-half
+) {
+
+  @include v-rhythm($font-size: fontsize($fontsize),
+                    $compact: $compact,
+    								$baseline-mode: false,
+                    $margin-bottom: false
+	);
+
+	display: inline-block;
+  vertical-align: $block-default-vertical-align;
+
+  padding-left: $padding-horizontal;
+  padding-right: $padding-horizontal;
+  padding-top: $padding-vertical;
+  padding-bottom: $padding-vertical;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// %block { @include v-block; }
+
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate-classes {
+
+  .block {
+    @include v-block;
+  }
+
+  .block--smaller {  @include v-block("smaller"); }
+  .block--small {  @include v-block("small"); }
+  .block--big {  @include v-block("big"); }
+  .block--bigger {  @include v-block("bigger"); }
+  .block--biggest {  @include v-block("biggest"); }
+  .block--huge {  @include v-block("huge"); }
+  .block--giant {  @include v-block("giant"); }
+  .block--insane {  @include v-block("insane"); }
+
+
+  // Debug
+
+  @if $debug {
+
+    .block {
+      background-color: rgba(255,255,255,0.5);
+      background-color: color("secondary");
+      color: white;
+      text-transform: uppercase;
+
+      margin-bottom: $gutter;
+    }
+  }
+
+}
+
+
+} /* END Module */

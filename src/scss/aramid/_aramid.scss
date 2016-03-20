@@ -22,6 +22,8 @@ $modules: (
   'wrap':                              true,
   'grid':                              true,
 
+  'blocks':                            true,
+
   'buttons':                           true,
   'nav':                               true,
   'shadow':                            true,
@@ -47,8 +49,8 @@ $modules: (
 @import "aramid/base/base";
 
 // Type
-@import "aramid/type/gutter";
 @import "aramid/type/type";
+@import "aramid/type/gutter";
 @import "aramid/type/type-v-rhythm";
 
 // Color
@@ -63,6 +65,7 @@ $modules: (
 
 
 // Block
+@import "aramid/block/blocks";
 @import "aramid/block/buttons";
 @import "aramid/block/nav";
 

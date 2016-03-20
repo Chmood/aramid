@@ -7,15 +7,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
-$color-gray:                   #888 !default;
-$color-primary:                #ff8000 !default;
-$color-secondary:              #ff8000 !default;
-
-$btn-fontsize-base:            "bigger" !default;
-$btn-color-default:            $color-gray !default;
+$btn-color-default:            #888;
+$btn-color-default-hover:      #333 !default;
 $btn-color-default-active:     black !default;
 
-$btn-default-vertical-align:   top !default;
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,40 +23,26 @@ $btn-default-vertical-align:   top !default;
   $size: 'base',
   $background: $btn-color-default,
   $color: white,
-  $baseline: false,
-  $compact: true
+  $padding-vertical: $gutter-half,
+  $padding-horizontal: $gutter-half
 ) {
+
+  @include v-block( $fontsize: $size );
+
   background-color: $background;
   color: $color;
-
   text-align: center;
 
-  @if $baseline {
-
-    // Inline button
-    @include v-rhythm(
-      fontsize($size),
-      $baseline-mode: $baseline,
-      $compact: false
-    );
-
-  } @else {
-
-    // Block button
-    @include v-rhythm(
-      fontsize($size),
-      $baseline-mode: $baseline,
-      $compact: $compact
-    );
-
-    display: inline-block;
-    vertical-align: $btn-default-vertical-align;
-
-    padding-top: $gutter-half;
-    padding-bottom: $gutter-half;
-  }
+  padding-top: $padding-vertical;
+  padding-bottom: $padding-vertical;
+  padding-left: $padding-horizontal;
+  padding-right: $padding-horizontal;
 
   margin-bottom: 0;
+  margin-bottom: $gutter;
+  margin-right: $gutter-half;
+
+  transition: all duration("fast");
 }
 
 
@@ -76,19 +60,11 @@ $btn-default-vertical-align:   top !default;
 
   .btn {
     cursor: pointer;
-
-    // @include qualify(a) {
-    //   @include hover {
-    //     color: $color-secondary;
-    //   }
-    // }
   }
 
   ///*button, */.btn {
   button, .btn {
-    @include button($btn-fontsize-base);
-    padding-left: $gutter-half;
-    padding-right: $gutter-half;
+    @include button;
 
     @include hover {
       background-color: $btn-color-default-active;
@@ -99,31 +75,117 @@ $btn-default-vertical-align:   top !default;
 
   }
 
-  .btn--inline {
-    @include button('big', $baseline: false);
+  @each $size in $fontsizes {
+    $s: nth($size, 1);
+    .btn--#{$s} { @include button($s); }
+    // @warn "$s: " + $s
   }
 
-  .btn--transparent {
-    background-color: transparent;
-    color: $color-primary;
 
-    @include hover {
-      background: transparent;
-      color: darken($color-primary, 20%);
+  @if module('colors') && module('grays') {
+
+    // PLACEHOLDERS
+
+    // Color buttons
+
+    %btn--primary {
+      background-color: color("primary");
+      @include hover { background-color: color("primary","darker"); }
     }
-  }
+    %btn--secondary {
+      background-color: color("secondary");
+      @include hover { background-color: color("secondary","darker"); }
+    }
+    %btn--ternary {
+      background-color: color("ternary");
+      @include hover { background-color: color("ternary","darker"); }
+    }
 
-  .btn--small {    @include button('base', $compact: false); }
-  .btn--normal {   @include button('bigger'); }
-  .btn--big {      @include button('biggest'); }
-  .btn--bigger {   @include button('huge', $compact: false); }
+    // Transparent buttons
 
-  @if module('colors') {
-    .btn--primary { background-color: $color-primary; }
-    .btn--secondary { background-color: $color-secondary; }
-    .btn--ternary { background-color: $color-ternary; }
+    %btn--transparent {
+      background-color: transparent;
+      color: $btn-color-default;
+
+      @include hover {
+        background-color: transparent;
+        color: $btn-color-default-hover;
+      }
+
+      @each $color in $colors {
+    		$key: nth($color, 1);
+
+        &.btn--#{$key} {
+          color: color(#{$key}, "darker");
+          @include hover { background-color: transparent; }
+        }
+    	}
+
+      &[class*="ary"] {
+        // @include hover { background-color: transparent; }
+      }
+
+      &.btn--primary {
+        color: color("primary");
+        @include hover { color: color("primary", "darker"); background-color: transparent; }
+      }
+      &.btn--secondary {
+        color: color("secondary");
+        @include hover { color: color("secondary", "darker"); background-color: transparent; }
+      }
+      &.btn--ternary {
+        color: color("ternary");
+        @include hover { color: color("ternary", "darker"); background-color: transparent; }
+      }
+    }
+
+    // Border buttons
+
+    %btn--border {
+      box-shadow: inset 0 0 0 $gutter-quarter / 2 $btn-color-default;
+
+      @include hover {
+        background-color: $btn-color-default;
+        color: white;
+      }
+
+      &.btn--primary {
+        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("primary");
+        @include hover { background-color: color("primary"); color: white; }
+      }
+      &.btn--secondary {
+        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("secondary");
+        @include hover { background-color: color("secondary"); color: white; }
+      }
+      &.btn--ternary {
+        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("ternary");
+        @include hover { background-color: color("ternary"); color: white; }
+      }
+    }
+
+    // Hollow buttons
+
+    %btn--hollow {
+      @extend %btn--transparent;
+      @extend %btn--border;
+    }
+
+
+    // CLASSES
+
+    @each $color in $colors {
+  		$key: nth($color, 1);
+
+      // ex:
+      // .btn--primary {     @extend %btn--primary; }
+      .btn--#{$key} {     @extend %btn--#{$key}; }
+  	}
+
+    .btn--transparent { @extend %btn--transparent; }
+    .btn--hollow {      @extend %btn--hollow; }
   }
 
 }
+
 
 } /* END Module */
