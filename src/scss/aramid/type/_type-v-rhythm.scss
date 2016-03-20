@@ -15,16 +15,16 @@ $generate-classes:        true !default;
 $debug:										true !default;
 
 
-$v-rhythm-baseline-mode: 	true;	// Enables baseline sticky text
+$vrhythm-baseline-mode: 				true;	// Enables baseline sticky text
+$vrhythm-autocompact-lineheight:1.75;	// Min lineheight before halfing it
 
 // Debug vars
-$debug-vrhythm-bg: 				true;
-$debug-vrhythm-bg: 				false !default;	// draw debug background
-$debug-vrhythm-bg-selector: ".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
-$debug-vrhythm-bg-type: 	"stripes" !default;	// "lines" or "stripes"
-$debug-vrhythm-bg-color: 	rgba(127, 0, 0, 0.125) !default;
+$debug-vrhythm-bg: 							true;
+$debug-vrhythm-bg: 							false !default;	// draw debug background
+$debug-vrhythm-bg-selector: 		".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
+$debug-vrhythm-bg-type: 				"stripes" !default;	// "lines" or "stripes"
+$debug-vrhythm-bg-color: 				rgba(127, 0, 0, 0.125) !default;
 
-// $debug-vrhythm-block:			true;
 $debug-vrhythm-block: 		false !default;	// draw debug background
 $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
@@ -44,20 +44,28 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 // Source: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/
 // TODO: split this beast into multiple functions and mixins
 
+
+/// @param {String} $fontsize - The desired font-size
+/// @param {String} $element-selector - Element selector
+/// @param {String} $element-selector - Element selector
 @mixin v-rhythm($font-size: fontsize("base"),
-								$font-size-base: $fontsize-base,
-								$line-height: $lineheight-base,
+								// gutter
+								$fontsize-base: $fontsize-base,
+								$lineheight: $lineheight-base,
+
+								$compact: "auto",
                 $scale: 1,
-                $compact: false,
+
                 $cap-height: 0.70,
-								$baseline-mode: $v-rhythm-baseline-mode,
+								$baseline-mode: $vrhythm-baseline-mode,
+								$margin-bottom: true,
 								$lines: -1
 								) {
 
-  $font-size: (n2rem($font-size / $pixels-per-rem ));  // Convert unitless (px) into rem
+  $font-size: (n2rem($font-size / $pixels-per-rem));  // Convert unitless (px) into rem
 
 	// rhythm unit (in rem)
-	$rhythm: $line-height * $font-size-base / $scale; // equals $gutter
+	$rhythm: $lineheight * $fontsize-base / $scale; // equals $gutter
 
 	// number of rhythm units that can fit the font-size
 	@if $lines == -1 {
@@ -65,20 +73,43 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	}
 
 	// calculate the new line-height
-	$line-height: $rhythm * $lines / $font-size;
+	$lineheight: $rhythm * $lines / $font-size;
 
-	@if $compact {
-		$line-height: $line-height / 2;
-		text-transform: uppercase;	// Compact text cannot handle descendings
+	// COMPACT MODE
+
+	// Auto compact mode
+	@if $compact == "auto" {
+
+		@if (
+			$lineheight * $font-size >= $rhythm * 2)
+			and
+			($lineheight >= $vrhythm-autocompact-lineheight )
+		{
+			$l: $lineheight;
+
+			$lineheight: $lineheight / 2;
+			text-transform: uppercase;	// Compact text cannot handle descendings
+
+			// @warn "LINEHEIGHT: " + #{$l} + " - " + #{$lineheight};
+		}
+
+	// Manual compact mode
+	} @else {
+
+		@if $compact {
+			$lineheight: $lineheight / 2;
+			text-transform: uppercase;	// Compact text cannot handle descendings
+		}
 	}
 
+
 	font-size: $font-size;
-	line-height: $line-height;
+	line-height: $lineheight;
 
 	// background-clip: padding-box; // Useless ??
 	margin-top: 0; // reset *some undefined* tags
 
-	@if not($baseline-mode) {
+	@if not($baseline-mode) and $margin-bottom {
 		margin-bottom: $gutter;
 	}
 
@@ -92,7 +123,7 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 	@if $baseline-mode {
 
 		// calculate the padding to push the text on the baseline (depends on typeface)
-		$baseline-distance: ($line-height - $cap-height) * $font-size / 2;
+		$baseline-distance: ($lineheight - $cap-height) * $font-size / 2;
 
 		// calculate the bottom fill
 		$bottom-fill: $gutter - (2 * $baseline-distance);
