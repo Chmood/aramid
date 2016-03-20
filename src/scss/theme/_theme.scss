@@ -25,18 +25,18 @@ body { font-family: 'Roboto', sans-serif; }
 // TAGS
 
 a {
-  color: $color-secondary;
+  color: color("secondary");
   text-decoration: none; // /!\ a11y hazard /!\
 
   &:hover,
   &:focus {
-    color: $color-secondary-darker;
+    color: color("secondary","darker");
   }
 }
 
 h1 {
   margin-top: $gutter-double;
-  color: $color-primary;
+  color: color("primary");
   text-transform: uppercase;
   font-weight: 900;
   font-style: italic;
@@ -52,7 +52,7 @@ h2 {
 h3 {
   margin-top: $gutter-double;
   text-transform: uppercase;
-  color: $color-secondary;
+  color: color("secondary");
   font-weight: 900;
 }
 
@@ -66,7 +66,7 @@ h4 {
 h5 {
   text-transform: uppercase;
   font-weight: 900;
-  color: $color-primary;
+  color: color("primary");
 }
 
 /* base */
@@ -107,7 +107,7 @@ blockquote {
                 color: $color-gray-darker; }
 .wrap--header { background-color: $color-gray-darker;
                 color: #ddd; }
-.wrap--hero {   background-color: $color-primary;
+.wrap--hero {   background-color: color("primary");
                 color: white; }
 .wrap--aside {  background-color: #ddd; }
 .wrap--footer { background-color: #888; }
@@ -124,7 +124,7 @@ blockquote {
 .section-title {
   margin-top: $gutter-quad;
   margin-bottom: $gutter-double;
-  box-shadow: inset 0 (- $gutter-quarter) 0 0 $color-primary;
+  box-shadow: inset 0 (- $gutter-quarter) 0 0 color("primary");
 
   &:first-child {
     margin-top: $gutter-double;
@@ -154,7 +154,7 @@ blockquote {
 /* Hero subline */
 
 .title-subline {
-  color: $color-primary-lighter;
+  color: color("primary","lighter");
   font-style: italic;
 
   @include v-rhythm(fontsize("big"));

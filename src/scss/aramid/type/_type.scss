@@ -4,7 +4,7 @@
  * TYPE
  ******************************************************************************/
 
-// requires: _type.scss
+// requires: NOTHING
 
 ///////////////////////////////////////////////////////////////////////////
 // DEFAULT CONFIGURATION
@@ -14,7 +14,9 @@ $generate-classes:        true !default;
 
 $debug:										true !default;
 
-// _gutter.scss override
+
+$lineheight-base:         1.5 !default;
+
 $fontsizes: (
 	'smaller': 							12,
 	'small': 								14,
@@ -25,13 +27,29 @@ $fontsizes: (
 	'huge': 								46,
 	'giant': 								62,
 	'insane':								84
-);
+) !default;
+
+$fontsize-titles: (
+	1: 											"huge",
+	2: 											"biggest",
+	3: 											"bigger",
+	4: 											"big",
+	5: 											"base",
+	6: 											"small"
+) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
-// REQUIRE from _gutter.scss : @function fontsize($size: "base")
+@function fontsize($size: "base") {
+	@return map-get($fontsizes, $size);
+}
+
+@function fontsize-title($n: 1) {
+	$size: map-get($fontsize-titles, $n);
+	@return map-get($fontsizes, $size);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -52,8 +70,11 @@ $fontsize-insane:         (n2rem(fontsize("insane")));
 // MIXINS
 
 @mixin fontsize ($size: 'base') {
-
 	font-size: px2rem(fontsize($size));
+}
+
+@mixin fontsize-title ($n: 1) {
+	font-size: px2rem(fontsize-title($n));
 }
 
 
@@ -73,25 +94,27 @@ $fontsize-insane:         (n2rem(fontsize("insane")));
 	}
 
 	body {
-		font-size: $fontsize-base;
+		font-size: fontsize($size: "base");
 		line-height: $lineheight-base;
 	}
 
-	h1, .h1 { 			font-size: $fontsize-huge; }
-	h2, .h2 { 			font-size: $fontsize-biggest; }
-	h3, .h3 { 			font-size: $fontsize-bigger; }
-	h4, .h4 { 			font-size: $fontsize-big; }
-	h5, .h5 { 			font-size: $fontsize-base; }
-	h6, .h6 { 			font-size: $fontsize-small; }
+	/* TITLES FONTSIZE */
 
-	.smaller-text { font-size: $fontsize-smaller; }
-	.small-text { 	font-size: $fontsize-small; }
-	.big-text { 		font-size: $fontsize-big; }
-	.bigger-text { 	font-size: $fontsize-bigger; }
-	.biggest-text { font-size: $fontsize-biggest; }
-	.huge-text { 		font-size: $fontsize-huge; }
-	.giant-text { 	font-size: $fontsize-giant; }
-	.insane-text { 	font-size: $fontsize-insane; }
+	h1, .h1 { @include fontsize-title(1); }
+	h2, .h2 { @include fontsize-title(2); }
+	h3, .h3 { @include fontsize-title(3); }
+	h4, .h4 { @include fontsize-title(4); }
+	h5, .h5 { @include fontsize-title(5); }
+	h6, .h6 { @include fontsize-title(6); }
+
+	/* TEXT FONTSIZE */
+
+	@each $size in $fontsizes {
+		$key: nth($size, 1);
+		// $value: nth($size, 2);
+		.#{$key}-text { @include fontsize($key); }
+	}
+
 
 }
 
