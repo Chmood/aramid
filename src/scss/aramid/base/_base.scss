@@ -26,3 +26,20 @@ body {
 }
 
 } /* END Module */
+
+
+
+// MISC !!!
+
+$durations: (
+  'slowest':       1s * 2,  // 120  frames
+  'slower':        1s * 1,  // 60   frames
+  'slow':          1s / 2,  // 30   frames
+  'normal':        1s / 4,  // 15   frames
+  'fast':          1s / 8,  // 7.5  frames
+  'faster':        1s / 16  // 3.75 frames
+);
+
+@function duration($speed) {
+  @return map-get($durations, $speed);
+}
