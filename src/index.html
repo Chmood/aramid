@@ -65,6 +65,61 @@
 
 				<div class="container">
 
+					<!-- NAVS -->
+
+					<h1 class="section-title" id="navs">Aramid Navs</h1>
+
+					<!--
+					<div class="rhythm-tester">
+						<span>V-Rhythm</span> <span>Tester</span>
+					</div>
+					-->
+
+					<h2>Solid nav (default)</h2>
+
+					<h3>Simple</h3>
+
+					<nav class="nav">
+						<a href="#">Home</a>
+						<a href="#">.</a>
+						<a href="#">Type</a>
+						<a href="#" class="active">Grid</a>
+						<a href="#">Wrap</a>
+						<!-- <a href="#">Two<br>lines</a> -->
+					</nav>
+
+					<h3>Advanced</h3>
+
+					<nav class="nav nav--compact">
+						<button href="#">Button</button>
+						<a href="#">.</a>
+						<span href="#">Span</span>
+						<div href="#" class="active">Div</div>
+						<a href="#">Wrap</a>
+						<!-- <a href="#">Two<br>lines</a> -->
+					</nav>
+
+					<h2>Baseline nav</h2>
+
+					<nav class="nav nav--baseline" style="background-color: rgba(0,0,0,0.125);">
+						<a href="/dev">Home</a>
+						<a href="#colors" class="nav__item--active">Colors</a>
+						<a href="#type">Mastering<br>typefaces</a>
+						<a href="#grid">Grid</a>
+						<a href="#wrap">Wrap</a>
+						<a href="#patterns">Patterns</a>
+					</nav>
+
+					<!-- <ul class="nav grid grid--fit">
+						<li><a href="/dev">Home</a></li>
+						<li><a href="#type">Type</a></li>
+						<li><a href="#colors">Colors</a></li>
+						<li><a href="#grid">Grid</a></li>
+						<li><a href="#wrap">Wrap</a></li>
+						<li><a href="#patterns">Patterns</a></li>
+					</ul> -->
+
+
 					<!-- BUTTONS -->
 
 					<h1 class="section-title" id="colors">Aramid Buttons</h1>
@@ -86,11 +141,9 @@
 					<div class="btn btn--bigger">bigger</div>
 					<div class="btn btn--biggest">biggest</div>
 					<div class="btn btn--huge">huge</div>
-					<!-- <div class="btn btn--giant">giant</div>
-					<div class="btn btn--insane">insane</div> -->
-
+					<div class="btn btn--giant">giant</div>
+					<div class="btn btn--insane">insane</div>
 					<br>
-
 					<div class="btn btn--smaller">smaller<br>lines</div>
 					<div class="btn btn--small">small<br>lines</div>
 					<div class="btn btn--normal">normal<br>twice</div>
@@ -98,43 +151,101 @@
 					<div class="btn btn--bigger">bigger<br>2stack</div>
 					<div class="btn btn--biggest">biggest<br>2stack</div>
 					<div class="btn btn--huge">huge<br>2</div>
-					<!-- <div class="btn btn--giant">giant<br>stack</div>
-					<div class="btn btn--insane">insane<br>stack</div> -->
+					<div class="btn btn--giant">giant<br>stack</div>
+					<div class="btn btn--insane">insane<br>stack</div>
+
+					<!-- <br style="height: 4px"> <!-- big text v-rhythm error compensation -->
 
 					<h2>Color buttons</h2>
 
 					<h3>Solid buttons</h3>
-					<button class="btn">default</button>
+
+					<h4>Smaller</h4>
+					<button class="btn btn--smaller">default<br>btn</button>
+					<button class="btn btn--smaller btn--primary">primary</button>
+					<span class="btn btn--smaller btn--secondary">secondary</span>
+					<div class="btn btn--smaller btn--ternary">ternary</div>
+
+					<h4>Small</h4>
+					<button class="btn btn--small">default<br>btn</button>
+					<button class="btn btn--small btn--primary">primary</button>
+					<span class="btn btn--small btn--secondary">secondary</span>
+					<div class="btn btn--small btn--ternary">ternary</div>
+
+					<h4>Base</h4>
+					<button class="btn">default<br>btn</button>
 					<button class="btn btn--primary">primary</button>
 					<span class="btn btn--secondary">secondary</span>
 					<div class="btn btn--ternary">ternary</div>
 
-					<button class="btn btn--bigger">default</button>
-					<button class="btn btn--bigger btn--primary">primary<br>x2</button>
+					<h4>Big</h4>
+					<button class="btn btn--big">default<br>btn</button>
+					<button class="btn btn--big btn--primary">primary</button>
+					<span class="btn btn--big btn--secondary">secondary</span>
+					<div class="btn btn--big btn--ternary">ternary</div>
+
+					<h4>Bigger</h4>
+					<button class="btn btn--bigger">default<br>btn</button>
+					<button class="btn btn--bigger btn--primary">primary</button>
+					<span class="btn btn--bigger btn--secondary">secondary</span>
+					<div class="btn btn--bigger btn--ternary">ternary</div>
+
+					<h4>Biggest</h4>
+					<button class="btn btn--biggest">default<br>btn</button>
+					<button class="btn btn--biggest btn--primary">primary</button>
 					<span class="btn btn--biggest btn--secondary">secondary</span>
+					<div class="btn btn--biggest btn--ternary">ternary</div>
+
+					<h4>Huge</h4>
+					<button class="btn btn--huge">default<br>btn</button>
+					<button class="btn btn--huge btn--primary">primary</button>
+					<span class="btn btn--huge btn--secondary">secondary</span>
 					<div class="btn btn--huge btn--ternary">ternary</div>
 
-					<h3>Transparent buttons</h3>
-					<button class="btn btn--transparent">default</button>
-					<button class="btn btn--transparent btn--primary">primary</button>
-					<button class="btn btn--transparent btn--secondary">secondary</button>
-					<button class="btn btn--transparent btn--ternary">ternary</button>
+					<!-- <h4>Giant</h4>
+					<button class="btn btn--giant">default<br>btn</button>
+					<button class="btn btn--giant btn--primary">primary</button>
+					<span class="btn btn--giant btn--secondary">secondary</span>
 
-					<button class="btn btn--bigger btn--transparent">default</button>
-					<button class="btn btn--bigger btn--transparent btn--primary">primary<br>x2</button>
-					<span class="btn btn--biggest btn--transparent btn--secondary">secondary</span>
-					<div class="btn btn--huge btn--transparent btn--ternary">ternary</div>
+					<h4>Insane</h4>
+					<button class="btn btn--insane">default<br>btn</button>
+					<button class="btn btn--insane btn--primary">primary</button> -->
+
+					<h3>Transparent buttons</h3>
+
+					<button class="btn--transparent btn--smaller">smaller</button>
+					<button class="btn--transparent btn--small btn--primary">small</button>
+					<button class="btn--transparent btn--base btn--secondary">base</button>
+					<button class="btn--transparent btn--big btn--ternary">big</button>
+					<button class="btn--transparent btn--bigger">bigger</button>
+					<button class="btn--transparent btn--biggest btn--primary">biggest</button>
+					<button class="btn--transparent btn--huge btn--secondary">huge</button>
+					<!-- <button class="btn--transparent btn--giant btn--ternary">giant</button> -->
+					<!-- <button class="btn--transparent btn--insane">insane</button> -->
+
 
 					<h3>Hollow buttons</h3>
-					<button class="btn--hollow">default</button>
-					<button class="btn--hollow btn--primary">primary</button>
-					<button class="btn--hollow btn--secondary">secondary</button>
-					<button class="btn--hollow btn--ternary">ternary</button>
 
-					<button class="btn btn--bigger btn--hollow">default</button>
-					<button class="btn btn--bigger btn--hollow btn--primary">primary<br>x2</button>
-					<span class="btn btn--biggest btn--hollow btn--secondary">secondary</span>
-					<div class="btn btn--huge btn--hollow btn--ternary">ternary</div>
+					<button class="btn--hollow btn--smaller">smaller</button>
+					<button class="btn--hollow btn--small btn--primary">small</button>
+					<button class="btn--hollow btn--base btn--secondary">base</button>
+					<button class="btn--hollow btn--big btn--ternary">big</button>
+					<button class="btn--hollow btn--bigger">bigger</button>
+					<button class="btn--hollow btn--biggest btn--primary">biggest</button>
+					<button class="btn--hollow btn--huge btn--secondary">huge</button>
+					<!-- <button class="btn--hollow btn--giant btn--ternary">giant</button> -->
+					<!-- <button class="btn--hollow btn--insane">insane</button> -->
+					<br>
+					<button class="btn--hollow btn--smaller">default<br>smaller</button>
+					<button class="btn--hollow btn--small btn--primary">prim<br>small</button>
+					<button class="btn--hollow btn--base btn--secondary">2nd<br>base</button>
+					<button class="btn--hollow btn--big btn--ternary">ter.<br>big</button>
+					<button class="btn--hollow btn--bigger">def<br>bigger</button>
+					<button class="btn--hollow btn--biggest btn--primary">default<br>biggest</button>
+					<button class="btn--hollow btn--huge btn--secondary">def.<br>huge</button>
+					<!-- <button class="btn--hollow btn--giant btn--ternary">def.<br>giant</button> -->
+					<!-- <button class="btn--hollow btn--insane">default<br>insane</button> -->
+
 
 					<!-- <h2>Inline buttons</h2>
 
@@ -195,61 +306,6 @@
 					<div class="block block--insane"><strong>[INSANE]</strong>
 						Asperiores repudiandae earum blanditiis placeat.
 					</div> -->
-
-
-					<!-- NAVS -->
-
-					<h1 class="section-title" id="navs">Aramid Navs</h1>
-
-					<!--
-					<div class="rhythm-tester">
-						<span>V-Rhythm</span> <span>Tester</span>
-					</div>
-					-->
-
-					<h2>Solid nav (default)</h2>
-
-					<h3>Simple</h3>
-
-					<nav class="nav">
-						<a href="#">Home</a>
-						<a href="#">.</a>
-						<a href="#">Type</a>
-						<a href="#" class="active">Grid</a>
-						<a href="#">Wrap</a>
-						<!-- <a href="#">Two<br>lines</a> -->
-					</nav>
-
-					<h3>Advanced</h3>
-
-					<nav class="nav nav--compact">
-						<button href="#">Button</button>
-						<a href="#">.</a>
-						<span href="#">Span</span>
-						<div href="#" class="active">Div</div>
-						<a href="#">Wrap</a>
-						<!-- <a href="#">Two<br>lines</a> -->
-					</nav>
-
-					<h2>Baseline nav</h2>
-
-					<nav class="nav nav--baseline" style="background-color: rgba(0,0,0,0.125);">
-						<a href="/dev">Home</a>
-						<a href="#colors" class="nav__item--active">Colors</a>
-						<a href="#type">Mastering<br>typefaces</a>
-						<a href="#grid">Grid</a>
-						<a href="#wrap">Wrap</a>
-						<a href="#patterns">Patterns</a>
-					</nav>
-
-					<!-- <ul class="nav grid grid--fit">
-						<li><a href="/dev">Home</a></li>
-						<li><a href="#type">Type</a></li>
-						<li><a href="#colors">Colors</a></li>
-						<li><a href="#grid">Grid</a></li>
-						<li><a href="#wrap">Wrap</a></li>
-						<li><a href="#patterns">Patterns</a></li>
-					</ul> -->
 
 
 					<!-- COLORS -->
