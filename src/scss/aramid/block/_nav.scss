@@ -49,7 +49,8 @@ $bp-nav-inline:           's' !default;
 @mixin nav-item(
   $fontsize: "base",
   $padding-vertical: $gutter-half,
-  $padding-horizontal: $gutter-half
+  $padding-horizontal: $gutter-half,
+  $margin-vertical: 0
 ) {
 
   @include v-block($fontsize);
@@ -64,6 +65,9 @@ $bp-nav-inline:           's' !default;
   padding-right: $padding-horizontal;
   padding-top: $padding-vertical;
   padding-bottom: $padding-vertical;
+
+  margin-top: $margin-vertical;
+  margin-bottom: $margin-vertical;
 
   // a11y - banana test
   // min width touch target size
