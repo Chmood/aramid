@@ -11,9 +11,10 @@
 
 ## TODO'S
 
+* get a bloody media query mixin done
 * V-RHYTHM: split up v-rhythm() mixin
 * V-RHYTHM: auto compact-mode (with a threshold)
-
+* refactor _all code_ without evil @extend
 
 ## ROADMAP
 
