@@ -42,8 +42,12 @@ $is-header-sticky:          true;
     }
   }
 
-  > .nav__item--active {
-    font-weight: bold;
+  > * {
+    text-align: center;
+
+    .nav__item--active {
+      font-weight: bold;
+    }
   }
 }
 
