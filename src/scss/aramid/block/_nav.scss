@@ -25,11 +25,13 @@ $bp-nav-inline:           's' !default;
   @extend .grid;
   @extend .grid--fit;
   @extend .grid--responsive;
+  @extend .grid--middle;
 }
 
 // BASELINE NAV
 
 %nav--baseline {
+  @extend .grid--top;
   margin-left: -$gutter-half;
   margin-right: -$gutter-half;
 
