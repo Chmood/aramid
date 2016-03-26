@@ -18,31 +18,29 @@
 				<nav class="navbar">
 
 					<div class="site-logo">
-						<a href="/dev">Aramid<span>.css<span></a>
+						<a class="logo" href="/dev">Aramid<span>.css<span></a>
 					</div>
 
-					<div class="navbar__filler"></div>
-
 					<nav class="nav-main nav grid--right is-collapsed">
-						<!-- <a href="/dev">Home</a> -->
+						<!-- <a href="/dev"><i class="fa fa-fw fa-home"></i></a> -->
 						<a href="#colors" class="nav__item--active">Colors</a>
 						<a href="#type">Type</a>
 						<a href="#grid">Grid<!--<br>stuff--></a>
+						<button>Patterns</button>
 						<a href="#wrap">Wrap</a>
-						<a href="#patterns">Patterns</a>
+						<!-- <a href="#patterns">Patterns</a> -->
 					</nav>
 
 					<nav class="nav-mobile nav">
-						<div class="login"><button><i class="fa fa-fw fa-user"></i></button></div>
-						<div class="search-item" data-toggle=".search"><button><i class="fa fa-fw fa-search"></i></button></div>
+						<button class="search-item" data-toggle=".search"><i class="fa fa-fw fa-search"></i></button>
 						<button class="hamburger" data-toggle=".nav-main"><i class="fa fa-fw fa-bars"></i></button>
 					</nav>
 
-					<form class="search is-cllapsed">
+					<form class="search is-collapsed">
 						<label for="" class="search__label">search</label>
 						<input class="search__input" placeholder="getting rich"></input>
 						<button class="search__submit" type="submit"><i class="fa fa-fw fa-search"></i></button>
-						<button class="search__close" data-toggle=".search"><i class="fa fa-fw fa-times"></i></button>
+						<button class="search__close" data-toggle=".search" type="button"><i class="fa fa-fw fa-times"></i></button>
 					</form>
 
 				</nav>
@@ -80,9 +78,10 @@
 					<h3>Simple</h3>
 
 					<nav class="nav">
+						<a href="/dev"><i class="fa fa-fw fa-home"></i></a>
 						<a href="#">Home</a>
 						<a href="#">.</a>
-						<a href="#">Type</a>
+						<a href="#" class="nav__item--active">Type</a>
 						<a href="#" class="active">Grid</a>
 						<a href="#">Wrap</a>
 						<!-- <a href="#">Two<br>lines</a> -->
@@ -95,7 +94,7 @@
 						<a href="#">.</a>
 						<span href="#">Span</span>
 						<div href="#" class="active">Div</div>
-						<a href="#">Wrap</a>
+						<a href="#" class="nav__item--active">Wrap</a>
 						<!-- <a href="#">Two<br>lines</a> -->
 					</nav>
 
@@ -105,7 +104,7 @@
 						<a href="/dev">Home</a>
 						<a href="#colors" class="nav__item--active">Colors</a>
 						<a href="#type">Mastering<br>typefaces</a>
-						<a href="#grid">Grid</a>
+						<a href="#grid" class="nav__item--active">Active</a>
 						<a href="#wrap">Wrap</a>
 						<a href="#patterns">Patterns</a>
 					</nav>

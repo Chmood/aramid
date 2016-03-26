@@ -99,19 +99,3 @@ $bp-nav-inline:           's' !default;
 }
 
 } /* END Module */
-
-
-.nav-buttons {
-  @extend %nav;
-
-  /* Items */
-  > * {
-    // @include nav-item($fontsize: $nav-fontsize);
-
-  }
-
-  > button,
-  > .btn {
-    // @include nav-item($fontsize: $nav-fontsize);
-  }
-}

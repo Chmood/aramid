@@ -5,11 +5,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
+$bp-menu-display:           'm';
+
 $navbar-height:             2;  // in $gutter unit
 $navbar-height-tablet:      3;
-$navbar-height-desktop:     4;
+$navbar-height-desktop:     5;
 
-$navbar-fontsize:           'bigger';
+$navbar-fontsize:           $nav-fontsize;
 $is-header-sticky:          true;
 
 
@@ -30,12 +32,18 @@ $is-header-sticky:          true;
 
 /* NAV ITEM STYLING */
 
-  > * {
-    text-transform: uppercase;
+  &:not(.nav--baseline) > *,
+  &:not(.nav--baseline) > button {
+    background-color: transparent;
+    color: $color-gray-lighter;
 
-    &.nav__item--active {
-      font-weight: bold;
+    &:hover {
+      color: white;
     }
+  }
+
+  > .nav__item--active {
+    font-weight: bold;
   }
 }
 
@@ -49,78 +57,44 @@ $is-header-sticky:          true;
   @extend %grid--fit;
 
   /* filler */
-
-  // the filler splits left and right parts of navbar
-  // it's a bloat tag, and it flex fills as much space as needed
-  > .navbar__filler {
+  // Hacky logo-left/nav-right setup : logo will grow as possible
+  > *:first-child {
     @extend %cell--fill;
   }
 
+
   /* NAV IN NAVBAR */
 
-  .nav {
+  .nav { //background-color: rgba(0,255,0,0.125);
 
-    /* Nav items */
+  align-items: center;
 
-    > * {  //background-color: rgba(255,0,0,0.125);
-      color: $color-gray;
+    /* Navbar items */
 
-      &:hover { color: color("secondary"); }
+    > * { //background-color: rgba(255,0,0,0.5);
 
-      @media screen and (min-width: bp('s')) {
-        @include v-rhythm(
-          fontsize($navbar-fontsize),
-          $baseline-mode: false,
-          $lines: $navbar-height-tablet
-        );
-        margin-bottom: 0;
+      @include v-block($navbar-fontsize);
+
+      @media screen and (min-width: bp($bp-menu-display)) {
+        @include v-block($navbar-fontsize, $padding-vertical: $gutter);
       };
 
-      @media screen and (min-width: bp('m')) {
-        @include v-rhythm(
-          fontsize($navbar-fontsize),
-          $baseline-mode: false,
-          $lines: $navbar-height-desktop
-        );
-        margin-bottom: 0;
-        line-height: $navbar-height-desktop * $gutter !important;
-      }
-
-      @media screen and (min-width: bp('l')) {
-        @include v-rhythm(
-          fontsize($navbar-fontsize),
-          $baseline-mode: false,
-          $lines: $navbar-height-desktop
-        );
-        margin-bottom: 0;
-        line-height: $navbar-height-desktop * $gutter !important;
-      }
-
-
-      /* Active item */
-
-      &.nav__item--active {
-        color: $color-gray-lighter;
-
-        /* active item extra styling */
-        box-shadow: -$gutter-quarter 0 0 0 currentColor;
-        @media screen and (min-width: bp($bp-menu-display)) {
-          box-shadow: inset 0 (-$gutter-quarter) 0 0 currentColor;
-        };
-      }
+      // Navs are supposed to stack on mobile, thus having no horizontal spacers
+      &:not(:last-child) { margin-right: $gutter-half; }
     }
+
 
     /* MAIN NAV */
 
-    &.nav-main {//background-color: teal;
+    &.nav-main {
       // width: 100vw;
       width: calc(100% + 2 * 2.4rem);
 
       margin-left: -$gutter;
       margin-right: -$gutter;
 
-      padding-left: $gutter-half;
-      padding-right: $gutter-half;
+      padding-left: $gutter;
+      padding-right: $gutter;
 
       background: $color-gray-darkest;
       order: 1000;  // force main nav to be the last item of navbar
@@ -134,23 +108,21 @@ $is-header-sticky:          true;
         @extend %cell--full;
 
         //
-        @include v-rhythm(
-          fontsize($navbar-fontsize),
-          $baseline-mode: false,
-          $lines: $navbar-height-tablet
-        );
-        margin-bottom: 0;
+        @include v-block($navbar-fontsize);
+
+        margin-bottom: $gutter-half;
+        &:last-child { margin-bottom: 0; }
+
         margin-right: 0;
       }
 
       @media screen and (min-width: bp($bp-menu-display)) {
         width: auto;
 
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0;
 
         margin-left: 0;
-        margin-right: 0;
+        margin-right: $gutter-half;
 
         background: transparent;
         order: initial;
@@ -159,6 +131,8 @@ $is-header-sticky:          true;
 
         > * {
           flex: none; // @extend .cell--fit bugs me here
+          @include v-block($navbar-fontsize, $padding-vertical: $gutter);
+          margin-bottom: 0;
         }
       }
     }
@@ -169,24 +143,22 @@ $is-header-sticky:          true;
     &.nav-mobile {
 
       > * {
-        margin-right: 0;
         flex: none;
 
-        a, button {
-          color: $color-gray;
+        @media screen and (min-width: bp('s')) {
+          @include v-block($navbar-fontsize, $padding-vertical: $gutter);
+        };
 
-          &:hover {
-            color: $color-gray-lighter;
+        @media screen and (min-width: bp($bp-menu-display)) {
+          &:nth-last-child(2) {
+            margin-right: 0;
           }
-        }
+        };
       }
 
       /* Hamburger */
 
-      > button.hamburger {
-
-        color: color("secondary");
-        &:hover { color: color("secondary")-light; }
+      > .hamburger {
 
         @media screen and (min-width: bp($bp-menu-display)) {
           display: none;
@@ -196,6 +168,138 @@ $is-header-sticky:          true;
 
   }  // end .nav
 }  // end .navbar
+
+
+////////////////////////////////////////////////////////////////////////////////
+// LOGO
+
+/* SITE LOGO */
+
+.site-logo { //background-color: orange;
+  text-transform: uppercase;
+  margin-right: $gutter-half;
+
+  a {
+    display: inline-block;
+    color: color("secondary") !important;
+    font-weight: 900;
+    font-style: italic;
+
+    @include v-block($navbar-fontsize);
+
+    @media screen and (min-width: bp("s")) {
+      @include v-block('biggest');
+    }
+
+    @media screen and (min-width: bp("l")) {
+      @include v-block('huge');
+      margin-top: $gutter;
+      margin-bottom: $gutter;
+    }
+
+    &:hover,
+    &:active {
+      // color: color("secondary")-light !important;
+      background-color: rgba(0,0,0,0.25) !important;
+    }
+
+    span {
+      color: $color-gray-lightest;
+      font-weight: 300;
+    }
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// SEARCH BAR
+
+.search {
+  @extend %cell--full;
+  flex: 0 0 calc(100% + 4.8rem);
+
+  @extend %grid;
+
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+
+  // @media screen and (min-width: bp("m")) {
+  //   padding-top: $gutter;
+  //   padding-bottom: $gutter;
+  // }
+
+  background-color: white;
+
+  /* SEARCH ITEMS */
+
+  > * {
+    @include v-block($navbar-fontsize);
+    margin-bottom: 0;
+    // max-height: 2 * $gutter;  // OMG no...
+  }
+
+  /* SEARCH INPUT */
+
+  > .search__input {
+
+    // reset inputs
+    border: none;
+    width: 0;
+
+    color: $color-gray-darkest;
+    box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
+    margin-right: $gutter;
+
+    &:focus,
+    &:hover {
+      box-shadow: inset 0 -2px 0 0 color("primary");
+    }
+
+
+    @extend %cell--fill;
+    // background-color: $color-gray-lightest;
+    background-color: transparent;
+
+  }
+
+  /* SEARCH LABEL */
+
+  > .search__label { //background-color: teal;
+    display: none;
+    @media screen and (min-width: bp("m")) { display: block; }
+
+    margin-right: $gutter-half;
+
+    font-style: italic;
+    text-transform: uppercase;
+    color: $color-gray;
+  }
+
+  /* SEARCH SUBMIT */
+
+  > .search__submit {
+    background-color: color("secondary");
+
+    color: rgba(255, 255, 255, 0.5);
+    &:hover { color: white; }
+  }
+
+  /* SEARCH CLOSE */
+
+  > .search__close {
+    display: none;
+    margin-left: $gutter-half;
+
+    @media screen and (min-width: bp("s")) {
+      display: block;
+    }
+  }
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -232,165 +336,6 @@ $is-header-sticky:          true;
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// LOGO
-
-/* SITE LOGO */
-
-.site-logo {
-  text-transform: uppercase;
-
-  a {
-    display: inline-block;
-    color: color("secondary") !important;
-    font-weight: 900;
-    font-style: italic;
-
-    @include v-rhythm(
-      fontsize($navbar-fontsize),
-      $baseline-mode: false,
-      $lines: $navbar-height
-    );
-    margin-bottom: 0;
-
-    @media screen and (min-width: bp("s")) {
-      @include v-rhythm(
-        fontsize('biggest'),
-        $baseline-mode: false,
-        $lines: $navbar-height-tablet
-      );
-      margin-bottom: 0;
-    }
-
-    @media screen and (min-width: bp("m")) {
-      @include v-rhythm(
-        fontsize('huge'),
-        $baseline-mode: false,
-        $lines: $navbar-height-desktop
-      );
-      margin-bottom: 0;
-    }
-
-    &:hover,
-    &:active {
-      color: color("secondary")-light !important;
-      background-color: rgba(0,0,0,0.25) !important;
-    }
-
-    span {
-      color: $color-gray-lightest;
-      font-weight: 300;
-    }
-  }
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-// SEARCH BAR
-
-.search {
-  @extend %cell--full;
-  flex: 0 0 calc(100% + 4.8rem);
-
-  @extend %grid;
-  // @extend %grid--fit;
-
-  margin-left: -$gutter;
-  margin-right: -$gutter;
-  padding-left: $gutter;
-  padding-right: $gutter;
-
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
-
-  @media screen and (min-width: bp("s")) {}
-  @media screen and (min-width: bp("m")) {
-    padding-top: $gutter;
-    padding-bottom: $gutter;
-
-    // margin-top: $gutter;
-    // position: relative;
-    // top: $gutter-quarter;
-    // padding-top: $gutter-double;
-  }
-
-  background-color: white;
-
-  // width: calc(100% + $gutter-double);
-  width: 100vw;
-
-  /* SEARCH ITEMS */
-
-  > * {
-    @include v-rhythm(
-    fontsize($navbar-fontsize),
-    $baseline-mode: false,
-    $lines: 2
-    );
-    margin-bottom: 0;
-    padding-left: $gutter-half;
-    padding-right: $gutter-half;
-  }
-
-  /* SEARCH INPUT */
-
-  > .search__input {
-
-    color: $color-gray-darkest;
-    box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
-    margin-right: $gutter;
-
-    &:focus,
-    &:hover {
-      box-shadow: inset 0 -2px 0 0 color("primary");
-    }
-
-    @media screen and (min-width: bp("s")) {
-    }
-
-    // reset inputs
-    border: none;
-    width: 0;
-
-    @extend %cell--fill;
-    // background-color: $color-gray-lightest;
-    background-color: transparent;
-
-  }
-
-  /* SEARCH LABEL */
-
-  > .search__label {
-    display: none;
-    @media screen and (min-width: bp("m")) { display: block; }
-
-    padding-right: $gutter;
-    margin-left: -$gutter-half;
-
-    font-style: italic;
-    text-transform: uppercase;
-    color: $color-gray;
-  }
-
-  /* SEARCH SUBMIT */
-
-  > .search__submit {
-    background-color: color("secondary");
-
-    color: rgba(255, 255, 255, 0.5);
-    &:hover { color: white; }
-  }
-
-  /* SEARCH CLOSE */
-
-  > .search__close {
-    display: none;
-
-    @media screen and (min-width: bp("s")) {
-      display: block;
-    }
-  }
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Rhythm tester
