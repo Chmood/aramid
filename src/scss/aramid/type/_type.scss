@@ -90,11 +90,11 @@ $fontsize-insane:         (n2rem(fontsize("insane")));
 	// TAGS DEEP OVERRIDE
 
 	html {
-		font-size: (n2px($pixels-per-rem));  // Ths is one rem
+		font-size: n2px($pixels-per-rem);  // Ths is one rem
 	}
 
 	body {
-		font-size: fontsize($size: "base");
+		font-size: n2px(fontsize("base"));
 		line-height: $lineheight-base;
 	}
 
