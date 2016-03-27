@@ -31,19 +31,16 @@ $block-default-vertical-align:   top !default;
   $padding-horizontal: $gutter-half
 ) {
 
-  @include v-rhythm($font-size: fontsize($fontsize),
+  @include v-rhythm($fontsize: fontsize($fontsize),
                     $compact: $compact,
-    								$baseline-mode: false,
-                    $margin-bottom: false
+    								$baseline-mode: false
 	);
 
 	display: inline-block;
   vertical-align: $block-default-vertical-align;
 
-  padding-left: $padding-horizontal;
-  padding-right: $padding-horizontal;
-  padding-top: $padding-vertical;
-  padding-bottom: $padding-vertical;
+  @include padding-horizontal($padding-horizontal);
+  @include padding-vertical($padding-vertical);
 }
 
 

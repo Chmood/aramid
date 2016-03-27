@@ -93,6 +93,29 @@ $pixels-per-rem:          10 !default;
 }
 
 
+// VERTICAL / HORIZONTAL SHORTCUTS
+
+@mixin margin-vertical($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin padding-vertical($margin) {
+  padding-top: $margin;
+  padding-bottom: $margin;
+}
+
+@mixin margin-horizontal($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-horizontal($margin) {
+  padding-left: $margin;
+  padding-right: $margin;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
