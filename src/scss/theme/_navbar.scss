@@ -2,6 +2,27 @@
  * DEMO - NAVBAR
  ******************************************************************************/
 
+// FORMS & INPUT TODO!
+
+// reset inputs
+input {
+  border: none;
+  background-color: transparent;
+
+  // TODO / BUG : tmp fix for inputs 4px extra height
+  height: $gutter-double;
+
+  // Input basic theme styles
+
+  box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
+
+  &:focus,
+  &:hover {
+    background-color: $color-gray-lightest;
+    box-shadow: inset 0 -2px 0 0 color("primary");
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
 
@@ -32,23 +53,18 @@ $is-header-sticky:          true;
 
 /* NAV ITEM STYLING */
 
-  &:not(.nav--baseline) > *,
-  &:not(.nav--baseline) > button {
-    background-color: transparent;
-    color: $color-gray-lighter;
-
-    &:hover {
-      color: white;
-    }
-  }
-
   > * {
-    text-align: center;
+    // text-align: center;
 
-    .nav__item--active {
+    &.nav__item--active {
       font-weight: bold;
     }
   }
+
+  > a:hover {
+    color: color("secondary", "lighter");
+  }
+
 }
 
 
@@ -66,14 +82,12 @@ $is-header-sticky:          true;
     @extend %cell--fill;
   }
 
-
   /* NAV IN NAVBAR */
 
-  .nav { //background-color: rgba(0,255,0,0.125);
-
-  align-items: center;
+  .nav {
 
     /* Navbar items */
+
 
     > * { //background-color: rgba(255,0,0,0.5);
 
@@ -91,7 +105,7 @@ $is-header-sticky:          true;
     /* MAIN NAV */
 
     &.nav-main {
-      // width: 100vw;
+      // TODO better (w/ $gutter)
       width: calc(100% + 2 * 2.4rem);
 
       margin-left: -$gutter;
@@ -137,6 +151,7 @@ $is-header-sticky:          true;
           flex: none; // @extend .cell--fit bugs me here
           @include v-block($navbar-fontsize, $padding-vertical: $gutter);
           margin-bottom: 0;
+          &:not(:last-child) { margin-right: $gutter-half; }
         }
       }
     }
@@ -157,7 +172,7 @@ $is-header-sticky:          true;
           &:nth-last-child(2) {
             margin-right: 0;
           }
-        };
+        }
       }
 
       /* Hamburger */
@@ -229,8 +244,8 @@ $is-header-sticky:          true;
   padding-left: $gutter;
   padding-right: $gutter;
 
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
+  // padding-top: $gutter-half;
+  // padding-bottom: $gutter-half;
 
   // @media screen and (min-width: bp("m")) {
   //   padding-top: $gutter;
@@ -242,33 +257,29 @@ $is-header-sticky:          true;
   /* SEARCH ITEMS */
 
   > * {
-    @include v-block($navbar-fontsize);
-    margin-bottom: 0;
-    // max-height: 2 * $gutter;  // OMG no...
+    flex: none;
+  }
+
+  > [class^="search__"] {
+    margin-top: $gutter-half !important;
+    margin-bottom: $gutter-half;
   }
 
   /* SEARCH INPUT */
 
   > .search__input {
 
-    // reset inputs
-    border: none;
-    width: 0;
+    @extend %cell--fill;
+    @include v-block($navbar-fontsize);
 
-    color: $color-gray-darkest;
-    box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
+    text-align: left;
+
     margin-right: $gutter;
-
-    &:focus,
-    &:hover {
-      box-shadow: inset 0 -2px 0 0 color("primary");
-    }
-
+    color: $color-gray-darkest;
 
     @extend %cell--fill;
     // background-color: $color-gray-lightest;
-    background-color: transparent;
-
+    // background-color: transparent;
   }
 
   /* SEARCH LABEL */
@@ -287,17 +298,18 @@ $is-header-sticky:          true;
   /* SEARCH SUBMIT */
 
   > .search__submit {
-    background-color: color("secondary");
+    // TODO Redundant! Ugly!
+    margin-right: 0 !important;
 
-    color: rgba(255, 255, 255, 0.5);
-    &:hover { color: white; }
+    @media screen and (min-width: bp("s")) {
+      margin-right: $gutter-half !important;
+    }
   }
 
   /* SEARCH CLOSE */
 
   > .search__close {
     display: none;
-    margin-left: $gutter-half;
 
     @media screen and (min-width: bp("s")) {
       display: block;

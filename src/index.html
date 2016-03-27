@@ -36,10 +36,10 @@
 						<button class="hamburger" data-toggle=".nav-main"><i class="fa fa-fw fa-bars"></i></button>
 					</nav>
 
-					<form class="search is-collapsed">
-						<label for="" class="search__label">search</label>
-						<input class="search__input" placeholder="getting rich"></input>
-						<button class="search__submit" type="submit"><i class="fa fa-fw fa-search"></i></button>
+					<form class="search nav is-cooollapsed">
+						<label for="main-search" class="search__label">search</label>
+						<input class="search__input" placeholder="getting rich" id="main-search"></input>
+						<button class="search__submit btn--secondary" type="submit"><i class="fa fa-fw fa-search"></i></button>
 						<button class="search__close" data-toggle=".search" type="button"><i class="fa fa-fw fa-times"></i></button>
 					</form>
 
@@ -69,7 +69,7 @@
 
 					<h2>Solid nav (default)</h2>
 
-					<h3>Simple</h3>
+					<h3>Default</h3>
 
 					<nav class="nav">
 						<a href="/dev"><i class="fa fa-fw fa-home"></i></a>
@@ -80,18 +80,29 @@
 						<a href="#">Wrap</a>
 					</nav>
 
-					<h3>Advanced</h3>
+					<h3>Type of items</h3>
 
-					<nav class="nav nav--compact">
+					<nav class="nav">
 						<div class="block">Block</div>
 						<button href="#">Button</button>
 						<div class="btn">.btn</div>
-						<div class="btn">.btn<br>2 lines</div>
+						<div class="btn btn--primary">.btn<br>primary</div>
 						<a href="#">Link</a>
-						<span href="#">Span</span>
+						<span>Span</span>
 						<div href="#" class="active">Div</div>
-						<a href="#" class="nav__item--active">Wrap</a>
+						<a href="#" class="nav__item--active">Active</a>
 						<a href="#">Two<br>lines</a>
+					</nav>
+
+					<h3>Advanced</h3>
+
+					<nav class="nav">
+						<input type="text" placeholder="input">
+						<button href="#">Button</button>
+						<div class="btn btn--primary">primary</div>
+						<a href="#">Link</a>
+						<span>Text</span>
+						<a href="#" class="nav__item--active">Active</a>
 					</nav>
 
 					<h2>Baseline nav</h2>

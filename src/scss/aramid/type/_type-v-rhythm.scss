@@ -191,7 +191,8 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 	p,
 	blockquote,
-	ul, ol {
+	ul, ol,
+	input {
 		@include v-rhythm();
 	}
 
