@@ -13,14 +13,25 @@ input {
   height: $gutter-double;
 
   // Input basic theme styles
-
   box-shadow: inset 0 -2px 0 0 $color-gray-lighter;
 
   &:focus,
   &:hover {
-    background-color: $color-gray-lightest;
+    // background-color: $color-gray-lightest;
     box-shadow: inset 0 -2px 0 0 color("primary");
   }
+}
+
+.input { //background-color: color("primary", "light");
+  display: block;
+  width: 100%;
+  margin-bottom: $gutter;
+}
+
+.label { //background-color: color("secondary", "light");
+  display: block;
+  font-weight: bold;
+  color: $color-gray;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -132,6 +143,12 @@ $is-header-sticky:          true;
         &:last-child { margin-bottom: 0; }
 
         margin-right: 0;
+
+        //style
+        color: $color-gray-lighter;
+        &:hover, &:focus {
+          color: white;
+        }
       }
 
       @media screen and (min-width: bp($bp-menu-display)) {
@@ -160,6 +177,15 @@ $is-header-sticky:          true;
     /* MOBILE NAV */
 
     &.nav-mobile {
+
+      > button {
+         background-color: transparent;
+         color: $color-gray-light;
+
+         &:hover, &:focus {
+           color: white;
+         }
+      }
 
       > * {
         flex: none;
@@ -273,6 +299,7 @@ $is-header-sticky:          true;
     @include v-block($navbar-fontsize);
 
     text-align: left;
+    text-transform: none;
 
     margin-right: $gutter;
     color: $color-gray-darkest;
