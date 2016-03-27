@@ -1,116 +1,104 @@
 @if module('type-v-rhythm') {
+// requires: CORE ($debug, $generate-classes)
+// requires: CORE ($fontsize-base, $lineheight-base, $pixels-per-rem, $gutter)
+// uses: _type.scss (fontsize())
 
 /**************************************************************************
  * TYPE - VERTICAL RHYTHM
  *************************************************************************/
 
-// requires: _type.scss
 
 ///////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
+// CONFIGURATION
 
-$prefix:                  "" !default;
-$generate-classes:        true !default;
+$rhythm-base:                   $gutter !default;
 
-$debug:										true !default;
-
-
-$vrhythm-baseline-mode: 				true;	// Enables baseline sticky text
-$vrhythm-autocompact-lineheight:1.75;	// Min lineheight before halfing it
+$vrhythm-baseline-mode:         true; // Enables baseline sticky text
+$vrhythm-autocompact-lineheight:1.75; // Min lineheight before halfing it
 
 // Debug vars
-$debug-vrhythm-bg: 							true;
-$debug-vrhythm-bg: 							false !default;	// draw debug background
-$debug-vrhythm-bg-selector: 		".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
-$debug-vrhythm-bg-type: 				"stripes" !default;	// "lines" or "stripes"
-$debug-vrhythm-bg-color: 				rgba(127, 0, 0, 0.125) !default;
+$debug-vrhythm-bg:              false !default; // draw debug background
+$debug-vrhythm-bg-selector:     ".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
+$debug-vrhythm-bg-type:         "stripes" !default; // "lines" or "stripes"
+$debug-vrhythm-bg-color:        rgba(127, 0, 0, 0.125) !default;
 
-$debug-vrhythm-block: 		false !default;	// draw debug background
-$debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
-
-
-///////////////////////////////////////////////////////////////////////////
-// FUNCTIONS
-
-// TODO
-
-///////////////////////////////////////////////////////////////////////////
-// VARIABLES
+$debug-vrhythm-block:           false !default; // draw debug background
+$debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////
 // MIXINS
 
 // Source: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/
-// TODO: split this beast into multiple functions and mixins
 
+// TODO: accept named sizes too (like "bigger")
 
-/// @param {String} $fontsize - The desired font-size
-/// @param {String} $element-selector - Element selector
-/// @param {String} $element-selector - Element selector
-@mixin v-rhythm($font-size: fontsize("base"),
-								// gutter
-								$fontsize-base: $fontsize-base,
-								$lineheight: $lineheight-base,
+/// @param {Number} $fontsize - The desired font-size (in px but W/O unit!)
+/// @param {Number} $rhythm-base - Rhythm unit before subdivisions
+@mixin v-rhythm(
+	$fontsize: rem2n($fontsize-base * $pixels-per-rem),
+	$rhythm-base: $rhythm-base,
 
-								$compact: "auto",
-                $scale: 1,
+	$scale: 1,
+	$compact: "auto",
+	$baseline-mode: $vrhythm-baseline-mode
+) {
 
-                $cap-height: 0.70,
-								$baseline-mode: $vrhythm-baseline-mode,
-								$margin-bottom: true,
-								$lines: -1
-								) {
+	// FONTSIZE
+	// Convert unitless (px) into rem
+  $fontsize: (n2rem($fontsize / $pixels-per-rem));
 
-  $font-size: (n2rem($font-size / $pixels-per-rem));  // Convert unitless (px) into rem
+	// RHYTHM
+	// Base vertical unit (in rem)
+	// $scale can subdivide the rhythm
+	$rhythm: $rhythm-base / $scale;
 
-	// rhythm unit (in rem)
-	$rhythm: $lineheight * $fontsize-base / $scale; // equals $gutter
-
+	// LINES
 	// number of rhythm units that can fit the font-size
-	@if $lines == -1 {
-		$lines: ceil(($font-size + 0.0001rem) / $rhythm);
-	}
+	$lines: ceil(($fontsize + 0.0001rem) / $rhythm);
 
+
+	// LINEHEIGHT
 	// calculate the new line-height
-	$lineheight: $rhythm * $lines / $font-size;
+	$lineheight: $rhythm * $lines / $fontsize;
+
 
 	// COMPACT MODE
+	// compact mode is basically about halving the lineheight
+	// works best on capitalized text
 
 	// Auto compact mode
 	@if $compact == "auto" {
 
+		// we can fit two text lines into one rhythm unit
+		// and the lineheight is above user-defined threshold
 		@if (
-			$lineheight * $font-size >= $rhythm * 2)
+			$lineheight * $fontsize >= $rhythm * 2)
 			and
 			($lineheight >= $vrhythm-autocompact-lineheight )
 		{
-			$l: $lineheight;
-
 			$lineheight: $lineheight / 2;
-			text-transform: uppercase;	// Compact text cannot handle descendings
-
-			// @warn "LINEHEIGHT: " + #{$l} + " - " + #{$lineheight};
 		}
 
-	// Manual compact mode
-	} @else {
-
-		@if $compact {
-			$lineheight: $lineheight / 2;
-			text-transform: uppercase;	// Compact text cannot handle descendings
-		}
+		// Manual compact mode
+		// user can force the API to use compact mode
+	} @elseif $compact {
+		$lineheight: $lineheight / 2;
 	}
 
 
-	font-size: $font-size;
+	// OUTPUT STUFF
+	// Basic vertical rhythm only involves lineheight tweaking (and font-size)
+	font-size: $fontsize;
 	line-height: $lineheight;
 
-	// background-clip: padding-box; // Useless ??
-	margin-top: 0; // reset *some undefined* tags
 
-	@if not($baseline-mode) and $margin-bottom {
-		margin-bottom: $gutter;
+	// Baseline mode
+	@if $baseline-mode {
+		@include v-baseline(
+			$fontsize,
+			$lineheight
+		);
 	}
 
 	// Debug blocks
@@ -118,29 +106,44 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 		background-color: $debug-vrhythm-block-color;
 	}
 
-	// BLACK MAGIC BASELINE
+} // End @mixin v-rhythm()
 
-	@if $baseline-mode {
 
-		// calculate the padding to push the text on the baseline (depends on typeface)
-		$baseline-distance: ($lineheight - $cap-height) * $font-size / 2;
+// BLACK MAGIC BASELINE
 
-		// calculate the bottom fill
-		$bottom-fill: $gutter - (2 * $baseline-distance);
+/// @param {Number} $fontsize - in
+/// @param {Number} $lineheight - in
+/// @param {Number} $fontsize - in
+@mixin v-baseline(
+	$fontsize,
+	$lineheight,
 
-		padding-top: $baseline-distance;
-		padding-bottom: $baseline-distance + $bottom-fill;
-		margin-bottom: 0;
+	$cap-height: 0.70
+) {
 
-		// Debug blocks padding
-		@if $debug-vrhythm-block {
-			box-shadow:
-				inset 0 $baseline-distance 0 0 adjust-hue($debug-vrhythm-block-color, 30deg),
-				inset 0 (-$baseline-distance - $bottom-fill) 0 0 adjust-hue($debug-vrhythm-block-color, -30deg);
-		}
+	// BASELINE DISTANCE
+	// calculate the padding pushing the text on the baseline
+	// This value depends on typeface, thus the $cap-height ratio
+	$baseline-distance: ($lineheight - $cap-height) * $fontsize / 2;
+
+	// BOTTOM FILL
+	// As we put padding at the top, text is now lower.
+	// So se must fill the gap with bottom margin
+	$bottom-fill: $rhythm-base - (2 * $baseline-distance);
+
+	padding-top: $baseline-distance;
+	padding-bottom: $baseline-distance + $bottom-fill;
+
+	margin-bottom: 0; // TODO : only needed for buttons?!
+
+	// Debug blocks padding
+	@if $debug-vrhythm-block {
+		box-shadow:
+			inset 0 $baseline-distance 0 0 adjust-hue($debug-vrhythm-block-color, 30deg),
+			inset 0 (-$baseline-distance - $bottom-fill) 0 0 adjust-hue($debug-vrhythm-block-color, -30deg);
 	}
 
-}
+} // End @mixin v-baseline()
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -185,10 +188,7 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 
 @if $generate-classes {
 
-	.vrhythm-bg-debug { @extend %vrhythm--bg-debug;	}
-
 	// TAGS DEEP OVERRIDE
-
 	p,
 	blockquote,
 	ul, ol,
@@ -196,23 +196,31 @@ $debug-vrhythm-block-color:	rgba(0, 0, 255, 0.125) !default;
 		@include v-rhythm();
 	}
 
-	h1, .h1 { 			@include v-rhythm(fontsize("huge")); }
-	h2, .h2 { 			@include v-rhythm(fontsize("biggest")); }
-	h3, .h3 { 			@include v-rhythm(fontsize("bigger"), $compact: true); }
-	h4, .h4 {				@include v-rhythm(fontsize("big")); }
-	h5, .h5 { 			@include v-rhythm(fontsize("base")); }
-	h6, .h6 { 			@include v-rhythm(fontsize("small")); }
+	// RHYTHMED FONTSIZES
+	@if module('type') {
 
-	.smaller-text { @include v-rhythm(fontsize("smaller")); }
-	.small-text { 	@include v-rhythm(fontsize("small")); }
-	.big-text { 		@include v-rhythm(fontsize("big")); }
-	.bigger-text { 	@include v-rhythm(fontsize("bigger"), $compact: true); }
-	.biggest-text { @include v-rhythm(fontsize("biggest")); }
-	.huge-text { 		@include v-rhythm(fontsize("huge")); }
-	.giant-text { 	@include v-rhythm(fontsize("giant")); }
-	.insane-text { 	@include v-rhythm(fontsize("insane")); }
+		h1, .h1 {       @include v-rhythm(fontsize("huge")); }
+		h2, .h2 {       @include v-rhythm(fontsize("biggest")); }
+		h3, .h3 {       @include v-rhythm(fontsize("bigger"), $compact: true); }
+		h4, .h4 {       @include v-rhythm(fontsize("big")); }
+		h5, .h5 {       @include v-rhythm(fontsize("base")); }
+		h6, .h6 {       @include v-rhythm(fontsize("small")); }
 
-	#{$debug-vrhythm-bg-selector} { @extend %vrhythm--bg-debug; }
+		.smaller-text { @include v-rhythm(fontsize("smaller")); }
+		.small-text {   @include v-rhythm(fontsize("small")); }
+		.big-text {     @include v-rhythm(fontsize("big")); }
+		.bigger-text {  @include v-rhythm(fontsize("bigger"), $compact: true); }
+		.biggest-text { @include v-rhythm(fontsize("biggest")); }
+		.huge-text {    @include v-rhythm(fontsize("huge")); }
+		.giant-text {   @include v-rhythm(fontsize("giant")); }
+		.insane-text {  @include v-rhythm(fontsize("insane")); }
+	}
+
+	// DEBUG
+	.vrhythm-bg-debug,
+	#{$debug-vrhythm-bg-selector} {
+		@extend %vrhythm--bg-debug;
+	}
 
 }
 

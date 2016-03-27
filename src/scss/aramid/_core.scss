@@ -1,0 +1,16 @@
+/******************************************************************************
+ * ARAMID - CORE
+ ******************************************************************************/
+
+// META
+ $generate-classes:        true !default;
+ $debug:                   true !default;
+
+
+// Base metrics
+$fontsize-base:         	1.6rem !default;	// for components w/o type???
+$lineheight-base:         1.5 !default; // 24 px
+$pixels-per-rem:          10 !default;	// for easy computation
+
+// Computed gutter
+$gutter:                  ($fontsize-base * $lineheight-base) !default;

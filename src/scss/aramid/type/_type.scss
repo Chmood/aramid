@@ -1,47 +1,40 @@
 @if module('type') {
+// requires: CORE ($fontsize-base, $lineheight-base, $pixels-per-rem)
 
 /******************************************************************************
  * TYPE
  ******************************************************************************/
 
-// requires: NOTHING
 
-///////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$debug:										true !default;
-
-
-$lineheight-base:         1.5 !default;
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION
 
 $fontsizes: (
-	'smaller': 							12,
-	'small': 								14,
-	'base': 								16,
-	'big': 									20,
-	'bigger': 							24,
-	'biggest': 							32,
-	'huge': 								46,
-	'giant': 								62,
-	'insane':								84
+	'smaller':              12,
+	'small':                14,
+	'base':                 rem2n($fontsize-base * $pixels-per-rem),	// 16
+	'big':                  20,
+	'bigger':               24,
+	'biggest':              32,
+	'huge':                 46,
+	'giant':                62,
+	'insane':               84
 ) !default;
 
 $fontsize-titles: (
-	1: 											"huge",
-	2: 											"biggest",
-	3: 											"bigger",
-	4: 											"big",
-	5: 											"base",
-	6: 											"small"
+	1:                      "huge",
+	2:                      "biggest",
+	3:                      "bigger",
+	4:                      "big",
+	5:                      "base",
+	6:                      "small"
 ) !default;
 
 
-///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
+// @return : unitless number of pixels
 @function fontsize($size: "base") {
 	@return map-get($fontsizes, $size);
 }
@@ -52,7 +45,7 @@ $fontsize-titles: (
 }
 
 
-///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
 $fontsize-smaller:        (n2rem(fontsize("smaller")));
@@ -66,7 +59,7 @@ $fontsize-giant:          (n2rem(fontsize("giant")));
 $fontsize-insane:         (n2rem(fontsize("insane")));
 
 
-///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
 @mixin fontsize ($size: 'base') {
@@ -78,23 +71,21 @@ $fontsize-insane:         (n2rem(fontsize("insane")));
 }
 
 
-///////////////////////////////////////////////////////////////////////////
-// PLACEHOLDERS
-
-
-///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
 
 	// TAGS DEEP OVERRIDE
 
+	/* HTML / BODY FONTSIZE */
+
 	html {
 		font-size: n2px($pixels-per-rem);  // Ths is one rem
 	}
 
 	body {
-		font-size: n2px(fontsize("base"));
+		font-size: $fontsize-base;
 		line-height: $lineheight-base;
 	}
 
@@ -111,10 +102,8 @@ $fontsize-insane:         (n2rem(fontsize("insane")));
 
 	@each $size in $fontsizes {
 		$key: nth($size, 1);
-		// $value: nth($size, 2);
 		.#{$key}-text { @include fontsize($key); }
 	}
-
 
 }
 

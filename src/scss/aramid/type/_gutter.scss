@@ -1,58 +1,22 @@
 @if module('gutter') {
+	// requires: CORE ($gutter)
 
 /******************************************************************************
  * GUTTER
  ******************************************************************************/
 
-///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$fontsizes: (
-	'base': 								16
-) !default;
-
-$lineheight-base:         1.5 !default; // 24 px
-$pixels-per-rem:					10 !default;	// for easy computation
-
-
-///////////////////////////////////////////////////////////////////////////////
-// FUNCTIONS
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
-// in rem
-$fontsize-base:           (n2rem(fontsize("base") / $pixels-per-rem));
-
 // GUTTER
 
-// TODO: Still hardcoded, fontsize/gutter needs decoupling
-// in rem
-$gutter:                  ($fontsize-base * $lineheight-base);
-// unitless number
-$gutter-in-px:						round(rem2px($gutter));
+$gutter-double:           $gutter * 2;
+$gutter-triple:           $gutter * 3;
+$gutter-quad:             $gutter * 4;
+$gutter-half:             $gutter / 2;
+$gutter-third:            $gutter / 3;
+$gutter-quarter:          $gutter / 4;
 
-$gutter-double:      			$gutter * 2;
-$gutter-triple:      			$gutter * 3;
-$gutter-quad:        			$gutter * 4;
-$gutter-half:        			$gutter / 2;
-$gutter-third:       			$gutter / 3;
-$gutter-quarter:     			$gutter / 4;
-
-
-///////////////////////////////////////////////////////////////////////////////
-// MIXINS
-
-
-///////////////////////////////////////////////////////////////////////////////
-// CLASSES
-
-@if $generate-classes {
-
-}
 
 } /* END Module */

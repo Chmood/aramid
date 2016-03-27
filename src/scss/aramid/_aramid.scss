@@ -43,14 +43,17 @@ $modules: (
 
 // MODULES IMPORT
 
+// Core
+@import "aramid/core";
+
 // Base
 @import "aramid/base/normalize";
 @import "aramid/base/tools";
 @import "aramid/base/base";
 
 // Type
-@import "aramid/type/type";
 @import "aramid/type/gutter";
+@import "aramid/type/type";
 @import "aramid/type/type-v-rhythm";
 
 // Color
