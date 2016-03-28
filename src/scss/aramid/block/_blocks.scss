@@ -30,7 +30,7 @@ $block-default-vertical-align:   top !default;
 
   @include v-rhythm($fontsize: fontsize($fontsize),
                     $compact: $compact,
-    								$baseline-mode: false
+    								$baseline: false
 	);
 
 	display: inline-block;

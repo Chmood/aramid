@@ -12,11 +12,12 @@
 
 $rhythm-base:                   $gutter !default;
 
-$vrhythm-baseline-mode:         true; // Enables baseline sticky text
-$vrhythm-autocompact-lineheight:1.75; // Min lineheight before halfing it
+$vrhythm-baseline-mode:         true !default; // Enables baseline sticky text
+$vrhythm-autocompact-lineheight:1.75 !default; // Min lineheight before halfing it
 
-// Debug vars
+// Debug config
 $debug-vrhythm-bg:              false !default; // draw debug background
+$debug-vrhythm-bg: true;
 $debug-vrhythm-bg-selector:     ".wrap:not(.wrap--content)" !default;	// selects bg-debugged elements
 $debug-vrhythm-bg-type:         "stripes" !default; // "lines" or "stripes"
 $debug-vrhythm-bg-color:        rgba(127, 0, 0, 0.125) !default;
@@ -40,7 +41,7 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 
 	$scale: 1,
 	$compact: "auto",
-	$baseline-mode: $vrhythm-baseline-mode
+	$baseline: $vrhythm-baseline-mode
 ) {
 
 	// FONTSIZE
@@ -54,7 +55,7 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 
 	// LINES
 	// number of rhythm units that can fit the font-size
-	$lines: ceil(($fontsize + 0.0001rem) / $rhythm);
+	$lines: ceil(( $fontsize + 0.000001rem ) / $rhythm); // Wattahell is this???
 
 
 	// LINEHEIGHT
@@ -85,6 +86,7 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 		$lineheight: $lineheight / 2;
 	}
 
+	// @warn ('$fontsize: ' + $fontsize + ' / $lines: ' + $lines + ' / $lineheight: ' + $lineheight);
 
 	// OUTPUT STUFF
 	// Basic vertical rhythm only involves lineheight tweaking (and font-size)
@@ -93,7 +95,7 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 
 
 	// Baseline mode
-	@if $baseline-mode {
+	@if $baseline {
 		@include v-baseline(
 			$fontsize,
 			$lineheight
@@ -150,7 +152,7 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 
 %vrhythm--bg-debug {
 
-	@if $debug {
+	@if $debug and $debug-vrhythm-bg {
 
 		@if $debug-vrhythm-bg-type == "lines" {
 
@@ -188,11 +190,11 @@ $debug-vrhythm-block-color:     rgba(0, 0, 255, 0.125) !default;
 @if $generate-classes {
 
 	// TAGS DEEP OVERRIDE
-	p,
-	blockquote,
-	ul, ol,
-	input, label, textarea {
+	$tags-v-rhythm-default:  p,	blockquote,	ul, ol,	input, label, textarea;
+
+	#{$tags-v-rhythm-default} {
 		@include v-rhythm();
+		margin-top: $gutter; // Reset some stuff TODO move this
 	}
 
 	// RHYTHMED FONTSIZES
