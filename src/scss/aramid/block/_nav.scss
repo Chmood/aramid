@@ -1,14 +1,17 @@
 @if module('nav') {
+// requires: CORE ($gutter, $generate-classes)
+// requires: TYPE-V-RHYTHM (v-rhythm())
+// requires: BLOCKS (v-block())
+// requires: BREAKPOINTS (bp())
+// uses: _type.scss (fontsize())
 
 /******************************************************************************
  * NAV
  ******************************************************************************/
 
+
  ////////////////////////////////////////////////////////////////////////////////
  // CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
 
 $nav-fontsize:            'bigger' !default;
 $nav-fontsize-baseline:   'big' !default;
@@ -19,7 +22,7 @@ $bp-nav-inline:           's' !default;
 ////////////////////////////////////////////////////////////////////////////////
 // PLACEHOLDERS
 
-// NAV
+// DEFAULT NAV
 
 %nav {
   @extend .grid;
@@ -31,9 +34,12 @@ $bp-nav-inline:           's' !default;
 // BASELINE NAV
 
 %nav--baseline {
+  // Vertical alignment of text
   @extend .grid--top;
-  margin-left: -$gutter-half;
-  margin-right: -$gutter-half;
+
+  // Negative margins for text alignment (with no bg)
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
 
   // Baseline nav item
   > * {
@@ -62,7 +68,6 @@ $bp-nav-inline:           's' !default;
     flex: none;
   }
 
-  // item padding
   padding-left: $padding-horizontal;
   padding-right: $padding-horizontal;
   padding-top: $padding-vertical;
@@ -73,12 +78,12 @@ $bp-nav-inline:           's' !default;
 
   // a11y - banana test
   // min width touch target size
-  min-width: $gutter-double;
+  min-width: $gutter * 2; // 48px by default
 
   // touch target spacing
   @media screen and (min-width: bp($bp-nav-inline)) {
     &:not(:last-child) {
-      margin-right: $gutter-half;
+      margin-right: $gutter / 2;
     }
   }
 }
@@ -90,13 +95,13 @@ $bp-nav-inline:           's' !default;
 @if $generate-classes {
 
 /* NAV */
-  .#{$prefix}nav {               @extend %nav;
+  .nav {               @extend %nav;
 
 /* BASELINE NAV */
-    &.#{$prefix}nav--baseline {  @extend %nav--baseline; }
+    &.nav--baseline {  @extend %nav--baseline; }
 
 /* NAV ITEM */
-    > * {                        @include nav-item($fontsize: $nav-fontsize); }
+    > * {              @include nav-item($fontsize: $nav-fontsize); }
   }
 }
 

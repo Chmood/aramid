@@ -1,8 +1,11 @@
 @if module('prism') {
+// requires: CORE ($gutter)
+// requires: TYPE-V-RHYTHM (v-rhythm())
 
-// PRISM.JS
+/******************************************************************************
+ * PRISM.JS
+ ******************************************************************************/
 
-/* PRISM.JS */
 
 // Prism JS - Syntax highlighter
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css");

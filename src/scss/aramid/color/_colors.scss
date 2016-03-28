@@ -1,4 +1,5 @@
 @if module('colors') {
+// requires: CORE ($generate-classes)
 
 /******************************************************************************
  * COLORS
@@ -6,11 +7,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
+// CONFIGURATION
 
 $colors: (
   'primary':                           #248,
@@ -19,13 +16,13 @@ $colors: (
 ) !default;
 
 $color-variants: (
-'darkest':                             (20%,   black),
-'darker':                              (35%,   black),
-'dark':                                (80%,   black),
-'normal':                              (100%,  red),
-'light':                               (80%,   white),
-'lighter':                             (35%,   white),
-'lightest':                            (7%,    white),
+  'darkest':                           (20%,   black),
+  'darker':                            (35%,   black),
+  'dark':                              (80%,   black),
+  'normal':                            (100%,  red),
+  'light':                             (80%,   white),
+  'lighter':                           (35%,   white),
+  'lightest':                          (7%,    white),
 ) !default;
 
 
@@ -93,14 +90,6 @@ $color-variants: (
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// VARIABLES
-
-
-///////////////////////////////////////////////////////////////////////////////
-// PLACEHOLDERS
-
-
-///////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
@@ -116,9 +105,9 @@ $color-variants: (
 
       /* #{$colorname} */
       // ex: .color-ternary-light
-      #{$prefix}.color-#{$colorname} {          color: $col; }
+      .color-#{$colorname} {          color: $col; }
       // ex: .bg-primary-darkest
-      #{$prefix}.bg-#{$colorname} {             background-color: $col; }
+      .bg-#{$colorname} {             background-color: $col; }
 
       // @warn $colorname + " - " + $col;
     }

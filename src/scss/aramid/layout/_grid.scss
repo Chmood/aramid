@@ -1,16 +1,14 @@
 @if module('grid') {
+// requires: CORE ($prefix, $gutter, $debug, $generate-classes)
 
 /**************************************************************************
  * GRID
  *************************************************************************/
 
+
 ///////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
+// CONFIGURATION
 
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$gutter:                  2.4rem !default;
 $breakpoints: 						('s': 44em) !default;
 
 $responsive-grid:					true !default;
@@ -252,5 +250,6 @@ $cell-selector: "*";	// By default, all direct children of .grid are .cell's (im
 	// }
 
 } // end of generate-classes
+
 
 } /* END Module */

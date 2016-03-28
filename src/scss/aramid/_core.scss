@@ -2,10 +2,13 @@
  * ARAMID - CORE
  ******************************************************************************/
 
+
 // META
  $generate-classes:        true !default;
  $debug:                   true !default;
 
+ // Grid is by now the only component to have a full class-prefix implementation
+ $prefix:                  "" !default;
 
 // Base metrics
 $fontsize-base:         	1.6rem !default;	// for components w/o type???

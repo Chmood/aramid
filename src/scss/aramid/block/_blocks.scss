@@ -1,22 +1,19 @@
-@if module('blocks') {
+@if module('blocks') and module('type-v-rhythm') {
+// requires: CORE ($gutter, $generate-classes)
+// requires: TYPE-V-RHYTHM (v-rhythm())
 
 /******************************************************************************
  * BLOCKS
  ******************************************************************************/
 
-// requires: ???
 
 ///////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$debug:										true !default;
+// CONFIGURATION
 
 $block-default-vertical-align:   top !default;
 
 
+////////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
 // V-BLOCK
@@ -27,8 +24,8 @@ $block-default-vertical-align:   top !default;
 @mixin v-block(
   $fontsize: "base",
   $compact: "auto",
-  $padding-vertical: $gutter-half,
-  $padding-horizontal: $gutter-half
+  $padding-vertical: $gutter / 2,
+  $padding-horizontal: $gutter / 2
 ) {
 
   @include v-rhythm($fontsize: fontsize($fontsize),
@@ -45,19 +42,11 @@ $block-default-vertical-align:   top !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// MIXINS
-
-// %block { @include v-block; }
-
-
-////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
 @if $generate-classes {
 
-  .block {
-    @include v-block;
-  }
+  .block { @include v-block; }
 
   .block--smaller {  @include v-block("smaller"); }
   .block--small {  @include v-block("small"); }
@@ -67,22 +56,6 @@ $block-default-vertical-align:   top !default;
   .block--huge {  @include v-block("huge"); }
   .block--giant {  @include v-block("giant"); }
   .block--insane {  @include v-block("insane"); }
-
-
-  // Debug
-
-  @if $debug {
-
-    .block {
-      background-color: rgba(255,255,255,0.5);
-      background-color: color("secondary");
-      color: white;
-      text-transform: uppercase;
-
-      margin-bottom: $gutter;
-    }
-  }
-
 }
 
 

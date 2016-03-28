@@ -1,8 +1,13 @@
-@if module('buttons') {
+@if module('buttons') and module('blocks') {
+// requires: CORE ($gutter, $generate-classes)
+// requires: BLOCKS (v-block())
+// uses: _type.scss (fontsize())
+// uses: _colors.scss (color())
 
 /******************************************************************************
  * BUTTONS
  ******************************************************************************/
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
@@ -13,18 +18,14 @@ $btn-color-default-active:     black !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// FUNCTIONS
-
-
-////////////////////////////////////////////////////////////////////////////////
 // MIXINS
 
 @mixin button(
   $size: 'base',
   $background: $btn-color-default,
   $color: white,
-  $padding-vertical: $gutter-half,
-  $padding-horizontal: $gutter-half
+  $padding-vertical: $gutter / 2,
+  $padding-horizontal: $gutter / 2
 ) {
 
   @include v-block( $fontsize: $size );
@@ -33,10 +34,8 @@ $btn-color-default-active:     black !default;
   color: $color;
   text-align: center;
 
-  padding-top: $padding-vertical;
-  padding-bottom: $padding-vertical;
-  padding-left: $padding-horizontal;
-  padding-right: $padding-horizontal;
+  @include padding-horizontal($padding-horizontal);
+  @include padding-vertical($padding-vertical);
 
   margin-bottom: 0;
   margin-bottom: $gutter;
@@ -74,16 +73,19 @@ $btn-color-default-active:     black !default;
 
   }
 
-  @each $size in $fontsizes {
-    $s: nth($size, 1);
-    .btn--#{$s} { @include button($s); }
-    // @warn "$s: " + $s
-  }
+  /* SIZED BUTTONS */
 
+  @if module('type') {
+
+    @each $size in $fontsizes {
+      $s: nth($size, 1);
+      .btn--#{$s} { @include button($s); }
+    }
+  }
 
   /* COLOR BUTTONS */
 
-  @if module('colors') && module('grays') {
+  @if module('colors') {
 
     // PLACEHOLDERS
 
@@ -143,7 +145,7 @@ $btn-color-default-active:     black !default;
     // Border buttons
 
     %btn--border {
-      box-shadow: inset 0 0 0 $gutter-quarter / 2 $btn-color-default;
+      box-shadow: inset 0 0 0 $gutter / 8 $btn-color-default;
 
       @include hover {
         background-color: $btn-color-default;
@@ -151,15 +153,15 @@ $btn-color-default-active:     black !default;
       }
 
       &.btn--primary {
-        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("primary");
+        box-shadow: inset 0 0 0 $gutter / 8 color("primary");
         @include hover { background-color: color("primary"); color: white; }
       }
       &.btn--secondary {
-        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("secondary");
+        box-shadow: inset 0 0 0 $gutter / 8 color("secondary");
         @include hover { background-color: color("secondary"); color: white; }
       }
       &.btn--ternary {
-        box-shadow: inset 0 0 0 $gutter-quarter / 2 color("ternary");
+        box-shadow: inset 0 0 0 $gutter / 8 color("ternary");
         @include hover { background-color: color("ternary"); color: white; }
       }
     }
@@ -184,9 +186,10 @@ $btn-color-default-active:     black !default;
 
     .btn--transparent { @extend %btn--transparent; }
     .btn--hollow {      @extend %btn--hollow; }
-  }
 
-}
+  } /* End @if module('colors') */
+
+} /* End generate-classes */
 
 
 } /* END Module */

@@ -1,16 +1,15 @@
 @if module('wrap') {
+// requires: CORE ($gutter, $generate-classes)
+// requires: BREAKPOINTS (bp())
 
 /******************************************************************************
 * WRAP
 ******************************************************************************/
 
+
 ///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
+// CONFIGURATION
 
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$gutter:                  2.4rem !default;
 $breakpoints:             ('m': 65em) !default;
 
 //$responsive-wrap:         true !default;
@@ -84,12 +83,11 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 
 
 @mixin wrap-site($mods: "") {
-
 	@each $mod in $mods {
 
 		@if     $mod == "fit" {               @extend %wrap-site--fit; }
 		@elseif $mod == "fit-container" {
-			.#{$classname-container} { 	@extend %container--fit; } }
+			.#{$classname-container} {          @extend %container--fit; } }
 
 		@elseif $mod == "sticky-footer" {     @extend %wrap-site--sticky-footer; }
 
@@ -98,7 +96,6 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 }
 
 @mixin container($with-gutter: false) {
-
 	@if $with-gutter {                      @extend %container--gutter; }
 }
 
@@ -111,16 +108,16 @@ $wrap-site-size-first:    nth( map-keys($wrap-site-sizes), 1 );
 @if $generate-classes {
 
 	// Wrap-site
-	.#{$prefix}#{$classname-wrap-site}--fit {               @include wrap-site("fit"); }
-	.#{$prefix}#{$classname-wrap-site}--fit-#{$classname-container}
-	{													                            @include wrap-site("fit-container"); }
+	.#{$classname-wrap-site}--fit {         @include wrap-site("fit"); }
+	.#{$classname-wrap-site}--fit-#{$classname-container} {
+		                                      @include wrap-site("fit-container"); }
 
 	// Container
-	.#{$prefix}#{$classname-container} {                    @include container($with-gutter: true); }
+	.#{$classname-container} {              @include container($with-gutter: true); }
 
 	// Sticky footer
-	.#{$prefix}#{$classname-wrap-site}--sticky-footer {     @include wrap-site("sticky-footer"); }
-	.#{$prefix}sticky-footer-filler {                       @include sticky-footer-filler; }
+	.#{$classname-wrap-site}--sticky-footer{@include wrap-site("sticky-footer"); }
+	.sticky-footer-filler {                 @include sticky-footer-filler; }
 }
 
 } /* END Module */

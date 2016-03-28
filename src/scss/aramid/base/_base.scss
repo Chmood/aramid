@@ -1,14 +1,13 @@
 @if module('base') {
+// requires: NOTHING
 
 /******************************************************************************
  * BASE
  ******************************************************************************/
 
-///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
 
 // A much more intuitive box model than the default one
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -29,7 +28,8 @@ body {
 
 
 
-// MISC !!!
+// DURATIONS
+// TODO move elsewhere
 
 $durations: (
   'slowest':       1s * 2,  // 120  frames
@@ -38,7 +38,7 @@ $durations: (
   'normal':        1s / 4,  // 15   frames
   'fast':          1s / 8,  // 7.5  frames
   'faster':        1s / 16  // 3.75 frames
-);
+) !default;
 
 @function duration($speed) {
   @return map-get($durations, $speed);

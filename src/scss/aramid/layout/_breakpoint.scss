@@ -1,16 +1,21 @@
 @if module('breakpoint') {
+// requires: CORE ($generate-classes)
 
 /******************************************************************************
  * BREAKPOINT
  ******************************************************************************/
 
+
 ///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
+// CONFIGURATION
 
-$prefix:                  "" !default;
-$generate-classes:        true !default;
-
-$debug:                   true !default;
+$breakpoints: (
+'xs':    35em,
+'s':     44em,
+'m':     65em,
+'l':     82em,
+'xl':    95em,
+) !default;
 
 // Common screen sizes, in em unit (1em = 16px, browser default font-size)
 //          in em    in px
@@ -36,14 +41,6 @@ $debug:                   true !default;
 // 'l':     82em,    // 1120
 // 'xl':    95em,    // 1248
 // 'xxl':   110em   // 1520
-
-$breakpoints: (
-  'xs':    35em,
-  's':     44em,
-  'm':     65em,
-  'l':     82em,
-  'xl':    95em,
-) !default;
 
 
 ///////////////////////////////////////////////////////////////////////////////

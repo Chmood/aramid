@@ -1,15 +1,13 @@
 @if module('colors-material-design') {
+// requires: NOTHING
 
 /******************************************************************************
  * COLORS - MATERIAL DESIGN
  ******************************************************************************/
-
+// TODO BROKEN!!!
 
 ///////////////////////////////////////////////////////////////////////////////
-// DEFAULT CONFIGURATION
-
-$prefix:                  "" !default;
-$generate-classes:        true !default;
+// CONFIGURATION
 
 $mdp-colors: (
   'primary':                           'mdp-cyan',

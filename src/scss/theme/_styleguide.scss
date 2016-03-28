@@ -2,6 +2,17 @@
  * DEMO - STYLEGUIDE
  ******************************************************************************/
 
+// Styleguide basic blocks
+
+.block {
+  background-color: color("secondary");
+  color: white;
+  text-transform: uppercase;
+
+  // margin-bottom: $gutter;
+}
+
+
 // Styleguide color blocks
 
 .sg-colors {
