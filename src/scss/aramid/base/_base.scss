@@ -40,6 +40,6 @@ $durations: (
   'faster':        1s / 16  // 3.75 frames
 ) !default;
 
-@function duration($speed) {
+@function duration($speed: "normal") {
   @return map-get($durations, $speed);
 }
