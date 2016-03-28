@@ -1,40 +1,39 @@
+// requires: CORE ($gutter, $fontsize-base)
+// requires: COLORS (color())
+// requires: SHADOWS (shadow())
+// requires: TYPE-V-RHYTHM (v-rhythm())
+
 /******************************************************************************
  * DEMO - STYLEGUIDE
  ******************************************************************************/
 
 // Styleguide basic blocks
 
-.block {
+.sg-blocks .block {
+  margin-bottom: $gutter;
   background-color: color("secondary");
   color: white;
   text-transform: uppercase;
-
-  // margin-bottom: $gutter;
 }
 
-.styleguide-blocks .block {
-  margin-bottom: $gutter;
-}
 
 // Styleguide color blocks
 
 .sg-colors {
-  font-size: 0;
+  font-size: 0; // Dirty inline-block no-gutter hack
 }
 
 .sg-color {
   font-size: $fontsize-base;
   display: inline-block;
   width: (100% / 8);
-  // padding: $gutter-double 0;  // lucky :)
   @include v-rhythm(fontsize("small"), $baseline: false);
-  margin-bottom: 0;
-  padding: $gutter-double $gutter-half;
+  padding: $gutter * 2 $gutter / 2;
   color: white;
   text-align: center;
   text-transform: uppercase;
   @include shadow(1);
-  transition: box-shadow 0.125s;
+  transition: box-shadow duration();
 
   &:hover {
     @include shadow(3);
@@ -52,14 +51,15 @@
   }
 }
 
+
 // Styleguide demo-cell
 
-.demo-cell {
-  background: #333;
-  color: #eee;
+.sg-democell {
   text-align: center;
   @include v-rhythm(16);
-  padding: ($gutter);
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
+  @include padding-vertical($gutter)
+  @include padding-horizontal($gutter / 2)
+
+  background: #333;
+  color: #eee;
 }

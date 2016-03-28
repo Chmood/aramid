@@ -296,7 +296,7 @@
 
 					<h1 class="section-title" id="blocks">Aramid Blocks</h1>
 
-					<section class="styleguide-blocks">
+					<section class="sg-blocks">
 						<span class="block block--smaller">smaller</span>
 						<span class="block block--small">small</span>
 						<span class="block">base</span>
@@ -532,9 +532,9 @@
 					<p>Each cell has the same size, depending on the numbers of cells in the grid.<br>This is the cell default behaviour, which can be triggered with the <code>--fill</code> modifier, in case of overiding.</p>
 
 					<div class="grid">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -544,11 +544,11 @@
 	&lt;/div&gt;</code></pre>
 
 					<div class="grid">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
-						<div><div class="demo-cell" style="background: #444;">Boo</div></div>
-						<div><div class="demo-cell">Faz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
+						<div><div class="sg-democell" style="background: #444;">Boo</div></div>
+						<div><div class="sg-democell">Faz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -573,9 +573,9 @@
 					<p>Each cell take minimal amount of space allowing to fit its content.<br>This can be triggered with the <code>--fit</code> modifier.</p>
 
 					<div class="grid grid--fit">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--fit"&gt;
@@ -583,9 +583,9 @@
 	&lt;/div&gt;</code></pre>
 
 					<div class="grid">
-						<div class="cell--fit"><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div class="cell--fit"><div class="demo-cell">Baz</div></div>
+						<div class="cell--fit"><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div class="cell--fit"><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid"&gt;
@@ -609,9 +609,9 @@
 					<p class="fade">This make a nice stack for mobile first!</p>
 
 					<div class="grid grid--full">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--full"&gt;
@@ -636,12 +636,12 @@
 					<p class="fade">But this is also where the overflow pattern happens!</p>
 
 					<div class="grid grid--4">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell">Foo</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell">Foo</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--4"&gt;
@@ -654,10 +654,10 @@
 					<p>Each cell will take a fraction of the available width.<br>This can be triggered with the <code>cell--{m}on{n}</code> modifier, where <code>n</code> is the column total number, and <code>m</code> is the desired width in columns.</p>
 
 					<div class="grid grid--3">
-						<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div><div class="demo-cell" style="background: #444;">Bar</div></div>
-						<div class="cell--2of3"><div class="demo-cell">Foo 2/3</div></div>
+						<div class="cell--2of3"><div class="sg-democell">Foo 2/3</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div><div class="sg-democell" style="background: #444;">Bar</div></div>
+						<div class="cell--2of3"><div class="sg-democell">Foo 2/3</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--3"&gt;
@@ -680,10 +680,10 @@
 					</blockquote>
 
 					<div class="grid">
-						<div class="cell--bottom"><div class="demo-cell">.cell--bottom</div></div>
-						<div><div class="demo-cell">Bar<br>is<br>quite<br>quite<br>long</div></div>
-						<div class="cell--middle"><div class="demo-cell">.cell--middle</div></div>
-						<div class="cell--top"><div class="demo-cell">.cell--top</div></div>
+						<div class="cell--bottom"><div class="sg-democell">.cell--bottom</div></div>
+						<div><div class="sg-democell">Bar<br>is<br>quite<br>quite<br>long</div></div>
+						<div class="cell--middle"><div class="sg-democell">.cell--middle</div></div>
+						<div class="cell--top"><div class="sg-democell">.cell--top</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
@@ -699,11 +699,11 @@
 					</blockquote>
 
 					<div class="grid grid--3 grid--center">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
 					</div>
 
 					<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--3 grid--center"&gt;
@@ -718,9 +718,9 @@
 					</blockquote>
 
 					<div class="grid grid--gutter">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--gutter"&gt;
@@ -732,9 +732,9 @@
 					</blockquote>
 
 					<div class="grid grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--outer-gutter"&gt;
@@ -746,9 +746,9 @@
 					</blockquote>
 
 					<div class="grid grid--gutter grid--outer-gutter" style="background: rgba(0,0,0,.125);">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 
 			<pre><code class="language-markup">&lt;div class="grid grid--gutter grid--outer-gutter"&gt;
@@ -761,14 +761,14 @@
 
 					<div style="background: salmon">content</div>
 					<div class="grid grid--gutter">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 					<div class="grid grid--gutter">
-						<div><div class="demo-cell">Foo</div></div>
-						<div><div class="demo-cell">Bar</div></div>
-						<div><div class="demo-cell">Baz</div></div>
+						<div><div class="sg-democell">Foo</div></div>
+						<div><div class="sg-democell">Bar</div></div>
+						<div><div class="sg-democell">Baz</div></div>
 					</div>
 					<div style="background: salmon">content</div>
 
@@ -782,39 +782,39 @@
 						<div class="cell--2of3 cell--middle">
 							<div class="grid grid--gutter grid--3 grid--center">
 								<div class="cell--2of3">
-									<div class="demo-cell">1</div>
+									<div class="sg-democell">1</div>
 								</div>
 								<div>
-									<div class="demo-cell">2</div>
+									<div class="sg-democell">2</div>
 								</div>
 								<div>
-									<div class="demo-cell">3</div>
+									<div class="sg-democell">3</div>
 								</div>
 								<div class="cell--2of3">
-									<div class="demo-cell">4</div>
+									<div class="sg-democell">4</div>
 								</div>
 								<div>
-									<div class="demo-cell">5</div>
+									<div class="sg-democell">5</div>
 								</div>
 								<div>
-									<div class="demo-cell">6</div>
+									<div class="sg-democell">6</div>
 								</div>
 							</div>
 						</div>
 						<div class="cell--1of3">
 							<div class="grid">
 								<div class="cell--full">
-									<div class="demo-cell">NO<br>GUTTER<br>AT ALL</div>
-									<div class="demo-cell">DOLOR<br>SIT<br>AMET</div>
+									<div class="sg-democell">NO<br>GUTTER<br>AT ALL</div>
+									<div class="sg-democell">DOLOR<br>SIT<br>AMET</div>
 								</div>
 								<div class="cell--1of3">
-									<div class="demo-cell">1</div>
+									<div class="sg-democell">1</div>
 								</div>
 								<div class="cell--1of3">
-									<div class="demo-cell">2</div>
+									<div class="sg-democell">2</div>
 								</div>
 								<div class="cell--1of3">
-									<div class="demo-cell">3</div>
+									<div class="sg-democell">3</div>
 								</div>
 							</div>
 						</div>
@@ -843,13 +843,13 @@
 
 					<div class="grid grid--vertical" style="min-height: 48rem; background: #ddd">
 						<div>
-							<div><div class="demo-cell">Foo</div></div>
+							<div><div class="sg-democell">Foo</div></div>
 						</div>
 						<div>
-							<div><div class="demo-cell">Bar</div></div>
+							<div><div class="sg-democell">Bar</div></div>
 						</div>
 						<div>
-							<div><div class="demo-cell">Baz</div></div>
+							<div><div class="sg-democell">Baz</div></div>
 						</div>
 					</div>
 					<pre><code class="language-markup">&lt;div class="grid grid--vertical"&gt;
@@ -865,24 +865,24 @@
 
 					<div class="grid grid--gutter grid--responsive">
 						<div class="cell--s-1of2 cell--l-2of3">
-							<div class="demo-cell"></div>
+							<div class="sg-democell"></div>
 						</div>
 						<div class="cell--s-1of2 cell--l-1of3">
-							<div class="demo-cell"></div>
+							<div class="sg-democell"></div>
 						</div>
 					</div>
 
 					<div class="grid grid--gutter grid--responsive grid--2 grid--xs-3 grid--s-4 grid--m-4 grid--l-6">
-						<div><div class="demo-cell"></div></div>
-						<div><div class="demo-cell"></div></div>
+						<div><div class="sg-democell"></div></div>
+						<div><div class="sg-democell"></div></div>
 						<div class="cell--full">
-							<div class="demo-cell"></div>
+							<div class="sg-democell"></div>
 						</div>
-						<div><div class="demo-cell"></div></div>
-						<div><div class="demo-cell"></div></div>
-						<div><div class="demo-cell"></div></div>
-						<div><div class="demo-cell"></div></div>
-						<div><div class="demo-cell"></div></div>
+						<div><div class="sg-democell"></div></div>
+						<div><div class="sg-democell"></div></div>
+						<div><div class="sg-democell"></div></div>
+						<div><div class="sg-democell"></div></div>
+						<div><div class="sg-democell"></div></div>
 					</div>
 
 
