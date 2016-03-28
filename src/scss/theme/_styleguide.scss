@@ -12,6 +12,9 @@
   // margin-bottom: $gutter;
 }
 
+.styleguide-blocks .block {
+  margin-bottom: $gutter;
+}
 
 // Styleguide color blocks
 
@@ -38,7 +41,7 @@
   }
 
   &.bg-gray,
-  &[class$='ary'] {
+  &[class$='-normal'] {
     width: (100% / 4);
   }
 
